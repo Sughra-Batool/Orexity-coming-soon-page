@@ -1,0 +1,163 @@
+@font-face {
+    font-family: 'BoomBox';
+    src: url('BoomBox.woff2') format('woff2'),
+        url('BoomBox.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bree Serif';
+    src: url('BreeSerif-BoldItalic.woff2') format('woff2'),
+        url('BreeSerif-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bree Serif';
+    src: url('BreeSerif-Bold.woff2') format('woff2'),
+        url('BreeSerif-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bree Serif';
+    src: url('BreeSerif-Italic.woff2') format('woff2'),
+        url('BreeSerif-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bree Serif';
+    src: url('BreeSerif-Regular.woff2') format('woff2'),
+        url('BreeSerif-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Subway Novella';
+    src: url('SubwayNovella.woff2') format('woff2'),
+        url('SubwayNovella.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+.michroma-regular {
+  font-family: "Michroma", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.coming-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(auto-fit, minmax(250px, 1fr));
+    border: 2px solid rebeccapurple;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo>h3 {
+    background-color: #ffd000;
+    display: inline-block;
+    padding: 10px 60px 10px 60px;
+    margin-left: 125px;
+}
+
+.second-sec {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.second-sec>h2 {
+    font-family: "Bree Serif", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.second-sec>h1 {
+    font-family: "Subway Novella", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.second-subsec {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    font-family: sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.second-subsec>div {
+    border-right: 2px solid #0B0c10;
+    padding-right: 10px;
+}
+
+.second-subsec>div:last-child {
+    border: none;
+}
+
+.banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    font-family: "Michroma", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #ffd000;
+    padding: 50px 20px;
+}
+
+.banner>div:first-child {
+    padding-right: 5px;
+    border-right: 2px solid #0B0c10;
+}
+
+.last-sec {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    font-family: "Michroma", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #ffd000;
+    background-color: #0B0c10;
+    margin-top: 30px;
+    padding: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: aliceblue;
+    padding-right: 15px;
+}
+
+a:hover {
+    color:blanchedalmond;
+}
