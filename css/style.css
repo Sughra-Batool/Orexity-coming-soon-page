@@ -182,7 +182,7 @@ a:hover {
     }
 
     .banner>div {
-        font-size: 1rem;
+        font-size: 0.65rem;
         padding: 5px;
         text-align: center; /* Text is smaller on mobile */
         /* I do NOT need to write font-family, color, or background-color again! */
@@ -190,22 +190,22 @@ a:hover {
 
     .logo>h3 {
         padding: 5px;
-        margin-left: 15px;
-        font-size: 0.75rem;
+        margin-left: 65px;
+        font-size: 0.95rem;
     }
 
     .second-sec>h2 {
-        font-size: 1rem;
+        font-size: 1.25rem;
     }
 
     .second-sec>h1 {
-        font-size: 1rem;
+        font-size: 1.25rem;
     }
 
     .second-subsec {
         gap: 10px;
 
-        font-size: 0.65rem;
+        font-size: 0.85rem;
     }
 
     .last-sec {
