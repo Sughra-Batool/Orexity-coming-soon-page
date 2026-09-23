@@ -208,30 +208,10 @@ a:hover {
         font-size: 0.65rem;
     }
 
-    .second-subsec>div {
-        border-right: 2px solid #0B0c10;
-        padding-right: 10px;
-    }
-
-    .second-subsec>div:last-child {
-        border: none;
-    }
-
-    .banner>div:first-child {
-    padding-right: 5px;
-    border-right: 2px solid #0B0c10;
-    }
-
     .last-sec {
         font-size: 0.75rem;
         margin-top: 30px;
         padding: 20px;
-    }
-
-    a {
-        text-decoration: none;
-        color: aliceblue;
-        padding-right: 15px;
     }
 
 }
