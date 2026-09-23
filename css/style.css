@@ -165,7 +165,7 @@ a:hover {
 }
 
 .logo img {
-    width: 50vw; /* Image will always be 50% of the screen width */
+    width: 70vw; /* Image will always be 50% of the screen width */
     height: auto;
 }
 
