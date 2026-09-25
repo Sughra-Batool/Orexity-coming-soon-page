@@ -52,166 +52,75 @@
     font-display: swap;
 }
 
-
 .michroma-regular {
   font-family: "Michroma", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
-
-.coming-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
+/**header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
 }
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+*/
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: space-between;
+    padding: 15px;
+    border: 1px solid rgb(197, 30, 30);
+}
+
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*.logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}*/
 
 .logo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-.logo>h3 {
-    background-color: #ffd000;
-    display: inline-block;
-    padding: 10px 60px 10px 60px;
-    margin-left: 125px;
-    font-size: 1.25rem;
-}
-
-.second-sec {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-.second-sec>h2 {
-    font-family: "Bree Serif", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
-.second-sec>h1 {
-    font-family: "Subway Novella", sans-serif;
-    font-weight: 300;
-    font-style: normal;
-}
-
-.second-subsec {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-
-    font-family: sans-serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
-.second-subsec>div {
-    border-right: 2px solid #0B0c10;
-    padding-right: 10px;
-}
-
-.second-subsec>div:last-child {
-    border: none;
-}
-
-.banner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-
-    font-family: "Michroma", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    background-color: #ffd000;
-    padding: 50px 20px;
-}
-
-.banner>div:first-child {
-    padding-right: 5px;
-    border-right: 2px solid #0B0c10;
-}
-
-.last-sec {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-
-    font-family: "Michroma", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    color: #ffd000;
-    background-color: #0B0c10;
-    margin-top: 30px;
-    padding: 20px;
-}
-
-a {
-    text-decoration: none;
-    color: aliceblue;
-    padding-right: 15px;
-}
-
-a:hover {
-    color:blanchedalmond;
-}
-
-.logo img {
-    width: 70vw; /* Image will always be 50% of the screen width */
+    width: 30vw;
     height: auto;
 }
 
-@media (max-width: 768px) {
-    /* I ONLY write things here that need to change for mobile */
-    
-    .banner {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 5px;
-        
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
 
-    }
+.nav-bar>a {
+    padding-right:15px ;
+    border-right: 2px solid black;
+    text-decoration: none;
+    color: black;
+}
 
-    .banner>div {
-        font-size: 0.65rem;
-        padding: 5px;
-        text-align: center; /* Text is smaller on mobile */
-        /* I do NOT need to write font-family, color, or background-color again! */
-    }
+.nav-bar>a:last-child {
+    border-right: none;
+}
 
-    .logo>h3 {
-        padding: 5px;
-        margin-left: 65px;
-        font-size: 0.95rem;
-    }
-
-    .second-sec>h2 {
-        font-size: 1.25rem;
-    }
-
-    .second-sec>h1 {
-        font-size: 1.25rem;
-    }
-
-    .second-subsec {
-        gap: 10px;
-
-        font-size: 0.85rem;
-    }
-
-    .last-sec {
-        font-size: 0.75rem;
-        margin-top: 30px;
-        padding: 20px;
-    }
-
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    border: 2px solid blue;
 }
