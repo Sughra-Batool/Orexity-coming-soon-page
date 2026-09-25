@@ -1,0 +1,126 @@
+@font-face {
+    font-family: 'BoomBox';
+    src: url('BoomBox.woff2') format('woff2'),
+        url('BoomBox.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bree Serif';
+    src: url('BreeSerif-BoldItalic.woff2') format('woff2'),
+        url('BreeSerif-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bree Serif';
+    src: url('BreeSerif-Bold.woff2') format('woff2'),
+        url('BreeSerif-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bree Serif';
+    src: url('BreeSerif-Italic.woff2') format('woff2'),
+        url('BreeSerif-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bree Serif';
+    src: url('BreeSerif-Regular.woff2') format('woff2'),
+        url('BreeSerif-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Subway Novella';
+    src: url('SubwayNovella.woff2') format('woff2'),
+        url('SubwayNovella.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+.michroma-regular {
+  font-family: "Michroma", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/**header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+*/
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: space-between;
+    padding: 15px;
+    border: 1px solid rgb(197, 30, 30);
+}
+
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*.logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}*/
+
+.logo {
+    width: 30vw;
+    height: auto;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-bar>a {
+    padding-right:15px ;
+    border-right: 2px solid black;
+    text-decoration: none;
+    color: black;
+}
+
+.nav-bar>a:last-child {
+    border-right: none;
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    border: 2px solid blue;
+}
