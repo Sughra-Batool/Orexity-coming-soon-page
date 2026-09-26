@@ -169,6 +169,11 @@ a:hover {
     height: auto;
 }
 
+.lastel {
+    color: #0B0c10;
+    text-align: end;
+}
+
 @media (max-width: 768px) {
     /* I ONLY write things here that need to change for mobile */
     
