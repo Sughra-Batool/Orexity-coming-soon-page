@@ -1,46 +1,24 @@
+/* ══════════════════════════════════════════════════
+   FONT FACES
+   ══════════════════════════════════════════════════ */
 @font-face {
     font-family: 'BoomBox';
     src: url('BoomBox.woff2') format('woff2'),
-        url('BoomBox.woff') format('woff');
+         url('BoomBox.woff')  format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 
+/* NOTE: @import must appear before any rule except @charset and @font-face.
+   Because it's currently placed after a @font-face block, browsers will
+   ignore it. Move it to the very top of the file if you need it. */
 @import url('https://googleapis.com');
-
-
-@font-face {
-    font-family: 'Bree Serif';
-    src: url('BreeSerif-BoldItalic.woff2') format('woff2'),
-        url('BreeSerif-BoldItalic.woff') format('woff');
-    font-weight: bold;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Bree Serif';
-    src: url('BreeSerif-Bold.woff2') format('woff2'),
-        url('BreeSerif-Bold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Bree Serif';
-    src: url('BreeSerif-Italic.woff2') format('woff2'),
-        url('BreeSerif-Italic.woff') format('woff');
-    font-weight: normal;
-    font-style: italic;
-    font-display: swap;
-}
 
 @font-face {
     font-family: 'Bree Serif';
     src: url('BreeSerif-Regular.woff2') format('woff2'),
-        url('BreeSerif-Regular.woff') format('woff');
+         url('BreeSerif-Regular.woff')  format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -49,25 +27,34 @@
 @font-face {
     font-family: 'Subway Novella';
     src: url('SubwayNovella.woff2') format('woff2'),
-        url('SubwayNovella.woff') format('woff');
+         url('SubwayNovella.woff')  format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 
+
+/* ══════════════════════════════════════════════════
+   GOOGLE-FONT UTILITY CLASSES
+   ══════════════════════════════════════════════════ */
 .michroma-regular {
-  font-family: "Michroma", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+    font-family: "Michroma", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .courgette-regular {
-  font-family: "Courgette", cursive;
-  font-weight: 400;
-  font-style: normal;
+    font-family: "Courgette", cursive;
+    font-weight: 400;
+    font-style: normal;
 }
 
 
+/* ══════════════════════════════════════════════════
+   GLOBAL / LAYOUT PRIMITIVES
+   ══════════════════════════════════════════════════ */
+/* NOTE: header/footer rules below are commented out in the original.
+   Leaving as-is so nothing is lost. */
 /**header {
     position: fixed;
     top: 0;
@@ -82,6 +69,7 @@ footer {
     width: 100%;
 }
 */
+
 .hyphen {
     font-family: Roboto, sans-serif;
 }
@@ -89,7 +77,7 @@ footer {
 .short-border {
     width: 3rem;
     height: 0.25rem;
-    
+
     border-radius: 8px;
     background-color: rgb(131, 4, 4);
     margin: 0.5rem 6rem;
@@ -101,10 +89,8 @@ footer {
     justify-content: center;
     align-items: space-between;
     padding: 2rem;
-    border: 1px solid rgb(197, 30, 30);
 
     font-family: 'Roboto', sans-serif;
-    font-size: ;
 }
 
 .hero-section {
@@ -133,14 +119,14 @@ footer {
     font-size: 1.15rem;
 }
 
-.nav-bar>a {
-    padding-right:1rem ;
-    border-right: 2px solid black;
+.nav-bar > a {
+    padding-right: 1rem;
+    border-right: 2px solid #0b0c10;
     text-decoration: none;
-    color: black;
+    color: #0b0c10;
 }
 
-.nav-bar>a:last-child {
+.nav-bar > a:last-child {
     border-right: none;
 }
 
@@ -150,13 +136,12 @@ footer {
     align-items: center;
     justify-content: center;
     gap: 1.5rem;
-    border: 2px solid blue;
 }
 
-.main-content>div {
-    border: 2px solid yellowgreen;
-}
 
+/* ══════════════════════════════════════════════════
+   BANNER
+   ══════════════════════════════════════════════════ */
 .banner1 {
     display: flex;
     flex-direction: column;
@@ -170,23 +155,27 @@ footer {
     background-color: #1f2833;
 }
 
-.banner1>.first-row {
+.banner1 > .first-row {
     font-family: 'Bree Serif', sans-serif;
     font-size: 2rem;
     color: #e5e5e5;
 }
 
-.banner1>.second-row {
+.banner1 > .second-row {
     font-family: 'Subway Novella', sans-serif;
     font-size: 4rem;
     color: #ffd000;
 }
 
-.banner1>.last-row {
+.banner1 > .last-row {
     font-size: 2rem;
     color: #e5e5e5;
 }
 
+
+/* ══════════════════════════════════════════════════
+   GENERIC SECTION LAYOUT
+   ══════════════════════════════════════════════════ */
 .section1,
 .section2,
 .section3,
@@ -202,7 +191,6 @@ footer {
     gap: 2rem;
     margin-top: 0.5rem;
     padding: 2rem 0.02rem;
-
 }
 
 .section1 {
@@ -210,23 +198,30 @@ footer {
     justify-content: center;
 }
 
+
+/* ══════════════════════════════════════════════════
+   SECTION 1
+   ══════════════════════════════════════════════════ */
 .subsec1-1,
-.subsec8-1>.subtitle1 {
+.subsec8-1 > .subtitle1 {
     font-family: 'Bree Serif', sans-serif;
     font-size: 2.25rem;
     text-align: center;
 }
 
-.subsec1-2 {
-    font-size: 1.15rem;
-}
+.subsec1-2 { font-size: 1.15rem; }
 
 .subsec1-3 {
     font-family: 'Subway Novella', sans-serif;
     font-size: 2rem;
 }
 
-.subsec2-1, .subsec2-4 {
+
+/* ══════════════════════════════════════════════════
+   SECTION 2
+   ══════════════════════════════════════════════════ */
+.subsec2-1,
+.subsec2-4 {
     font-family: 'BoomBox', sans-serif;
     font-size: 2rem;
 }
@@ -252,12 +247,12 @@ footer {
     gap: 2rem;
 }
 
-.subsec2-3b>.bold {
+.subsec2-3b > .bold {
     font-family: 'Bree Serif', sans-serif;
     font-size: 1.2rem;
 }
 
-.subsec2-3c>.bold {
+.subsec2-3c > .bold {
     font-family: 'Bree Serif', sans-serif;
     font-size: 1.2rem;
     font-weight: bold;
@@ -268,7 +263,12 @@ footer {
     font-size: 1.65rem;
 }
 
-.subsec3-1, .subsec2-4 {
+
+/* ══════════════════════════════════════════════════
+   SECTION 3
+   ══════════════════════════════════════════════════ */
+.subsec3-1,
+.subsec2-4 {
     font-family: 'BoomBox', sans-serif;
     font-size: 2rem;
     padding-top: 2rem;
@@ -291,10 +291,12 @@ footer {
     font-size: 1.65rem;
 }
 
-.bold {
-    font-weight: bold;
-}
+.bold { font-weight: bold; }
 
+
+/* ══════════════════════════════════════════════════
+   SECTION 5
+   ══════════════════════════════════════════════════ */
 /*.section5 {
     display: grid;
     grid-template-columns: 1fr;
@@ -309,35 +311,35 @@ footer {
     justify-content: center;
     align-items: center;
     gap: 2rem;
-    
 }
 
-.subsec5-1> .title,
-.subsec6-2>.title,
-.subsec8-1>.title {
+.subsec5-1 > .title,
+.subsec6-2 > .title,
+.subsec8-1 > .title,
+.subsec10-1 > .title {
     font-family: Boombox, sans-serif;
     font-size: 3rem;
     color: #ffd000;
     text-align: center;
 }
 
-.subsec5-1> .subtitle,
-.subsec6-2>.subtitle,
-.subsec8-1>.subtitle {
+.subsec5-1 > .subtitle,
+.subsec6-2 > .subtitle,
+.subsec8-1 > .subtitle {
     font-family: 'Subway Novella', sans-serif;
     font-size: 2.5rem;
     color: #1f2833;
     text-align: center;
 }
 
-.heading>div {
+.heading > div {
     font-family: 'Bree Serif', sans-serif;
     font-size: 1.65rem;
     color: #1f2833;
     text-align: center;
 }
 
-.heading> p {
+.heading > p {
     font-size: 1.15rem;
     font-family: Roboto, sans-serif;
     line-height: 2rem;
@@ -355,33 +357,33 @@ footer {
     gap: 2.5rem;
     margin-left: 2rem;
     margin-right: 2rem;
-    
 }
 
 .circle {
     position: absolute;
-    top: -45px; /* Pulls it up over the border */
+    top: -45px;
     left: 50%;
     transform: translateX(-50%);
     width: 5rem;
     height: 5rem;
 
     border: 2px solid #e5e5e5;
-    box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.02), 
-                        0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.02),
+                0 4px 12px rgba(0, 0, 0, 0.08);
     border-radius: 50%;
     background-color: #fffbfb;
 }
 
-.circle>img {
+.circle > img {
     width: 40px;
     height: auto;
     position: absolute;
-    top: 33%; /* Pulls it up over the border */
+    top: 33%;
     left: 25%;
 }
-.subsec5-2> .title {
-    grid-column: 1/ -1;
+
+.subsec5-2 > .title {
+    grid-column: 1 / -1;
     font-family: 'Bree Serif', sans-serif;
     font-size: 1.5rem;
     padding-right: 5rem;
@@ -390,7 +392,7 @@ footer {
     text-align: center;
 }
 
-.subsec5-2> .tab-item {
+.subsec5-2 > .tab-item {
     position: relative;
     border: 2px solid #e5e5e5;
     font-size: 1.15rem;
@@ -400,7 +402,7 @@ footer {
     text-align: start;
 }
 
-.tab-item>.first-heading {
+.tab-item > .first-heading {
     font-family: 'Bree Serif', sans-serif;
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
@@ -408,17 +410,30 @@ footer {
     margin-top: 2rem;
 }
 
-.tab-item>.second-heading {
+.tab-item > .second-heading {
     font-size: 1.25rem;
     margin-bottom: 0.5rem;
     text-align: center;
 }
 
-.tab-item>ul {
+.tab-item > ul {
     display: grid;
     grid-template-columns: 1fr;
 }
 
+
+/* ══════════════════════════════════════════════════
+   SECTION 6 — International Investor Advisory
+   ══════════════════════════════════════════════════ */
+.section6 {
+    align-items: stretch;
+}
+
+.section6 summary {
+    display: flex;
+    flex-direction: column;
+}
+/* ── Section 6 header banner ────────────────────── */
 .subsec6-1 {
     background-color: #1f2833;
     height: 7rem;
@@ -426,14 +441,14 @@ footer {
     width: 95%;
 }
 
-.subsec6-1>.title1 {
+.subsec6-1 > .title1 {
     font-family: 'Subway Novella', sans-serif;
     font-size: 4rem;
     text-align: center;
     color: #ffd000;
 }
 
-.subsec6-1>.title2 {
+.subsec6-1 > .title2 {
     font-family: 'Bree Serif', sans-serif;
     font-size: 3rem;
     text-align: center;
@@ -441,6 +456,7 @@ footer {
     color: #e5e5e5;
 }
 
+/* ── Section 6 intro block ──────────────────────── */
 .subsec6-2 {
     display: flex;
     flex-direction: column;
@@ -448,7 +464,7 @@ footer {
     align-items: space-between;
 }
 
-.subsec6-2>.subtitle {
+.subsec6-2 > .subtitle {
     font-size: 1.85rem;
 
     display: flex;
@@ -459,7 +475,7 @@ footer {
     align-items: center;
 }
 
-.subtitle>.right-border {
+.subtitle > .right-border {
     padding-right: 1.5rem;
     border-right: 2px solid #1f2833;
 }
@@ -468,23 +484,13 @@ footer {
     border-right: 0px;
 }
 
-.subsec6-2>p{
+.subsec6-2 > p {
     margin: 0.5rem 12rem;
     text-align: justify;
     font-size: 1.15rem;
 }
 
-.subsec8-1>.courgette-regular {
-    margin-top: 1.15rem;
-}
-
-.subsec6a {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: space-between;
-}
-
+/* ── Section 6 accordion rows ───────────────────── */
 .subsec6-3,
 .subsec6-4,
 .subsec6-5,
@@ -499,6 +505,7 @@ footer {
     align-items: center;
 }
 
+/* ── Section 6 card rows ────────────────────────── */
 .subcontainer {
     position: relative;
     display: flex;
@@ -512,6 +519,7 @@ footer {
     font-family: 'Roboto', sans-serif;
 }
 
+/* ── Section 6 card rows (grid) ─────────────────── */
 .heading1 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -520,67 +528,51 @@ footer {
     margin: 0.25rem 2rem;
 }
 
-.subsec6-8>.heading1,
-.subsec6-9>.heading1 {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    align-items: stretch;
-    gap: 2rem;
-    margin: 0.25rem 2rem
-}
+/* Section 6: when a collapse item opens, its heading1 stacks to 1 column 
+.collapse-item[open] > .collapse-content {
+    grid-template-columns: 1fr;
+}*/
 
-.container1,
-.container2 {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    padding: 2rem;
-    margin-top: 3rem;
-    border: 2px solid #e5e5e5;
-
-    font-family: 'Roboto', sans-serif;
-    
-}
-
-.container1 {
-    grid-column-start: 1;
-    grid-column-end: 3;
-    margin-top: 3rem;
-    gap: 2rem;
-}
-
-.container2 {
-    grid-column-start: 3;
-    grid-column-end:5 ;
-    margin-top: 3rem;
-    gap: 2rem;
-}
-
-.subsec6b {
+/* Two-card rows get a 2-column grid instead of 3. */
+.subsec6-8 > .heading1,
+.subsec6-9 > .heading1 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    margin: 2rem 4rem;
-    gap: 2rem;
     align-items: stretch;
+    gap: 5rem;
+    margin-left: 8rem;
+}
 
+.subsec6-10 > .heading1,
+.subsec6-11 > .heading1 {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content:stretch;
+    gap: 5rem;
+    margin-left: 25rem;
+}
+
+.section6 .popup {
+    background-color: #ffd000;
+}
+
+.section6 .collapse-item[open] .maintitle {
+    font-size: 1.75rem;
+    text-align: center;
+    background-color: #ffd000;
+    padding: 0.25rem 18rem;
+    margin-left: 4rem;
+}
+
+.section6 .collapse-item[open] .popup {
+    display: none;
 }
 
 
-.subsec6-10>.s6b-cont1 {
-    place-items: stretch;
-    position: relative;
-    border: 2px solid #e5e5e5;
-    margin-top: 3rem;
-    padding: 2rem;
-}
-
-.subsec6-11>.s6b-cont2 {
-    align-items: stretch;
-    position: relative;
-    border: 2px solid #e5e5e5;
-    margin-top: 3rem;
-    padding: 2rem;
-}
+/* ══════════════════════════════════════════════════
+   SECTION 8
+   ══════════════════════════════════════════════════ */
 .section8 {
     display: grid;
     grid-template-columns: 1fr;
@@ -598,34 +590,35 @@ footer {
     background-color: #141f31;
 }
 
-.subsec8-1>.title {
+.subsec8-1 > .title {
     grid-column: span 2;
 
     font-size: 1rem;
 }
 
-.subsec8-1>.subtitle {
+.subsec8-1 > .subtitle {
     font-size: 3rem;
 }
 
-.subsec8-1>.title,
-.subsec8-1>.subtitle {
+.subsec8-1 > .title,
+.subsec8-1 > .subtitle {
     font-family: "Michroma", sans-serif;
     text-align: left;
     margin-right: 3rem;
     color: #ffd000;
 }
-/*.subsec8-1>.subtitle1 {
+
+/*.subsec8-1 > .subtitle1 {
     margin-right: 3rem;
     grid-row: 3;
 }*/
 
-.subsec8-1>.para {
+.subsec8-1 > .para {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-end;
-    
+
     margin-right: 3rem;
     text-align: justify;
     font-size: 1.15rem;
@@ -633,16 +626,23 @@ footer {
     color: #e5e5e5;
 }
 
+.subsec8-1 > .courgette-regular {
+    margin-top: 1.15rem;
+}
+
+
+/* ══════════════════════════════════════════════════
+   SHARED COLLAPSE / DETAILS STYLES
+   ══════════════════════════════════════════════════ */
 .collapse-item {
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     flex: 1;
     justify-content: space-between;
     align-items: flex-start;
     margin: 0rem 2rem;
     padding: 1.5rem 0rem;
     border: 2px solid #e5e5e5;
-    
 }
 
 .collapse-content {
@@ -654,6 +654,11 @@ footer {
     padding: 1.5rem 0rem;
 }
 
+.collapse-content li {
+    line-height: 1.5rem;
+}
+
+/* Nested multi-column collapse layouts */
 .subsec8-5 .collapse-content,
 .subsec8-6 .collapse-content,
 .subsec8-7 .collapse-content {
@@ -666,29 +671,33 @@ footer {
     grid-column: span 2;
 }
 
+
+/* ══════════════════════════════════════════════════
+   GLOBAL <details> / <summary> STYLES
+   ══════════════════════════════════════════════════ */
 details {
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  margin-bottom: 8px;
-  overflow: hidden;
-  background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    overflow: hidden;
+    background: #fff;
 }
 
 summary {
-  padding: 1rem 1.25rem;
-  font-family: 'Bree Serif', sans-serif;
-  font-size: 1.15rem;
-  cursor: pointer;
-  list-style: none;              /* hide default triangle */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  user-select: none;
+    padding: 1rem 1.25rem;
+    font-family: 'Bree Serif', sans-serif;
+    font-size: 1.15rem;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
 }
 
-summary::-webkit-details-marker { display: none; }  /* Safari */
+summary::-webkit-details-marker { display: none; }
 
-/* Custom +/× icon 
+/* Custom +/× icon
 summary::after {
   content: ">";
   font-size: 20px;
@@ -697,30 +706,124 @@ summary::after {
 }
 
 details[open] > summary::after {
-  transform: rotate(90deg);      /* + becomes × 
+  transform: rotate(90deg);
 }*/
 
-.collapse-item[open] > summary {
-  font-size: 1.75rem;
-  color: #ffd000;      /* + becomes × */
+.section8 .collapse-item[open] > summary {
+    font-size: 1.75rem;
+    color: #ffd000;
 }
 
 /* Content padding */
 details > *:not(summary) {
-  padding: 0 1.5rem;
+    padding: 0 1.5rem;
 }
 details > *:not(summary):first-of-type { padding-top: 0.75rem; }
-details > *:not(summary):last-child   { padding-bottom: 0.75rem; }
+details > *:not(summary):last-child    { padding-bottom: 0.75rem; }
 
 /* Nested styling */
 details details {
-  border-left: 3px solid #1f2833;
+    border-left: 3px solid #1f2833;
 }
 
 details details summary {
-  background: #fafafa;
-  font-size: 1rem;
+    background: #fafafa;
+    font-size: 1rem;
 }
+
+
+/* ══════════════════════════════════════════════════
+   SECTION 9
+   ══════════════════════════════════════════════════ */
+.section9 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 20rem;
+    background-color: #1f2833;
+}
+
+.subsec9-1,
+.subsec9-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.subsec9-1 > .title,
+.subsec9-2 > .title {
+    font-family: 'Subway Novella', sans-serif;
+    text-align: center;
+    font-size: 3.5rem;
+    color: #e5e5e5;
+}
+
+.subsec9-1 > .subtitle,
+.subsec9-2 > .subtitle {
+    font-size: 2rem;
+    text-align: center;
+    font-weight: bold;
+    color: #ffd000;
+}
+
+
+/* ══════════════════════════════════════════════════
+   SECTION 10
+   ══════════════════════════════════════════════════ */
+.section10 {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 3rem 1rem;
+    justify-content: center;
+    align-items: center;
+    height: 20rem;
+}
+
+.section10 > img {
+    border: 2px solid #e5e5e5;
+    padding: 2rem;
+}
+
+.subsec10-1 > .subtitle {
+    font-family: 'Bree Serif', sans-serif;
+    font-size: 2rem;
+    text-align: center;
+
+    padding-top: 3rem;
+}
+
+.last-sec {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    font-family: "Michroma", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #ffd000;
+    background-color: #0B0c10;
+    margin-top: 30px;
+    padding: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: aliceblue;
+    padding-right: 15px;
+}
+
+a:hover {
+    color:blanchedalmond;
+}
+
+
+/* ══════════════════════════════════════════════════
+   LEGACY / COMMENTED-OUT BLOCKS
+   ══════════════════════════════════════════════════ */
 /*.subsec6-10,
 .subsec6-11 {
     display: flex;
@@ -758,7 +861,6 @@ details details summary {
     margin-left: 7rem;
     margin-right: 7rem;
 }
-
 
 .subsec4-5 {
     font-family: 'Bree Serif', sans-serif;
