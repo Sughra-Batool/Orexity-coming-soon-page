@@ -1,7 +1,8 @@
 /* ══════════════════════════════════════════════════
    FONT FACES
    ══════════════════════════════════════════════════ */
-@font-face {
+    @import url('https://googleapis.com');
+   @font-face {
     font-family: 'BoomBox';
     src: url('BoomBox.woff2') format('woff2'),
          url('BoomBox.woff')  format('woff');
@@ -9,11 +10,6 @@
     font-style: normal;
     font-display: swap;
 }
-
-/* NOTE: @import must appear before any rule except @charset and @font-face.
-   Because it's currently placed after a @font-face block, browsers will
-   ignore it. Move it to the very top of the file if you need it. */
-@import url('https://googleapis.com');
 
 @font-face {
     font-family: 'Bree Serif';
@@ -49,26 +45,31 @@
     font-style: normal;
 }
 
-
 /* ══════════════════════════════════════════════════
    GLOBAL / LAYOUT PRIMITIVES
    ══════════════════════════════════════════════════ */
 /* NOTE: header/footer rules below are commented out in the original.
    Leaving as-is so nothing is lost. */
-/**header {
+header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
+    background-color: #fff;
+    z-index: 1000;
 }
 
-footer {
+/*footer {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
+}*/
+
+
+html {
+  scroll-behavior: smooth;
 }
-*/
 
 .hyphen {
     font-family: Roboto, sans-serif;
@@ -109,6 +110,8 @@ footer {
 .logo {
     width: 30vw;
     height: auto;
+    padding-top: 1rem;
+    padding-left: 1rem;
 }
 
 .nav-bar {
@@ -117,6 +120,7 @@ footer {
     align-items: center;
     gap: 1rem;
     font-size: 1.15rem;
+    padding-right: 1rem;
 }
 
 .nav-bar > a {
@@ -136,8 +140,13 @@ footer {
     align-items: center;
     justify-content: center;
     gap: 1.5rem;
+
+    padding-top: 1rem;
 }
 
+img {
+  mix-blend-mode: multiply; /* white background disappears on light backgrounds */
+}
 
 /* ══════════════════════════════════════════════════
    BANNER
@@ -188,6 +197,7 @@ footer {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    flex: 1;
     gap: 2rem;
     margin-top: 0.5rem;
     padding: 2rem 0.02rem;
@@ -359,27 +369,32 @@ footer {
     margin-right: 2rem;
 }
 
-.circle {
-    position: absolute;
-    top: -45px;
+.square {
+    /*top: -45px;
     left: 50%;
-    transform: translateX(-50%);
-    width: 5rem;
-    height: 5rem;
+    transform: translateX(-50%);*/
+    width: 0.65rem;
+    height: 0.65rem;
 
-    border: 2px solid #e5e5e5;
-    box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.02),
-                0 4px 12px rgba(0, 0, 0, 0.08);
-    border-radius: 50%;
-    background-color: #fffbfb;
+    border: 2px solid #0B0c10;
+    background-color: #ffd000;
+    transition: transform 0.25s ease; 
 }
 
-.circle > img {
-    width: 40px;
-    height: auto;
-    position: absolute;
-    top: 33%;
-    left: 25%;
+/* Trigger the diamond ONLY when card is hovered */
+.tab-item:hover .square,
+.last-item>div:hover .square,
+.subcontainer:hover .square {
+  transform: rotate(45deg);
+}
+
+.subcontainer>.top-numbering {
+    /*position: absolute;*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18rem;
+    margin-bottom: 2rem;
 }
 
 .subsec5-2 > .title {
@@ -402,7 +417,8 @@ footer {
     text-align: start;
 }
 
-.tab-item > .first-heading {
+.tab-item > .first-heading,
+.last-item >div .first-heading {
     font-family: 'Bree Serif', sans-serif;
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
@@ -410,17 +426,52 @@ footer {
     margin-top: 2rem;
 }
 
-.tab-item > .second-heading {
+.tab-item > .second-heading,
+.last-item >div .second-heading {
     font-size: 1.25rem;
     margin-bottom: 0.5rem;
     text-align: center;
 }
 
-.tab-item > ul {
+.tab-item > ul,
+.last-item >div ul {
     display: grid;
     grid-template-columns: 1fr;
 }
 
+.tab-item>.top-numbering {
+    /*position: absolute;*/
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 18rem;
+}
+
+.last-item .top-numbering {
+    /*position: absolute;*/
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 30rem;
+}
+
+.last-item {
+    grid-column: span 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+    gap: 5rem;
+}
+
+.last-item>div {
+    position: relative;
+    border: 2px solid #e5e5e5;
+    font-size: 1.15rem;
+    padding: 1rem;
+    margin-bottom: 2.5rem;
+    color: #1f2833;
+    text-align: start;
+}
 
 /* ══════════════════════════════════════════════════
    SECTION 6 — International Investor Advisory
@@ -507,7 +558,7 @@ footer {
 
 /* ── Section 6 card rows ────────────────────────── */
 .subcontainer {
-    position: relative;
+    /*position: relative;*/
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -517,6 +568,19 @@ footer {
     border: 2px solid #e5e5e5;
 
     font-family: 'Roboto', sans-serif;
+}
+
+.tab-item, .last-item>div, .subcontainer {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+}
+
+.tab-item:hover,
+.last-item>div:hover,
+.subcontainer:hover {
+  transform: translateY(-4px);              /* lift up */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18); /* deeper shadow */
 }
 
 /* ── Section 6 card rows (grid) ─────────────────── */
@@ -817,52 +881,48 @@ a {
 }
 
 a:hover {
-    color:blanchedalmond;
+    color:#ffd000;
 }
 
 
 /* ══════════════════════════════════════════════════
-   LEGACY / COMMENTED-OUT BLOCKS
+  back to top button
    ══════════════════════════════════════════════════ */
-/*.subsec6-10,
-.subsec6-11 {
-    display: flex;
-    margin-top: 2rem;
-    justify-content: center;
-    align-items: center;
+
+/* Floating button
+.back-to-top {
+  position: fixed;              
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;                
+
+  width: 45px;
+  height: 55px;
+  padding-left: 0.5rem;
+  border-radius: 50%;
+  background-color: #1f2833;
+  color: #ffd000;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.25s ease, transform 0.2s ease;
 }
 
-/*.subsec4-1, .subsec4-2, .subsec4-3 {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    justify-content: center;
-    align-items: space-between;
+.back-to-top:hover {
+  background-color: #ffd000;
+  color: #1f2833;
+  transform: translateY(-3px);
 }
 
-.subsec4-1>ul, .subsec4-2>ul {
-    border: 2px dashed #1f2833;
-    border-radius: 8px;
-    padding: 10px;
-    list-style-position: inside;
+.back-to-top:active {
+  transform: translateY(-1px);
 }
 
-.subsec4-3 {
-    font-size: 1rem;
-    text-align: justify;
-    margin-left: 7rem;
-    margin-right: 7rem;
-}
-
-.subsec4-4 {
-    font-size: 1.35rem;
-    line-height: 1.5;
-    text-align: justify;
-    margin-left: 7rem;
-    margin-right: 7rem;
-}
-
-.subsec4-5 {
-    font-family: 'Bree Serif', sans-serif;
-    font-size: 1.5rem;
-}**/
+.back-to-top:focus-visible {
+  outline: 3px solid #ffd000;
+  outline-offset: 3px;
+} */
