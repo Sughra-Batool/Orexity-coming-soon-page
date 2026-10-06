@@ -83,14 +83,6 @@ a:hover {
     font-weight: bold;
 }
 
-.short-border {
-    width: 3rem;
-    height: 0.25rem;
-    border-radius: 8px;
-    background-color: rgb(131, 4, 4);
-    margin: 0.5rem 6rem;
-}
-
 .container {
     display: flex;
     flex-direction: column;
@@ -143,6 +135,7 @@ header.scrolled {
     justify-content: space-between;
     align-items: center;
     height: 5rem;
+    gap: 2rem;
 }
 
 .logo {
@@ -158,7 +151,8 @@ header.scrolled {
     align-items: center;
     gap: 1rem;
     font-size: 1.15rem;
-    padding-right: 1rem;
+    padding-right: 0.5rem;
+    padding-left: 17rem;
 }
 
 .nav-bar > a {
@@ -1063,6 +1057,9 @@ details details summary {
     border-right: 2px solid #fff;
 }
 
+.burger-toggle {
+    display: none;
+}
 
 /* ══════════════════════════════════════════════════
    18. Pointer Rule for section 8
@@ -1402,10 +1399,6 @@ details details summary {
     font-size: 1.1rem;
   }
 
-  .tab-item > .top-numbering {
-    gap: 1rem;
-  }
-
   .last-item {
     grid-column: span 1;
     grid-template-columns: 1fr;
@@ -1413,7 +1406,7 @@ details details summary {
   }
 
   .last-item .top-numbering {
-    gap: 1rem;
+    gap: 20rem;
   }
 
   .last-item > div {
@@ -1686,8 +1679,9 @@ details details summary {
   }
 
   .telphone {
-    border-right: none;
-    border-bottom: 2px solid #fff;
+    font-size: 0.6rem;
+    border-right: 1px solid #e5e5e5;
+    border-bottom: none;
     padding-bottom: 8px;
   }
 
