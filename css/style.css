@@ -99,11 +99,10 @@ a:hover {
     border: 2px solid #0b0c10;
 }
 
+/* FIXED: Changed from grid to flex to prevent sections from overlaying */
 .main-content {
-    display: grid;
-    grid-template-columns: 1fr;
-    align-items: center;
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
     gap: 1.5rem;
     padding-top: 1rem;
 }
@@ -327,7 +326,7 @@ header.scrolled {
 
 
 /* ══════════════════════════════════════════════════
-   10. SECTION 5 — EXPLORATION
+   10. SECTION 4 — EXPLORATION
    ══════════════════════════════════════════════════ */
 
 .subsec4-1 {
@@ -340,8 +339,7 @@ header.scrolled {
 
 .subsec4-1 > .title,
 .subsec5-2 > .title,
-.subsec6-1 > .title,
-.section8 > .title {
+.subsec6-1 > .title {
     font-family: Boombox, sans-serif;
     font-size: 3rem;
     color: #ffd000;
@@ -385,9 +383,6 @@ header.scrolled {
 }
 
 .square {
-    /*top: -45px;
-    left: 50%;
-    transform: translateX(-50%);*/
     width: 0.65rem;
     height: 0.65rem;
     border: 2px solid #0B0c10;
@@ -398,12 +393,12 @@ header.scrolled {
 /* Trigger the diamond ONLY when card is hovered */
 .tab-item:hover .square,
 .last-item > div:hover .square,
-.subcontainer:hover .square {
+.subcontainer:hover .square,
+.project-card:hover .square {
     transform: rotate(45deg);
 }
 
 .subcontainer > .top-numbering {
-    /*position: absolute;*/
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -454,7 +449,6 @@ header.scrolled {
 }
 
 .tab-item > .top-numbering {
-    /*position: absolute;*/
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -462,7 +456,6 @@ header.scrolled {
 }
 
 .last-item .top-numbering {
-    /*position: absolute;*/
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -488,7 +481,7 @@ header.scrolled {
 
 
 /* ══════════════════════════════════════════════════
-   11. SECTION 6 — INTERNATIONAL INVESTOR ADVISORY
+   11. SECTION 5 — INTERNATIONAL INVESTOR ADVISORY
    ══════════════════════════════════════════════════ */
 
 .section5 {
@@ -500,7 +493,6 @@ header.scrolled {
     flex-direction: column;
 }
 
-/* ── Section 6 header banner ────────────────────── */
 .subsec5-1 {
     background-color: #1f2833;
     height: 7rem;
@@ -523,7 +515,6 @@ header.scrolled {
     color: #e5e5e5;
 }
 
-/* ── Section 6 intro block ──────────────────────── */
 .subsec5-2 {
     display: flex;
     flex-direction: column;
@@ -557,7 +548,6 @@ header.scrolled {
     font-size: 1.15rem;
 }
 
-/* ── Section 6 accordion rows ───────────────────── */
 .subsec5-3,
 .subsec5-4,
 .subsec5-5,
@@ -572,9 +562,7 @@ header.scrolled {
     align-items: center;
 }
 
-/* ── Section 6 card rows ────────────────────────── */
 .subcontainer {
-    /*position: relative;*/
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -596,11 +584,10 @@ header.scrolled {
 .tab-item:hover,
 .last-item > div:hover,
 .subcontainer:hover {
-    transform: translateY(-4px);              /* lift up */
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18); /* deeper shadow */
+    transform: translateY(-4px);              
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18); 
 }
 
-/* ── Section 6 card rows (grid) ─────────────────── */
 .heading1 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -609,12 +596,6 @@ header.scrolled {
     margin: 0.25rem 2rem;
 }
 
-/* Section 6: when a collapse item opens, its heading1 stacks to 1 column
-.collapse-item[open] > .collapse-content {
-    grid-template-columns: 1fr;
-}*/
-
-/* Two-card rows get a 2-column grid instead of 3. */
 .subsec5-8 > .heading1,
 .subsec5-9 > .heading1 {
     display: grid;
@@ -636,10 +617,6 @@ header.scrolled {
 
 .section5 .popup {
     background-color: #ffd000;
-    
-}
-
-.section5 .popup {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -651,7 +628,7 @@ header.scrolled {
     height: 8px;
     border-right: 2px solid #1a2b47;
     border-bottom: 2px solid #1a2b47;
-    transform: rotate(45deg);          /* ▶ pointing right */
+    transform: rotate(45deg);          
     transition: transform 0.25s ease;
     flex-shrink: 0;
     margin-left: 0.25rem;
@@ -662,7 +639,6 @@ header.scrolled {
     text-align: center;
     background-color: #ffd000;
     padding: 0.25rem 0rem;
-    /*margin-left: 4rem;*/
 }
 
 .section5 .collapse-item[open] .popup {
@@ -674,42 +650,18 @@ header.scrolled {
     justify-content: space-between;
 }
 
-.subsec5-3 .collapse-head {
-    gap: 45rem;
-}
-
-.subsec5-4 .collapse-head {
-    gap: 48rem;
-}
-
-.subsec5-5 .collapse-head,
-.subsec5-6 .collapse-head {
-    gap: 47rem;
-}
-
-.subsec5-7 .collapse-head {
-    gap: 48rem;
-}
-
-.subsec5-8 .collapse-head {
-    gap: 43rem;
-}
-
-.subsec5-9 .collapse-head {
-    gap: 41.5rem;
-}
-
-.subsec5-10 .collapse-head {
-    gap: 46.5rem;
-}
-
-.subsec5-11 .collapse-head {
-    gap: 42.5rem;
-}
+.subsec5-3 .collapse-head { gap: 45rem; }
+.subsec5-4 .collapse-head { gap: 48rem; }
+.subsec5-5 .collapse-head, .subsec5-6 .collapse-head { gap: 47rem; }
+.subsec5-7 .collapse-head { gap: 48rem; }
+.subsec5-8 .collapse-head { gap: 43rem; }
+.subsec5-9 .collapse-head { gap: 41.5rem; }
+.subsec5-10 .collapse-head { gap: 46.5rem; }
+.subsec5-11 .collapse-head { gap: 42.5rem; }
 
 
 /* ══════════════════════════════════════════════════
-   12. SECTION 8 — TECHNOLOGIES
+   12. SECTION 6 — TECHNOLOGIES
    ══════════════════════════════════════════════════ */
 
 .section6 {
@@ -744,11 +696,6 @@ header.scrolled {
     margin-right: 3rem;
     color: #ffd000;
 }
-
-/*.subsec6-1 > .subtitle1 {
-    margin-right: 3rem;
-    grid-row: 3;
-}*/
 
 .subsec6-1 > .para {
     display: flex;
@@ -795,7 +742,6 @@ header.scrolled {
     line-height: 1.5rem;
 }
 
-/* Nested multi-column collapse layouts */
 .subsec6-5 .collapse-content,
 .subsec6-6 .collapse-content,
 .subsec6-7 .collapse-content,
@@ -832,62 +778,16 @@ header.scrolled {
     cursor: pointer;
 }
 
-.subsec6-3 > summary {
-    gap: 44.5rem;
-}
-
-.subsec6-4 > summary {
-    gap: 49rem;
-}
-
-.subsec6-5 > summary {
-    gap: 57rem;
-}
-
-.subsec6-6 > summary {
-    gap: 54.5rem;
-}
-
-.subsec6-7 > summary,
-.subsec6-9 > summary {
-    gap: 52rem;
-}
-
-.subsec6-8 > summary {
-    gap: 45.5rem;
-}
-
-.subsec6-10 > summary {
-    gap: 51.5rem;
-}
-
-.subsec6-11 > summary {
-    gap: 45.25rem;
-}
-
-.subsec6-12 > summary {
-    gap: 46rem;
-}
-
-.subsec6-13 > summary {
-    gap: 44.5rem;
-}
-
-/*.section6 .collapse-item > summary::after {
-    content: "";
-    width: 8px;
-    height: 8px;
-    border-right: 2px solid #1a2b47;
-    border-bottom: 2px solid #1a2b47;
-    transform: rotate(45deg);          /* ▶ pointing right */
-    /*transition: transform 0.25s ease;
-    flex-shrink: 0;
-    margin-left: auto;
-}
-
-.section6 .collapse-item[open] summary::after {
-    transform: rotate(-135deg);        /* ▼ pointing down */
-/*}*/
+.subsec6-3 > summary { gap: 44.5rem; }
+.subsec6-4 > summary { gap: 49rem; }
+.subsec6-5 > summary { gap: 57rem; }
+.subsec6-6 > summary { gap: 54.5rem; }
+.subsec6-7 > summary, .subsec6-9 > summary { gap: 52rem; }
+.subsec6-8 > summary { gap: 45.5rem; }
+.subsec6-10 > summary { gap: 51.5rem; }
+.subsec6-11 > summary { gap: 45.25rem; }
+.subsec6-12 > summary { gap: 46rem; }
+.subsec6-13 > summary { gap: 44.5rem; }
 
 
 /* ══════════════════════════════════════════════════
@@ -923,30 +823,11 @@ summary::-webkit-details-marker {
     color: #ffd000;
 }
 
-.subsec6-3[open] > summary,
-.subsec6-8[open] > summary,
-.subsec6-11[open] > summary,
-.subsec6-12[open] > summary,
-.subsec6-13[open] > summary {
-    gap: 30rem;
-}
+.subsec6-3[open] > summary, .subsec6-8[open] > summary, .subsec6-11[open] > summary, .subsec6-12[open] > summary, .subsec6-13[open] > summary { gap: 30rem; }
+.subsec6-6[open] > summary, .subsec6-7[open] > summary, .subsec6-9[open] > summary, .subsec6-10[open] > summary { gap: 40rem; }
+.subsec6-4[open] > summary { gap: 36rem; }
+.subsec6-5[open] > summary { gap: 50rem; }
 
-.subsec6-6[open] > summary,
-.subsec6-7[open] > summary,
-.subsec6-9[open] > summary,
-.subsec6-10[open] > summary {
-    gap: 40rem;
-}
-
-.subsec6-4[open] > summary {
-    gap: 36rem;
-}
-
-.subsec6-5[open] > summary {
-    gap: 50rem;
-}
-
-/* Content padding */
 details > *:not(summary) {
     padding: 0 1.5rem;
 }
@@ -959,7 +840,6 @@ details > *:not(summary):last-child {
     padding-bottom: 0.75rem;
 }
 
-/* Nested styling */
 details details {
     border-left: 3px solid #1f2833;
 }
@@ -971,7 +851,7 @@ details details summary {
 
 
 /* ══════════════════════════════════════════════════
-   15. SECTION 9 — CORE OFFERING / DIFFERENTIATION
+   15. SECTION 7 — CORE OFFERING / DIFFERENTIATION
    ══════════════════════════════════════════════════ */
 
 .section7 {
@@ -1008,29 +888,216 @@ details details summary {
 
 
 /* ══════════════════════════════════════════════════
-   16. SECTION 10 — PROJECTS
+   16. SECTION 8 — PROJECTS
    ══════════════════════════════════════════════════ */
 
 .section8 {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
-    padding: 3rem 1rem;
-    justify-content: center;
+    gap: 2rem;
+    padding: 3rem 2rem;
+    align-items: stretch;
+}
+
+.subsec8-1 {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    height: 20rem;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
 }
 
-.section8 > img {
-    border: 2px solid #e5e5e5;
-    padding: 2rem;
-}
-
-.section8 > .subtitle {
-    font-family: 'Bree Serif', sans-serif;
-    font-size: 2rem;
+.subsec8-1 > .title {
+    font-family: Boombox, sans-serif;
+    font-size: 3rem;
+    color: #ffd000;
     text-align: center;
-    padding-top: 3rem;
+}
+
+.subsec8-1 > .subtitle {
+    font-family: 'Subway Novella', sans-serif;
+    font-size: 2.5rem;
+    color: #1f2833;
+    text-align: center;
+}
+
+.subsec8-1 > .intro-copy {
+    max-width: 60rem;
+    margin: 0 auto;
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: #1f2833;
+    text-align: justify;
+}
+
+.subsec8-2 {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 220px;
+    gap: 1.25rem;
+    align-items: end;
+    margin: 0 2rem;
+}
+
+.subsec8-2 .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    min-width: 0;
+}
+
+.subsec8-2 label {
+    font-family: 'Bree Serif', sans-serif;
+    font-size: 0.9rem;
+    color: #1f2833;
+}
+
+.subsec8-2 input,
+.subsec8-2 select {
+    padding: 0.7rem 0.9rem;
+    border: 2px solid #e5e5e5;
+    border-radius: 8px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    color: #1f2833;
+    background: #fff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.subsec8-2 input:focus,
+.subsec8-2 select:focus {
+    outline: none;
+    border-color: #ffd000;
+    box-shadow: 0 0 0 3px rgba(255, 208, 0, 0.2);
+}
+
+.subsec8-3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 0 2rem;
+    font-size: 0.9rem;
+    color: #525A65;
+}
+
+.subsec8-4 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.5rem;
+    margin: 0 2rem;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    border: 2px solid #e5e5e5;
+    border-radius: 8px;
+    background: #fff;
+    color: #1f2833;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    border-color: #ffd000;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+}
+
+.project-card[hidden] {
+    display: none;
+}
+
+.project-card .top-numbering {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+    font-family: 'Bree Serif', sans-serif;
+    font-size: 1.1rem;
+}
+
+.project-card .first-heading {
+    font-family: 'Bree Serif', sans-serif;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 0.35rem;
+}
+
+.project-card .second-heading {
+    font-size: 1.05rem;
+    text-align: center;
+    color: #525A65;
+    margin-bottom: 1rem;
+}
+
+.project-card .project-copy {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #525A65;
+    margin-bottom: 1.25rem;
+}
+
+.project-card .project-facts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.project-card .project-fact {
+    padding: 0.75rem;
+    background: #f7f7f7;
+    border-radius: 6px;
+}
+
+.project-card .project-fact span {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1.1px;
+    color: #818181;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.project-card .project-fact strong {
+    font-size: 0.9rem;
+    color: #1f2833;
+}
+
+.project-card .actions {
+    margin-top: auto;
+}
+
+.project-card .btn {
+    display: inline-block;
+    padding: 0.65rem 1.1rem;
+    border-radius: 6px;
+    font-family: 'Bree Serif', sans-serif;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.project-card .btn-primary {
+    background: #1f2833;
+    color: #ffd000;
+}
+
+.project-card .btn-primary:hover {
+    background: #ffd000;
+    color: #1f2833;
+}
+
+.subsec8-5 {
+    margin: 1rem 2rem 0;
+    font-size: 0.85rem;
+    color: #818181;
+    text-align: center;
+    line-height: 1.5;
 }
 
 
@@ -1062,10 +1129,184 @@ details details summary {
 }
 
 /* ══════════════════════════════════════════════════
-   18. Pointer Rule for section 8
+   17. SECTION 9 — INVESTOR ENQUIRY
    ══════════════════════════════════════════════════ */
 
-   @media (min-width: 769px) {
+.section9 {
+    padding: 4rem 2rem;
+    margin-bottom: 4rem;
+}
+
+.contact-panel {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    padding: 3.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.contact-grid {
+    display: flex;
+    gap: 5rem;
+}
+
+/* ── Left Side: Typography & Links ───────────────── */
+
+.contact-left > .eyebrow {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #666;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.contact-left > h2 {
+    font-family: 'Bree Serif', sans-serif;
+    font-size: 3rem;
+    line-height: 1.15;
+    color: #0b0c10;
+    margin-bottom: 1.5rem;
+}
+
+.contact-left > .contact-desc {
+    font-size: 1.1rem;
+    color: #525A65;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+}
+
+.contact-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.contact-links > a {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0b0c10;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-decoration-color: #0b0c10;
+    text-underline-offset: 6px;
+    margin-left: 0;
+    padding-right: 0;
+    transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.contact-links > a:hover {
+    color: #ffd000;
+    text-decoration-color: #ffd000;
+}
+
+/* ── Right Side: Form ────────────────────────────── */
+
+.contact-right .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.form-grid .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-grid .field.full {
+    grid-column: 1 / -1;
+}
+
+.form-grid label {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #0b0c10;
+}
+
+.form-grid input,
+.form-grid select,
+.form-grid textarea {
+    padding: 0.85rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    color: #0b0c10;
+    background: #fff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-grid input:focus,
+.form-grid select:focus,
+.form-grid textarea:focus {
+    outline: none;
+    border-color: #ffd000;
+    box-shadow: 0 0 0 3px rgba(255, 208, 0, 0.2);
+}
+
+.form-grid textarea {
+    resize: vertical;
+    min-height: 130px;
+}
+
+.form-grid .btn {
+    display: inline-block;
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-family: 'Bree Serif', sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+    width: 100%;
+}
+
+.form-grid .btn-primary {
+    background: #e8c820;
+    color: #0b0c10;
+}
+
+.form-grid .btn-primary:hover {
+    background: #ffd000;
+    color: #0b0c10;
+}
+
+.form-note {
+    font-size: 0.8rem;
+    color: #888;
+    line-height: 1.5;
+    margin-top: 1rem;
+}
+
+.form-status {
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #1f2833;
+    margin-top: 0.5rem;
+}
+
+/* Add this to your style.css under Section 8 */
+.project-empty {
+    grid-column: 1 / -1;
+    padding: 3rem;
+    text-align: center;
+    background: #f7f7f7;
+    border: 2px dashed #e5e5e5;
+    border-radius: 8px;
+    color: #525A65;
+    font-size: 1.1rem;
+}
+/* ══════════════════════════════════════════════════
+   18. Pointer Rule for section 6 (Technologies)
+   ══════════════════════════════════════════════════ */
+
+@media (min-width: 769px) {
     .section6 .collapse-item > summary::after {
         content: "";
         width: 8px;
@@ -1090,56 +1331,19 @@ details details summary {
 @media (max-width: 768px) {
 
   /* ── Global / Layout ─────────────────────────────── */
-
-  html {
-    font-size: 14px;
-  }
-
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  .container {
-    padding: 1rem;
-  }
-
-  .line-break {
-    margin-bottom: 2rem;
-  }
-
-  .main-content {
-    gap: 1rem;
-    padding-top: 0.5rem;
-  }
-
-  .short-border {
-    margin: 0.5rem auto;
-  }
+  html { font-size: 14px; }
+  img { max-width: 100%; height: auto; }
+  .container { padding: 1rem; }
+  .line-break { margin-bottom: 2rem; }
+  .main-content { gap: 1rem; padding-top: 0.5rem; }
 
   /* ── Header / Burger Navigation ──────────────────── */
+  header { padding: 0.25rem 0.5rem 0.75rem 0.5rem; }
+  .hero-section { height: 4rem; position: relative; }
+  .logo { width: 45vw; padding-top: 0.5rem; padding-left: 0.5rem; }
 
-  header {
-    padding: 0.25rem 0.5rem 0.75rem 0.5rem;
-  }
+  .nav-bar { display: none; }
 
-  .hero-section {
-    height: 4rem;
-    position: relative;
-  }
-
-  .logo {
-    width: 45vw;
-    padding-top: 0.5rem;
-    padding-left: 0.5rem;
-  }
-
-  /* Hide the default nav bar */
-  .nav-bar {
-    display: none;
-  }
-
-  /* Burger toggle button */
   .burger-toggle {
     display: flex;
     flex-direction: column;
@@ -1163,20 +1367,10 @@ details details summary {
     transition: transform 0.3s ease, opacity 0.3s ease;
   }
 
-  /* Burger animation to X */
-  .burger-toggle.active span:nth-child(1) {
-    transform: translateY(8.5px) rotate(45deg);
-  }
+  .burger-toggle.active span:nth-child(1) { transform: translateY(8.5px) rotate(45deg); }
+  .burger-toggle.active span:nth-child(2) { opacity: 0; }
+  .burger-toggle.active span:nth-child(3) { transform: translateY(-8.5px) rotate(-45deg); }
 
-  .burger-toggle.active span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .burger-toggle.active span:nth-child(3) {
-    transform: translateY(-8.5px) rotate(-45deg);
-  }
-
-  /* Mobile nav menu — hidden by default */
   .nav-bar.mobile-open {
     display: flex;
     flex-direction: column;
@@ -1207,15 +1401,8 @@ details details summary {
     color: #0b0c10;
   }
 
-  .nav-bar.mobile-open > a:last-child {
-    border-bottom: none;
-  }
-
-  /* Overlay when menu is open */
-  .nav-overlay {
-    display: none;
-  }
-
+  .nav-bar.mobile-open > a:last-child { border-bottom: none; }
+  .nav-overlay { display: none; }
   .nav-overlay.active {
     display: block;
     position: fixed;
@@ -1225,526 +1412,169 @@ details details summary {
   }
 
   /* ── Banner ──────────────────────────────────────── */
-
-  .banner1 {
-    height: auto;
-    gap: 2rem;
-    padding: 3rem 1rem;
-    margin-top: 0.5rem;
-  }
-
-  .banner1 > .first-row {
-    font-size: 1.35rem;
-    text-align: center;
-  }
-
-  .banner1 > .second-row {
-    font-size: 2.25rem;
-    text-align: center;
-  }
-
-  .banner1 > .last-row {
-    font-size: 1.35rem;
-    text-align: center;
-  }
+  .banner1 { height: auto; gap: 2rem; padding: 3rem 1rem; margin-top: 0.5rem; }
+  .banner1 > .first-row { font-size: 1.35rem; text-align: center; }
+  .banner1 > .second-row { font-size: 2.25rem; text-align: center; }
+  .banner1 > .last-row { font-size: 1.35rem; text-align: center; }
 
   /* ── Generic Section Layout ──────────────────────── */
-
-  .section1,
-  .section2,
-  .section3,
-  .section4,
-  .section4,
-  .section5,
-  .section7,
-  .section7 {
-    gap: 1.25rem;
-    margin-top: 0.25rem;
-    padding: 1.25rem 0.75rem;
+  .section1, .section2, .section3, .section4, .section5, .section7 {
+    gap: 1.25rem; margin-top: 0.25rem; padding: 1.25rem 0.75rem;
   }
-
-  .section1 {
-    height: auto;
-    padding: 2rem 0.75rem;
-  }
+  .section1 { height: auto; padding: 2rem 0.75rem; }
 
   /* ── Section 1 ───────────────────────────────────── */
-
-  .subsec1-1,
-  .subsec6-1 > .subtitle1 {
-    font-size: 1.5rem;
-  }
-
-  .subsec1-2 {
-    font-size: 1rem;
-    text-align: center;
-  }
-
-  .subsec1-3 {
-    font-size: 1.5rem;
-    text-align: center;
-  }
+  .subsec1-1, .subsec6-1 > .subtitle1 { font-size: 1.5rem; }
+  .subsec1-2 { font-size: 1rem; text-align: center; }
+  .subsec1-3 { font-size: 1.5rem; text-align: center; }
 
   /* ── Section 2 ───────────────────────────────────── */
-
-  .subsec2-1,
-  .subsec2-4 {
-    font-size: 1.5rem;
-  }
-
-  .subsec2-2 {
-    font-size: 1.5rem;
-  }
-
-  .subsec2-3,
-  .subsec3-4 {
-    font-size: 1rem;
-    margin-left: 0.75rem;
-    margin-right: 0.75rem;
-    padding: 1rem;
-    gap: 1.25rem;
-  }
-
-  .subsec2-3b > .bold,
-  .subsec2-3c > .bold {
-    font-size: 1.05rem;
-  }
-
-  .subsec2-5 {
-    font-size: 1.25rem;
-  }
+  .subsec2-1, .subsec2-4 { font-size: 1.5rem; }
+  .subsec2-2 { font-size: 1.5rem; }
+  .subsec2-3, .subsec3-4 { font-size: 1rem; margin-left: 0.75rem; margin-right: 0.75rem; padding: 1rem; gap: 1.25rem; }
+  .subsec2-3b > .bold, .subsec2-3c > .bold { font-size: 1.05rem; }
+  .subsec2-5 { font-size: 1.25rem; }
 
   /* ── Section 3 ───────────────────────────────────── */
-
-  .subsec3-1,
-  .subsec2-4 {
-    font-size: 1.5rem;
-    padding-top: 1rem;
-  }
-
-  .subsec3-2 {
-    font-size: 1.5rem;
-  }
-
-  .subsec3-3 {
-    font-size: 1.15rem;
-    margin-left: 0.75rem;
-    margin-right: 0.75rem;
-  }
-
-  .subsec3-5 {
-    font-size: 1.25rem;
-  }
+  .subsec3-1, .subsec2-4 { font-size: 1.5rem; padding-top: 1rem; }
+  .subsec3-2 { font-size: 1.5rem; }
+  .subsec3-3 { font-size: 1.15rem; margin-left: 0.75rem; margin-right: 0.75rem; }
+  .subsec3-5 { font-size: 1.25rem; }
 
   /* ── Section 4 — Exploration ─────────────────────── */
+  .subsec4-1 { gap: 1.25rem; }
+  .subsec4-1 > .title, .subsec5-2 > .title, .subsec6-1 > .title { font-size: 2rem; }
+  .subsec4-1 > .subtitle, .subsec5-2 > .subtitle, .subsec6-1 > .subtitle { font-size: 1.5rem; }
+  .heading > div { font-size: 1.25rem; }
+  .heading > p { font-size: 1rem; line-height: 1.6rem; padding-right: 1rem; padding-left: 1rem; margin-left: 0.5rem; margin-right: 0.5rem; }
 
-  .subsec4-1 {
-    gap: 1.25rem;
-  }
+  .subsec4-2 { grid-template-columns: 1fr; gap: 1.5rem; margin-left: 0.75rem; margin-right: 0.75rem; }
+  .subsec4-2 > .title { font-size: 1.25rem; padding-right: 0; margin-bottom: 1rem; }
+  .subsec4-2 > .tab-item { font-size: 1rem; padding: 1rem; margin-bottom: 1.5rem; }
+  .tab-item > .first-heading, .last-item > div .first-heading { font-size: 1.25rem; margin-top: 1rem; }
+  .tab-item > .second-heading, .last-item > div .second-heading { font-size: 1.1rem; }
 
-  .subsec4-1 > .title,
-  .subsec5-2 > .title,
-  .subsec6-1 > .title,
-  .section8 > .title {
-    font-size: 2rem;
-  }
+  .last-item { grid-column: span 1; grid-template-columns: 1fr; gap: 1.5rem; }
+  .last-item .top-numbering { gap: 20rem; }
+  .last-item > div { margin-bottom: 1.5rem; }
 
-  .subsec4-1 > .subtitle,
-  .subsec5-2 > .subtitle,
-  .subsec6-1 > .subtitle {
-    font-size: 1.5rem;
-  }
+  /* ── Section 5 — International Investor Advisory ─── */
+  .subsec5-1 { height: auto; padding: 1.5rem 1rem; width: 100%; }
+  .subsec5-1 > .title1 { font-size: 2.25rem; }
+  .subsec5-1 > .title2 { font-size: 1.75rem; padding-bottom: 0.75rem; }
+  .subsec5-2 { margin-top: 1.5rem; }
+  .subsec5-2 > .subtitle { font-size: 1.25rem; flex-direction: column; gap: 0.75rem; margin-top: 1.5rem; margin-bottom: 1rem; text-align: center; }
+  .subtitle > .right-border { border-right: none; padding-right: 0; border-bottom: 2px solid #1f2833; padding-bottom: 0.75rem; }
+  .right-border:last-child { border-bottom: none; padding-bottom: 0; }
+  .subsec5-2 > p { margin: 0.5rem 1rem; font-size: 1rem; }
 
-  .heading > div {
-    font-size: 1.25rem;
-  }
+  .subsec5-3, .subsec5-4, .subsec5-5, .subsec5-6, .subsec5-7, .subsec5-8, .subsec5-9 { margin-top: 1.5rem; }
 
-  .heading > p {
-    font-size: 1rem;
-    line-height: 1.6rem;
-    padding-right: 1rem;
-    padding-left: 1rem;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-  }
+  .subcontainer { padding: 1.25rem; margin-top: 1.5rem; width: 100%; box-sizing: border-box; }
 
-  /* Cards stack vertically */
-  .subsec4-2 {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    margin-left: 0.75rem;
-    margin-right: 0.75rem;
-  }
+  .heading1 { grid-template-columns: 1fr; gap: 1.25rem; margin: 0.25rem 0.75rem; }
+  .subsec5-8 > .heading1, .subsec5-9 > .heading1 { grid-template-columns: 1fr; gap: 1.25rem; margin-left: 0.75rem; }
+  .subsec5-10 > .heading1, .subsec5-11 > .heading1 { flex-direction: column; gap: 1.25rem; margin-left: 0.75rem; }
 
-  .subsec4-2 > .title {
-    font-size: 1.25rem;
-    padding-right: 0;
-    margin-bottom: 1rem;
-  }
+  .collapse-head { flex-direction: column; gap: 0.75rem; align-items: flex-start; }
+  .subsec5-3 .collapse-head, .subsec5-4 .collapse-head, .subsec5-5 .collapse-head, .subsec5-6 .collapse-head, .subsec5-7 .collapse-head, .subsec5-8 .collapse-head, .subsec5-9 .collapse-head, .subsec5-10 .collapse-head, .subsec5-11 .collapse-head { gap: 0.75rem; }
+  .section5 .collapse-item[open] .maintitle { font-size: 1.35rem; }
 
-  .subsec4-2 > .tab-item {
-    font-size: 1rem;
-    padding: 1rem;
-    margin-bottom: 1.5rem;
-  }
+  /* ── Section 6 — Technologies ────────────────────── */
+  .section6 { gap: 1.25rem; padding: 1.25rem 0.75rem; }
+  .subsec6-1 { grid-template-columns: 1fr; padding: 1.25rem 1rem; gap: 1rem; }
+  .subsec6-1 > .title { grid-column: span 1; font-size: 0.85rem; }
+  .subsec6-1 > .subtitle { font-size: 1.75rem; margin-right: 0; }
+  .subsec6-1 > .title, .subsec6-1 > .subtitle { margin-right: 0; }
+  .subsec6-1 > .para { margin-right: 0; font-size: 1rem; }
 
-  .tab-item > .first-heading,
-  .last-item > div .first-heading {
-    font-size: 1.25rem;
-    margin-top: 1rem;
-  }
+  .collapse-item { margin: 0rem 0.75rem; padding: 1rem 0; }
+  .collapse-content { flex-direction: column; gap: 1.25rem; margin: 0rem 0.75rem; padding: 1rem 0; }
 
-  .tab-item > .second-heading,
-  .last-item > div .second-heading {
-    font-size: 1.1rem;
-  }
+  .subsec6-5 .collapse-content, .subsec6-6 .collapse-content, .subsec6-7 .collapse-content, .subsec6-8 .collapse-content, .subsec6-9 .collapse-content, .subsec6-10 .collapse-content, .subsec6-11 .collapse-content { grid-template-columns: 1fr; }
+  .subsec6-9 .collapse-content, .subsec6-10 .collapse-content, .subsec6-11 .collapse-content { margin-left: 0.75rem; }
+  .subsec6-7 .collapse-content, .subsec6-13 .collapse-content { margin-left: 0.75rem; }
+  .subsec6-6 .last-ch { grid-column: span 1; }
 
-  .last-item {
-    grid-column: span 1;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
+  .section6 .collapse-item > summary { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  .subsec6-3 > summary, .subsec6-4 > summary, .subsec6-5 > summary, .subsec6-6 > summary, .subsec6-7 > summary, .subsec6-8 > summary, .subsec6-9 > summary, .subsec6-10 > summary, .subsec6-11 > summary, .subsec6-12 > summary, .subsec6-13 > summary { gap: 0.5rem; }
+  .subsec6-3[open] > summary, .subsec6-8[open] > summary, .subsec6-11[open] > summary, .subsec6-12[open] > summary, .subsec6-13[open] > summary, .subsec6-6[open] > summary, .subsec6-7[open] > summary, .subsec6-9[open] > summary, .subsec6-10[open] > summary, .subsec6-4[open] > summary, .subsec6-5[open] > summary { gap: 0.5rem; }
+  .section6 .collapse-item[open] > summary { font-size: 1.35rem; }
 
-  .last-item .top-numbering {
-    gap: 20rem;
-  }
+  /* ── Section 7 — Core Offering / Differentiation ─── */
+  .section7 { height: auto; padding: 3rem 1rem; }
+  .subsec7-1, .subsec7-2 { gap: 1.5rem; }
+  .subsec7-1 > .title, .subsec7-2 > .title { font-size: 2rem; }
+  .subsec7-1 > .subtitle, .subsec7-2 > .subtitle { font-size: 1.35rem; }
 
-  .last-item > div {
-    margin-bottom: 1.5rem;
-  }
-
-  /* ── Section 6 — International Investor Advisory ─── */
-
-  .subsec5-1 {
-    height: auto;
-    padding: 1.5rem 1rem;
-    width: 100%;
-  }
-
-  .subsec5-1 > .title1 {
-    font-size: 2.25rem;
-  }
-
-  .subsec5-1 > .title2 {
-    font-size: 1.75rem;
-    padding-bottom: 0.75rem;
-  }
-
-  .subsec5-2 {
-    margin-top: 1.5rem;
-  }
-
-  .subsec5-2 > .subtitle {
-    font-size: 1.25rem;
-    flex-direction: column;
-    gap: 0.75rem;
-    margin-top: 1.5rem;
-    margin-bottom: 1rem;
-    text-align: center;
-  }
-
-  .subtitle > .right-border {
-    border-right: none;
-    padding-right: 0;
-    border-bottom: 2px solid #1f2833;
-    padding-bottom: 0.75rem;
-  }
-
-  .right-border:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-  }
-
-  .subsec5-2 > p {
-    margin: 0.5rem 1rem;
-    font-size: 1rem;
-  }
-
-  .subsec5-3,
-  .subsec5-4,
-  .subsec5-5,
-  .subsec5-6,
-  .subsec5-7,
-  .subsec5-8,
-  .subsec5-9 {
-    margin-top: 1.5rem;
-  }
-
-  .subcontainer {
-    padding: 1.25rem;
-    margin-top: 1.5rem;
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  /* Stack all card grids to single column */
-  .heading1 {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-    margin: 0.25rem 0.75rem;
-  }
-
-  .subsec5-8 > .heading1,
-  .subsec5-9 > .heading1 {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-    margin-left: 0.75rem;
-  }
-
-  .subsec5-10 > .heading1,
-  .subsec5-11 > .heading1 {
-    flex-direction: column;
-    gap: 1.25rem;
-    margin-left: 0.75rem;
-  }
-
-  .collapse-head {
-    flex-direction: column;
-    gap: 0.75rem;
-    align-items: flex-start;
-  }
-
-  .subsec5-3 .collapse-head,
-  .subsec5-4 .collapse-head,
-  .subsec5-5 .collapse-head,
-  .subsec5-6 .collapse-head,
-  .subsec5-7 .collapse-head,
-  .subsec5-8 .collapse-head,
-  .subsec5-9 .collapse-head,
-  .subsec5-10 .collapse-head,
-  .subsec5-11 .collapse-head {
-    gap: 0.75rem;
-  }
-
-  .section5 .collapse-item[open] .maintitle {
-    font-size: 1.35rem;
-  }
-
-  /* ── Section 8 — Technologies ────────────────────── */
-
-  .section6 {
-    gap: 1.25rem;
-    padding: 1.25rem 0.75rem;
-  }
-
-  .subsec6-1 {
-    grid-template-columns: 1fr;
-    padding: 1.25rem 1rem;
-    gap: 1rem;
-  }
-
-  .subsec6-1 > .title {
-    grid-column: span 1;
-    font-size: 0.85rem;
-  }
-
-  .subsec6-1 > .subtitle {
-    font-size: 1.75rem;
-    margin-right: 0;
-  }
-
-  .subsec6-1 > .title,
-  .subsec6-1 > .subtitle {
-    margin-right: 0;
-  }
-
-  .subsec6-1 > .para {
-    margin-right: 0;
-    font-size: 1rem;
-  }
-
-  /* Collapse items stack */
-  .collapse-item {
-    margin: 0rem 0.75rem;
-    padding: 1rem 0;
-  }
-
-  .collapse-content {
-    flex-direction: column;
-    gap: 1.25rem;
-    margin: 0rem 0.75rem;
-    padding: 1rem 0;
-  }
-
-  .subsec6-5 .collapse-content,
-  .subsec6-6 .collapse-content,
-  .subsec6-7 .collapse-content,
-  .subsec6-8 .collapse-content,
-  .subsec6-9 .collapse-content,
-  .subsec6-10 .collapse-content,
-  .subsec6-11 .collapse-content {
-    grid-template-columns: 1fr;
-  }
-
-  .subsec6-9 .collapse-content,
-  .subsec6-10 .collapse-content,
-  .subsec6-11 .collapse-content {
-    margin-left: 0.75rem;
-  }
-
-  .subsec6-7 .collapse-content,
-  .subsec6-13 .collapse-content {
-    margin-left: 0.75rem;
-  }
-
-  .subsec6-6 .last-ch {
-    grid-column: span 1;
-  }
-
-  .section6 .collapse-item > summary {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
-
-  .subsec6-3 > summary,
-  .subsec6-4 > summary,
-  .subsec6-5 > summary,
-  .subsec6-6 > summary,
-  .subsec6-7 > summary,
-  .subsec6-8 > summary,
-  .subsec6-9 > summary,
-  .subsec6-10 > summary,
-  .subsec6-11 > summary,
-  .subsec6-12 > summary,
-  .subsec6-13 > summary {
-    gap: 0.5rem;
-  }
-
-  .subsec6-3[open] > summary,
-  .subsec6-8[open] > summary,
-  .subsec6-11[open] > summary,
-  .subsec6-12[open] > summary,
-  .subsec6-13[open] > summary,
-  .subsec6-6[open] > summary,
-  .subsec6-7[open] > summary,
-  .subsec6-9[open] > summary,
-  .subsec6-10[open] > summary,
-  .subsec6-4[open] > summary,
-  .subsec6-5[open] > summary {
-    gap: 0.5rem;
-  }
-
-  .section6 .collapse-item[open] > summary {
-    font-size: 1.35rem;
-  }
-
-  /* ── Section 9 — Core Offering / Differentiation ─── */
-
-  .section7 {
-    height: auto;
-    padding: 3rem 1rem;
-  }
-
-  .subsec7-1,
-  .subsec7-2 {
-    gap: 1.5rem;
-  }
-
-  .subsec7-1 > .title,
-  .subsec7-2 > .title {
-    font-size: 2rem;
-  }
-
-  .subsec7-1 > .subtitle,
-  .subsec7-2 > .subtitle {
-    font-size: 1.35rem;
-  }
-
-  /* ── Section 10 — Projects ───────────────────────── */
-
-  .section8 {
-    height: auto;
-    padding: 2rem 1rem;
-    gap: 1.5rem;
-  }
-
-  .section8 > img {
-    padding: 1rem;
-    max-width: 100%;
-  }
-
-  .section8 > .subtitle {
-    font-size: 1.5rem;
-    padding-top: 1.5rem;
-  }
+  /* ── Section 8 — Projects ────────────────────────── */
+  .section8 { padding: 2rem 1rem; gap: 1.5rem; }
+  .subsec8-1 > .title { font-size: 2rem; }
+  .subsec8-1 > .subtitle { font-size: 1.5rem; }
+  .subsec8-1 > .intro-copy { font-size: 1rem; line-height: 1.7; }
+  .subsec8-2 { grid-template-columns: 1fr; margin: 0 0.75rem; }
+  .subsec8-3 { margin: 0 0.75rem; font-size: 0.85rem; }
+  .subsec8-4 { grid-template-columns: 1fr; gap: 1.5rem; margin: 0 0.75rem; }
+  .project-card { padding: 1.25rem; }
+  .project-card .first-heading { font-size: 1.35rem; }
+  .subsec8-5 { margin: 1rem 0.75rem 0; font-size: 0.8rem; }
 
   /* ── Footer ──────────────────────────────────────── */
-
-  .last-sec {
-    gap: 12px;
-    font-size: 0.8rem;
-    padding: 1.5rem 1rem;
-    text-align: center;
-  }
-
-  .telphone {
-    font-size: 0.6rem;
-    border-right: 1px solid #e5e5e5;
-    border-bottom: none;
-    padding-bottom: 8px;
-  }
+  .last-sec { gap: 12px; font-size: 0.8rem; padding: 1.5rem 1rem; text-align: center; }
+  .telphone { font-size: 0.6rem; border-right: 1px solid #e5e5e5; border-bottom: none; padding-bottom: 8px; }
 
 }
 
+  /* ── Section 9 — Investor Enquiry ────────────────── */
+  .section9 {
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .contact-panel {
+    padding: 1.5rem;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .contact-left > h2 {
+    font-size: 2rem;
+  }
+
+  .contact-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 
 /* ══════════════════════════════════════════════════════════════
    EXTRA SMALL SCREENS — max-width: 480px
    ══════════════════════════════════════════════════════════════ */
-
 @media (max-width: 480px) {
 
-  html {
-    font-size: 13px;
-  }
+  html { font-size: 13px; }
 
-  .logo {
-    width: 55vw;
-  }
+  .logo { width: 55vw; }
 
-  .banner1 > .second-row {
-    font-size: 1.85rem;
-  }
+  .banner1 > .second-row { font-size: 1.85rem; }
 
-  .subsec4-1 > .title,
-  .subsec5-2 > .title,
-  .subsec6-1 > .title,
-  .section8 > .title {
-    font-size: 1.6rem;
-  }
+  .subsec4-1 > .title, .subsec5-2 > .title, .subsec6-1 > .title { font-size: 1.6rem; }
+  .subsec4-1 > .subtitle, .subsec5-2 > .subtitle, .subsec6-1 > .subtitle { font-size: 1.25rem; }
 
-  .subsec4-1 > .subtitle,
-  .subsec5-2 > .subtitle,
-  .subsec6-1 > .subtitle {
-    font-size: 1.25rem;
-  }
+  .subsec5-1 > .title1 { font-size: 1.75rem; }
+  .subsec5-1 > .title2 { font-size: 1.35rem; }
 
-  .subsec5-1 > .title1 {
-    font-size: 1.75rem;
-  }
+  .subsec7-1 > .title, .subsec7-2 > .title { font-size: 1.6rem; }
+  .subsec7-1 > .subtitle, .subsec7-2 > .subtitle { font-size: 1.15rem; }
 
-  .subsec5-1 > .title2 {
-    font-size: 1.35rem;
-  }
+  .heading > p { padding-right: 0.5rem; padding-left: 0.5rem; margin-left: 0; margin-right: 0; }
 
-  .subsec7-1 > .title,
-  .subsec7-2 > .title {
-    font-size: 1.6rem;
-  }
-
-  .subsec7-1 > .subtitle,
-  .subsec7-2 > .subtitle {
-    font-size: 1.15rem;
-  }
-
-  .heading > p {
-    padding-right: 0.5rem;
-    padding-left: 0.5rem;
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .nav-bar.mobile-open {
-    width: 85vw;
-  }
+  .nav-bar.mobile-open { width: 85vw; }
 }

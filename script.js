@@ -63,3 +63,98 @@ if (burger && navBar && overlay) {
     link.addEventListener('click', () => setMenu(false));
   });
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('investor-form');
+  const status = document.getElementById('form-status');
+  
+  // REPLACE THIS with the URL you copied in Step 3
+  const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbyeySGqiWke-9CBeI9MitbWdpzRN4HlabjpAWS_zEw45uRiJATQ42qv0E8NHK4ttXk_/exec'; 
+
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // Prevent default page reload
+      
+      // Show loading status
+      status.textContent = "Sending enquiry...";
+      status.style.color = "#1f2833";
+      
+      // Collect form data
+      const formData = new FormData(form);
+      
+      // Convert to URLSearchParams (crucial for Google Apps Script)
+      const data = new URLSearchParams(formData);
+      
+      fetch(WEB_APP_URL, {
+        method: 'POST',
+        // Use 'no-cors' to avoid CORS blocking. Note: we won't be able to read the JSON response, 
+        // but the data will still be submitted successfully.
+        mode: 'no-cors', 
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: data
+      })
+      .then(() => {
+        // Since 'no-cors' hides the response, we assume success if no network error occurs
+        status.textContent = "Thank you! Your enquiry has been received. We will contact you shortly.";
+        status.style.color = "green";
+        form.reset(); // Clear the form
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        status.textContent = "An error occurred. Please try again or email us directly.";
+        status.style.color = "red";
+      });
+    });
+  }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('project-search');
+    const viewSelect = document.getElementById('project-view');
+    const projectCards = document.querySelectorAll('.project-card');
+    const projectCount = document.getElementById('project-count');
+    const grid = document.getElementById('portfolio-grid');
+
+    // Empty message logic
+    const emptyMsg = document.createElement('div');
+    emptyMsg.className = 'project-empty';
+    emptyMsg.textContent = 'No projects match your search.';
+    emptyMsg.style.display = 'none';
+    grid.appendChild(emptyMsg);
+
+    function filterProjects() {
+        const searchTerm = searchInput.value.toLowerCase().trim();
+        const viewFilter = viewSelect.value;
+        let visibleCount = 0;
+
+        projectCards.forEach(card => {
+            // 1. Check Search by Name
+            const projectName = card.querySelector('.first-heading').textContent.toLowerCase();
+            const matchesSearch = projectName.includes(searchTerm);
+            
+            // 2. Check Status using the data attribute instead of text
+            const statusEl = card.querySelector('.second-heading');
+            const cardStatus = statusEl ? statusEl.getAttribute('data-status') : 'development';
+            
+            // If the dropdown is "all", it matches. If it's "development", it checks the data attribute.
+            const matchesView = viewFilter === 'all' || cardStatus === viewFilter;
+
+            if (matchesSearch && matchesView) {
+                card.hidden = false;
+                visibleCount++;
+            } else {
+                card.hidden = true;
+            }
+        });
+
+        projectCount.textContent = visibleCount + (visibleCount === 1 ? ' project profile' : ' project profiles');
+        emptyMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+
+    if (searchInput && viewSelect) {
+        searchInput.addEventListener('input', filterProjects);
+        viewSelect.addEventListener('change', filterProjects);
+    }
+});
