@@ -9,8 +9,8 @@
 
 @font-face {
     font-family: 'BoomBox';
-    src: url('../../fonts/BoomBox.woff2') format('woff2'),
-         url('../../fonts/BoomBox.woff')  format('woff');
+    src: url('../fonts/BoomBox.woff2') format('woff2'),
+         url('../fonts/BoomBox.woff')  format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -18,8 +18,8 @@
 
 @font-face {
     font-family: 'Bree Serif';
-    src: url('../../fonts/BreeSerif-Regular.woff2') format('woff2'),
-         url('../../fonts/BreeSerif-Regular.woff')  format('woff');
+    src: url('../fonts/BreeSerif-Regular.woff2') format('woff2'),
+         url('../fonts/BreeSerif-Regular.woff')  format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -27,8 +27,8 @@
 
 @font-face {
     font-family: 'Subway Novella';
-    src: url('../../fonts/SubwayNovella.woff2') format('woff2'),
-         url('../../fonts/SubwayNovella.woff')  format('woff');
+    src: url('../fonts/SubwayNovella.woff2') format('woff2'),
+         url('../fonts/SubwayNovella.woff')  format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -916,8 +916,7 @@ details details summary {
 
 .subsec8-1 > .subtitle {
     font-family: 'Subway Novella', sans-serif;
-    font-size: 2.5rem;
-    color: #1f2833;
+    font-size: 2rem;
     text-align: center;
 }
 
@@ -1149,6 +1148,7 @@ details details summary {
 
 .contact-grid {
     display: flex;
+    flex-direction: column;
     gap: 5rem;
 }
 
@@ -1204,6 +1204,23 @@ details details summary {
 }
 
 /* ── Right Side: Form ────────────────────────────── */
+
+.contact-right {
+    text-align: center; padding: 40px 20px;
+}
+
+.contact-right a {
+    text-decoration: none; 
+    display: inline-block;
+    background-color: #1f2833;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.contact-right a:hover {
+    background-color: #ffd000;
+    color: #0b0c10;
+}
 
 .contact-right .form-grid {
     display: grid;
