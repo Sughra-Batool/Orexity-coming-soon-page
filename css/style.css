@@ -1146,7 +1146,7 @@ details details summary {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
 }
 
-.contact-grid {
+.contact-grid .contact-grid {
     display: flex;
     flex-direction: column;
     gap: 5rem;
@@ -1209,7 +1209,7 @@ details details summary {
     text-align: center; padding: 40px 20px;
 }
 
-.contact-right>a {
+.contact-grid .contact-right>a {
     text-decoration: none; 
     display: inline-block;
     background-color: #1f2833;
