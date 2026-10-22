@@ -3,31 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Investor Enquiry - OREXITY</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="script.js" defer></script>
 </head>
 <body>
-    <!-- Right Side: Form -->
     <div class="contact-right">
-        <form id="investor-form">
+        <div style="margin-bottom: 20px;">
+            <a href="index.html" style="text-decoration: none; color: #666; font-weight: bold;">&larr; Back to website</a>
+        </div>
+
+        <form id="investor-form" novalidate>
             <div class="form-grid">
+                <!-- HONEYPOT FIELD (Anti-Bot) -->
+                <div style="display: none;" aria-hidden="true">
+                    <label for="website_url">Website</label>
+                    <input type="text" id="website_url" name="website_url" tabindex="-1" autocomplete="off">
+                </div>
+
                 <div class="field">
                     <label for="name">Full name *</label>
-                    <input id="name" name="name" autocomplete="name" required>
+                    <input id="name" name="name" type="text" autocomplete="name" required 
+                           pattern="^[a-zA-Z\s\-']{2,50}$" 
+                           title="Please enter a valid name (letters only, 2-50 characters).">
                 </div>
+                
                 <div class="field">
-                    <label for="organisation">Organisation*</label>
-                    <input id="organisation" name="organisation" autocomplete="organization" required>
+                    <label for="organisation">Organisation *</label>
+                    <input id="organisation" name="organisation" type="text" autocomplete="organization" required minlength="2" maxlength="100">
                 </div>
+
                 <div class="field">
                     <label for="email">Business email *</label>
-                    <input id="email" name="email" type="email" autocomplete="email" required>
+                    <input id="email" name="email" type="email" autocomplete="email" required maxlength="100">
                 </div>
+
                 <div class="field">
-                    <label for="country">Country*</label>
-                    <input id="country" name="country" autocomplete="country-name" required>
+                    <label for="country">Country *</label>
+                    <input id="country" name="country" type="text" autocomplete="country-name" required minlength="2" maxlength="50">
                 </div>
+
                 <div class="field full">
                     <label for="interest">Investment interest *</label>
                     <select id="interest" name="interest" required>
@@ -39,16 +53,21 @@
                         <option>Other</option>
                     </select>
                 </div>
+
                 <div class="field full">
                     <label for="message">Enquiry details *</label>
-                    <textarea id="message" name="message" required placeholder="Briefly describe your investment interest."></textarea>
+                    <textarea id="message" name="message" required minlength="10" maxlength="2000" placeholder="Briefly describe your investment interest."></textarea>
                 </div>
+
                 <div class="field full">
-                    <button class="btn btn-primary" type="submit">Prepare Investor Enquiry Email ↗</button>
+                    <button id="submit-btn" class="btn btn-primary" type="submit">Submit Enquiry</button>
                 </div>
             </div>
             <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
         </form>
     </div>
+
+    <!-- Link to the external form script -->
+    <script src="investor-form.js" defer></script>
 </body>
 </html>

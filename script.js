@@ -65,52 +65,6 @@ if (burger && navBar && overlay) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  const form = document.getElementById('investor-form');
-  const status = document.getElementById('form-status');
-  
-  // REPLACE THIS with the URL you copied in Step 3
-  const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbyeySGqiWke-9CBeI9MitbWdpzRN4HlabjpAWS_zEw45uRiJATQ42qv0E8NHK4ttXk_/exec'; 
-
-  if (form) {
-    form.addEventListener('submit', function(e) {
-      e.preventDefault(); // Prevent default page reload
-      
-      // Show loading status
-      status.textContent = "Sending enquiry...";
-      status.style.color = "#1f2833";
-      
-      // Collect form data
-      const formData = new FormData(form);
-      
-      // Convert to URLSearchParams (crucial for Google Apps Script)
-      const data = new URLSearchParams(formData);
-      
-      fetch(WEB_APP_URL, {
-        method: 'POST',
-        // Use 'no-cors' to avoid CORS blocking. Note: we won't be able to read the JSON response, 
-        // but the data will still be submitted successfully.
-        mode: 'no-cors', 
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: data
-      })
-      .then(() => {
-        // Since 'no-cors' hides the response, we assume success if no network error occurs
-        status.textContent = "Thank you! Your enquiry has been received. We will contact you shortly.";
-        status.style.color = "green";
-        form.reset(); // Clear the form
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        status.textContent = "An error occurred. Please try again or email us directly.";
-        status.style.color = "red";
-      });
-    });
-  }
-});
-
-document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.getElementById('project-search');
     const viewSelect = document.getElementById('project-view');
     const projectCards = document.querySelectorAll('.project-card');
