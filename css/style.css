@@ -1209,7 +1209,7 @@ details details summary {
     text-align: center; padding: 40px 20px;
 }
 
-.contact-right a {
+.contact-right>a {
     text-decoration: none; 
     display: inline-block;
     background-color: #1f2833;
