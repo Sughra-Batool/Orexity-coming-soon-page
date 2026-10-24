@@ -1007,7 +1007,7 @@ details details summary {
 
 /* ── DARK THEME PROJECT CARDS ────────────────────── */
 :root {
-  --bg: #0c0f12;
+  --bg: #1f2833;
   --panel: #14191d;
   --panel-hi: #191f23;
   --line: rgba(194, 153, 87, .25);
@@ -1132,7 +1132,7 @@ details details summary {
     align-items: center;
     justify-content: center;
     padding: 40px 20px;
-    background-color: #0d1113; /* Matches dark theme */
+    background-color: #1f2833; /* Matches dark theme */
 }
 .standalone-enquiry-wrapper .modal {
     display: block !important; /* Forces form to be visible outside backdrop */
@@ -1168,32 +1168,144 @@ details details summary {
 .form-field input:focus, .form-field select:focus { outline: 1px solid var(--gold); border-color: var(--gold); }
 .form-note { font-size: .72rem !important; margin: 14px 0 0 !important; }
 
-
 /* ══════════════════════════════════════════════════
-   18. FOOTER
+   OREXITY FOOTER STYLES
    ══════════════════════════════════════════════════ */
 
-.last-sec {
+.orexity-footer {
+    background-color: #1f2833; /* Dark charcoal matching the image */
+    color: #d1d5db; /* Light gray text */
+    font-family: 'DM Sans', 'Roboto', sans-serif;
+    padding-top: 4rem;
+    margin-top: 5rem;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem 3rem 2rem;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr; /* First column is slightly wider */
+    gap: 2rem;
+}
+
+/* ── Column 1: Brand ── */
+.footer-brand {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    gap: 1rem;
+}
+
+.footer-logo {
+    display: flex;
     align-items: center;
-    gap: 20px;
-    font-family: "Michroma", sans-serif;
-    font-weight: 400;
-    font-style: normal;
+    gap: 10px;
+    margin-bottom: 0.5rem;
+}
+
+.logo-diamond {
+    width: 14px;
+    height: 14px;
+    background-color: #ffffff; /* Gold diamond */
+    transform: rotate(45deg);
+    display: inline-block;
+}
+
+.logo-text {
+    font-family: "BoomBox", sans-serif;
+    font-size: 1.25rem;
     color: #ffd000;
-    background-color: #0B0c10;
-    margin-top: 30px;
-    padding: 20px;
 }
 
-.telphone {
-    border-right: 2px solid #fff;
+.footer-desc {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #9ca3af;
+    margin: 0;
 }
 
-.burger-toggle {
-    display: none;
+.footer-address {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #9ca3af;
+    max-width: 320px;
+    margin: 0;
+}
+
+/* ── Columns 2 & 3: Links ── */
+.footer-heading {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    margin-top: 0;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+.footer-links li a {
+    color: #d1d5db;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-links li a:hover {
+    color: #ffd000; /* Gold hover effect */
+}
+
+/* ── Bottom Bar ── */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1.5rem 0;
+}
+
+.footer-bottom-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.copyright, 
+.disclaimer {
+    font-size: 0.85rem;
+    color: #6b7280; /* Muted text */
+    margin: 0;
+}
+
+/* ══════════════════════════════════════════════════
+   RESPONSIVE FOOTER (Mobile)
+   ══════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr; /* Stack columns on mobile */
+        gap: 2.5rem;
+    }
+
+    .footer-bottom-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+
+    .footer-address {
+        max-width: 100%;
+    }
 }
 
 
