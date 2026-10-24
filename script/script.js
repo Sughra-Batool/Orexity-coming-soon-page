@@ -58,57 +58,28 @@ if (burger && navBar && overlay) {
 
   overlay.addEventListener('click', () => setMenu(false));
 
-  // Close the menu when any nav link is clicked
   navBar.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => setMenu(false));
   });
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const searchInput = document.getElementById('project-search');
-    const viewSelect = document.getElementById('project-view');
-    const projectCards = document.querySelectorAll('.project-card');
-    const projectCount = document.getElementById('project-count');
-    const grid = document.getElementById('portfolio-grid');
 
-    // Empty message logic
-    const emptyMsg = document.createElement('div');
-    emptyMsg.className = 'project-empty';
-    emptyMsg.textContent = 'No projects match your search.';
-    emptyMsg.style.display = 'none';
-    grid.appendChild(emptyMsg);
-
-    function filterProjects() {
-        const searchTerm = searchInput.value.toLowerCase().trim();
-        const viewFilter = viewSelect.value;
-        let visibleCount = 0;
-
-        projectCards.forEach(card => {
-            // 1. Check Search by Name
-            const projectName = card.querySelector('.first-heading').textContent.toLowerCase();
-            const matchesSearch = projectName.includes(searchTerm);
-            
-            // 2. Check Status using the data attribute instead of text
-            const statusEl = card.querySelector('.second-heading');
-            const cardStatus = statusEl ? statusEl.getAttribute('data-status') : 'development';
-            
-            // If the dropdown is "all", it matches. If it's "development", it checks the data attribute.
-            const matchesView = viewFilter === 'all' || cardStatus === viewFilter;
-
-            if (matchesSearch && matchesView) {
-                card.hidden = false;
-                visibleCount++;
-            } else {
-                card.hidden = true;
-            }
-        });
-
-        projectCount.textContent = visibleCount + (visibleCount === 1 ? ' project profile' : ' project profiles');
-        emptyMsg.style.display = visibleCount === 0 ? 'block' : 'none';
-    }
-
-    if (searchInput && viewSelect) {
-        searchInput.addEventListener('input', filterProjects);
-        viewSelect.addEventListener('change', filterProjects);
-    }
-});
+/* ══════════════════════════════════════════════════
+   PROJECT CARDS — reveal on scroll
+   ══════════════════════════════════════════════════ */
+(() => {
+  const cards = document.querySelectorAll('.project-card');
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    cards.forEach(card => observer.observe(card));
+  } else {
+    cards.forEach(card => card.classList.add('is-visible'));
+  }
+})();

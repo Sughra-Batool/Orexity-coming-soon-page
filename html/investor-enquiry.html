@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investor Enquiry - OREXITY</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Michroma&display=swap" rel="stylesheet">
+    <script src="../script/investor-form.js" defer></script>
+</head>
+<body>
+
+    <div class="standalone-enquiry-wrapper">
+        
+        <div class="back-link">
+            <a href="index.html">&larr; Back to website</a>
+        </div>
+
+        <!-- Removed the modal-backdrop div, directly using .modal -->
+        <div class="modal" id="requestModal" role="dialog" aria-labelledby="modalTitle">
+            <div class="modal-top">
+                <div>
+                    <div class="eyebrow">Investor Enquiry</div>
+                    <h3 id="modalTitle">Request project information</h3>
+                </div>
+            </div>
+            
+            <p>Share your details below and our investment team will contact you regarding the selected project.</p>
+            
+            <form id="enquiryForm" novalidate>
+                <!-- Honeypot: hidden from users, visible to bots -->
+                <input type="text" id="website_url" name="website_url" tabindex="-1" autocomplete="off"
+                       style="position:absolute;left:-9999px;opacity:0;height:0;width:0;" aria-hidden="true">
+
+                <label class="form-field">Project
+                    <select id="projectSelect" name="project" required>
+                        <option>MARKHOR 1</option>
+                        <option>MARKHOR 2</option>
+                        <option>Ketu 1</option>
+                        <option>Rakaposhi 1</option>
+                    </select>
+                </label>
+                
+                <label class="form-field">Full name*
+                    <input name="name" autocomplete="name" required placeholder="Your full name">
+                </label>
+                
+                <label class="form-field">Business email*
+                    <input name="email" type="email" autocomplete="email" required placeholder="you@company.com">
+                </label>
+                
+                <label class="form-field">Company / organisation*
+                    <input name="company" autocomplete="organization" required placeholder="Company name">
+                </label>
+                
+                <button class="cta" type="submit">Send Enquiry <span aria-hidden="true">↗</span></button>
+                
+                <p class="form-note" id="formMessage" aria-live="polite"></p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
