@@ -1623,13 +1623,14 @@ details details summary {
   font-size: .72rem !important;
   margin: 14px 0 0 !important;
 }
+
 /* ══════════════════════════════════════════════════
    OREXITY FOOTER STYLES
    ══════════════════════════════════════════════════ */
 
 .orexity-footer {
-    background-color: #1f2833; /* Dark charcoal matching the image */
-    color: #d1d5db; /* Light gray text */
+    background-color: #1f2833; 
+    color: #d1d5db; 
     font-family: 'DM Sans', 'Roboto', sans-serif;
     padding-top: 4rem;
     margin-top: 5rem;
@@ -1640,7 +1641,7 @@ details details summary {
     margin: 0 auto;
     padding: 0 2rem 3rem 2rem;
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr; /* First column is slightly wider */
+    grid-template-columns: 1.5fr 1fr 1fr; 
     gap: 2rem;
 }
 
@@ -1661,7 +1662,7 @@ details details summary {
 .logo-diamond {
     width: 14px;
     height: 14px;
-    background-color: #ffffff; /* Gold diamond */
+    background-color: #ffffff; 
     transform: rotate(45deg);
     display: inline-block;
 }
@@ -1687,7 +1688,7 @@ details details summary {
     margin: 0;
 }
 
-/* ── Columns 2 & 3: Links ── */
+/* ── Columns 2 & 3: Links (Desktop Layout) ── */
 .footer-heading {
     font-family: 'DM Sans', sans-serif;
     font-size: 1rem;
@@ -1695,6 +1696,25 @@ details details summary {
     color: #ffffff;
     margin-bottom: 1.5rem;
     margin-top: 0;
+    
+    /* Button Reset */
+    background: transparent;
+    border: none;
+    padding: 0;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    pointer-events: none; /* Disables clicking on desktop */
+}
+
+.accordion-icon {
+    display: none; /* Hidden on desktop */
+}
+
+.accordion-content {
+    display: block; /* Always open on desktop */
 }
 
 .footer-links {
@@ -1716,7 +1736,7 @@ details details summary {
 }
 
 .footer-links li a:hover {
-    color: #ffd000; /* Gold hover effect */
+    color: #ffd000;
 }
 
 /* ── Bottom Bar ── */
@@ -1739,7 +1759,7 @@ details details summary {
 .copyright, 
 .disclaimer {
     font-size: 0.85rem;
-    color: #6b7280; /* Muted text */
+    color: #6b7280;
     margin: 0;
 }
 
@@ -1748,7 +1768,7 @@ details details summary {
    ══════════════════════════════════════════════════ */
 @media (max-width: 768px) {
     .footer-container {
-        grid-template-columns: 1fr; /* Stack columns on mobile */
+        display: flex;
         gap: 2.5rem;
     }
 
@@ -1990,7 +2010,73 @@ details details summary {
   .standalone-enquiry-wrapper .modal { padding: 20px; border-radius: 8px; }
   .modal h3 { font-size: 1.3rem; }
 
+
+      /* ── Footer Mobile Accordion ──────────────────────── */
+      .orexity-footer {
+        padding-top: 1.5rem;
+        padding-bottom: 1rem;
+      }
+    .footer-container {
+        display: grid; /* Override the previous flex layout */
+        grid-template-columns: 3fr 1fr 1fr;
+        gap: 0.5rem;
+        padding: 0.5rem 0.5rem 0.5rem 1rem;
+    }
+
+    .footer-brand {
+        margin-right: 2rem;
+    }
+    .footer-heading {
+        pointer-events: auto; /* Allow clicking on mobile */
+        cursor: pointer;
+        margin-bottom: 0;
+        padding-bottom: 0.5rem;
+        width: 70%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .accordion-icon {
+        display: inline-block;
+        font-size: 1.25rem;
+        font-weight: 400;
+        transition: transform 0.3s ease;
+    }
+
+    /* Rotate the + to an x when open */
+    .footer-heading[aria-expanded="true"] .accordion-icon {
+        transform: rotate(45deg);
+    }
+
+    /* Smooth expand/collapse animation */
+    .accordion-content {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 0.3s ease;
+        margin-top: 0;
+    }
+
+    .accordion-content > ul {
+        overflow: hidden;
+    }
+
+    .footer-heading[aria-expanded="true"] + .accordion-content {
+        grid-template-rows: 1fr;
+        margin-top: 1rem;
+    }
+
+    .footer-bottom-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+
+    .footer-address {
+        max-width: 100%;
+    }
+
 }
+
+
 
 /* ══════════════════════════════════════════════════════════════
    EXTRA SMALL SCREENS — max-width: 480px

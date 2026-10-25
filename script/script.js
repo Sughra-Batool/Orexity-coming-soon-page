@@ -83,3 +83,21 @@ if (burger && navBar && overlay) {
     cards.forEach(card => card.classList.add('is-visible'));
   }
 })();
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const accordionButtons = document.querySelectorAll(".accordion-btn");
+
+  accordionButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      // Ensure this only runs on mobile screens
+      if (window.innerWidth <= 768) {
+        const isExpanded = btn.getAttribute("aria-expanded") === "true";
+        
+        // Toggle the current button
+        btn.setAttribute("aria-expanded", !isExpanded);
+      }
+    });
+  });
+});
