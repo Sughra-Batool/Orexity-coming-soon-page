@@ -115,7 +115,7 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    padding: 1rem 0.25rem 1rem 0.25rem;
+    padding: 1rem 0.25rem 0.25rem 0.25rem;
     width: 100%;
     background-color: #fff;
     z-index: 1000;
@@ -137,7 +137,7 @@ header.scrolled {
 }
 
 .logo {
-    width: 30vw;
+    width: 20vw;
     height: auto;
     padding-left: 1rem;
 }
@@ -146,10 +146,11 @@ header.scrolled {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 1rem;
-    font-size: 1.15rem;
+    gap: 0.25rem;
+    font-size: 0.95rem;
+    font-weight: bold;
     padding-right: 0.5rem;
-    padding-left: 17rem;
+    padding-left: 5rem;
 }
 
 .nav-bar > a {
@@ -167,6 +168,14 @@ header.scrolled {
   color: #ffd000;
 }
 
+/* Hide mobile elements on desktop */
+.burger-toggle {
+    display: none;
+}
+
+.nav-overlay {
+    display: none;
+}
 
 /* ══════════════════════════════════════════════════
    5. BANNER
@@ -178,7 +187,7 @@ header.scrolled {
     justify-content: center;
     align-items: center;
     gap: 4rem;
-    margin-top: 1rem;
+    margin-top: 0.25rem;
     padding: 2rem 0.02rem;
     height: 22rem;
     background-color: #1f2833;
@@ -1632,14 +1641,14 @@ details details summary {
     background-color: #1f2833; 
     color: #d1d5db; 
     font-family: 'DM Sans', 'Roboto', sans-serif;
-    padding-top: 4rem;
+    padding-top: 2rem;
     margin-top: 5rem;
 }
 
 .footer-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem 3rem 2rem;
+    padding: 0 2rem 1rem 2rem;
     display: grid;
     grid-template-columns: 1.5fr 1fr 1fr; 
     gap: 2rem;
@@ -1694,7 +1703,7 @@ details details summary {
     font-size: 1rem;
     font-weight: 600;
     color: #ffffff;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     margin-top: 0;
     
     /* Button Reset */
@@ -1723,13 +1732,13 @@ details details summary {
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.9rem;
+    gap: 0.25rem;
 }
 
 .footer-links li a {
     color: #d1d5db;
     text-decoration: none;
-    font-size: 0.95rem;
+    font-size: 0.75rem;
     transition: color 0.2s ease;
     margin: 0;
     padding: 0;
