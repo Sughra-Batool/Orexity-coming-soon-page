@@ -59,7 +59,7 @@
     --white: #FFFFFF;
     --gray-50: #F9FAFB;
     --gray-100: #F3F4F6;
-    --gray-200: #E5E7EB;
+    --gray-200: #E5E7E7;
     --gray-500: #6B7280;
     --black: #202020;
 
@@ -180,13 +180,13 @@ h4 { font-size: 1rem; }
     margin-bottom: 0.5rem;
 }
 
-.eyebrow::before {
+/*.eyebrow::before {
     content: "";
     width: 26px;
     height: 1px;
     background: var(--copper);
     flex-shrink: 0;
-}
+}*/
 
 .lead {
     font-size: clamp(1rem, 1.6vw, 1.15rem);
@@ -276,6 +276,10 @@ h4 { font-size: 1rem; }
     justify-content: space-between;
 }
 
+.nav-right {
+    display: flex;
+}
+
 .brand {
     display: flex;
     align-items: center;
@@ -299,7 +303,7 @@ h4 { font-size: 1rem; }
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1rem;
     font-size: 0.9rem;
     font-weight: 500;
     padding-right: 0.5rem;
@@ -308,12 +312,10 @@ h4 { font-size: 1rem; }
 
 .nav > a {
     padding-right: 0.5rem;
-    border-right: 2px solid #0b0c10;
     text-decoration: none;
     color: #0b0c10;
 }
 
-.nav > a:last-child { border-right: none; }
 .nav > a:hover       { color: #ffd000; }
 
 .header-cta {
@@ -627,7 +629,17 @@ details p {
 /* ──────────────────────────────────────────────────────────────
    12. KEY TAKEAWAYS & MISC
    ────────────────────────────────────────────────────────────── */
-.key-takeaways {
+    .faq-list { border-top: 1px solid var(--line); }
+    #faq .eyebrow {
+        color: var(--muted);
+        font-size:1.05rem ;
+    }
+    #faq .eyebrow::before { content: ""; width: 23px; height: 3px; background: var(--gold); }
+    .faq-h2 {
+        margin-bottom: 0.65rem;
+    }
+
+/*.key-takeaways {
     background: var(--gray-50);
     border-left: 4px solid var(--gold);
     padding: 1.25rem 1.5rem;
@@ -669,7 +681,7 @@ details p {
     font-family: 'Bree Serif';
     font-size: 1.25rem;
     color: var(--gray-500);
-}
+}*/
 
 /* Inline "Private-sector chain" box */
 .value-chain-box {
@@ -704,21 +716,21 @@ main > .hero { padding-block: 0; }
     align-content: center;
     gap: 0.5rem;
     padding: 4rem 4rem 1.5rem 6rem;
+    margin-block-end: 4rem;
     background-color: var(--black);
     color: var(--white);
 }
 
 .banner > .eyebrow {
     grid-column: 1 / -1;
-    text-decoration: underline;
-    text-underline-offset: 1rem;
 }
 
 .banner > #hero-heading {
     border-right: 2px solid var(--gray-200);
-    font-family: 'Subway Novella';
-    font-size: 4.5rem;
+    font-family: 'Bree Serif';
+    font-size: 4rem;
     font-weight: normal;
+    align-content: center;
 }
 
 .banner > .banner-text {
@@ -730,10 +742,13 @@ main > .hero { padding-block: 0; }
 
 .banner h3 {
     font-weight: normal;
-    font-size: 1.25rem;
+    font-size: 1.15rem;
 }
 
-.banner p { text-align: justify; }
+.banner p { 
+    text-align: justify;
+    font-size: 0.85rem;
+ }
 
 .banner > .bottom-tag {
     grid-column: 1 / -1;
@@ -779,7 +794,10 @@ main > .hero { padding-block: 0; }
 /* ──────────────────────────────────────────────────────────────
    15. ADVISORY & TECHNICAL SECTION HELPERS
    ────────────────────────────────────────────────────────────── */
-.sequence-block {
+#advisory {
+    margin-top: 4rem;
+}
+   .sequence-block {
     margin-top: 3rem;
 }
 
@@ -892,9 +910,13 @@ main > .hero { padding-block: 0; }
 .projects-cta-block h3 { margin-bottom: 0.75rem; }
 .projects-cta-block p {
     color: var(--gray-500);
-    max-width: 65ch;
+    max-width: 70ch;
     margin-inline: auto;
     font-size: 0.95rem;
+}
+
+.projects-cta-block p {
+    text-align: justify;
 }
 .projects-cta-block .btn { margin-top: 1.5rem; }
 
@@ -1308,7 +1330,22 @@ main > .hero { padding-block: 0; }
 /* ──────────────────────────────────────────────────────────────
    19. FOOTER
    ────────────────────────────────────────────────────────────── */
-.orexity-footer {
+
+   .site-footer { padding: 2.5rem 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
+    .footer-row { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .footer-links a { color: var(--muted); }
+    .small {
+        font-size: .88rem; 
+        color: var(--muted);
+        margin-top:.8rem;
+    }
+
+    .footer-brand>img {
+        width: 12vw;
+    }
+
+/*.orexity-footer {
     background-color: #1f2833;
     color: #d1d5db;
     font-family: 'DM Sans', 'Roboto', sans-serif;
@@ -1368,7 +1405,7 @@ main > .hero { padding-block: 0; }
 }
 
 /* Footer column headings */
-.footer-heading {
+/*.footer-heading {
     font-family: 'DM Sans', sans-serif;
     font-size: 1rem;
     font-weight: 600;
@@ -1384,27 +1421,26 @@ main > .hero { padding-block: 0; }
     align-items: center;
     width: 100%;
     pointer-events: none; /* Desktop: no click */
-}
+/*}
 
 .accordion-icon {
     display: none; /* Desktop */
-}
+/*}
 
 .accordion-content {
     display: block; /* Desktop: always open */
-}
+/*}*/
 
 .footer-links {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
+    gap: 1.5rem;
 }
 
 .footer-links li a {
-    color: #d1d5db;
+    color: var(--gray-200);
     text-decoration: none;
     font-size: 0.75rem;
     transition: color 0.2s ease;
@@ -1412,7 +1448,10 @@ main > .hero { padding-block: 0; }
     padding: 0;
 }
 
-.footer-links li a:hover { color: #ffd000; }
+.footer-links a:hover { 
+    color: #ffd000;
+    font-weight: bold;
+ }
 
 /* Bottom bar */
 .footer-bottom {

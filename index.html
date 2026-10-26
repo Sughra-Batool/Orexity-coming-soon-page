@@ -46,12 +46,14 @@
       <a href="index.html" class="brand" aria-label="OREXITY home">
         <img src="images/logo.svg" alt="Orexity" class="logo">
       </a>
-      <nav class="nav" aria-label="Main navigation">
-        <a href="#advisory" class="active">Investment Advisory</a>
-        <a href="#technical">Technical Intelligence</a>
-        <a href="#projects">Projects portfolio</a>
-      </nav>
-      <a href="#contact" class="btn btn-primary header-cta">Discuss an Opportunity</a>
+      <div class="nav-right">
+        <nav class="nav" aria-label="Main navigation">
+          <a href="#advisory" class="active">Investment Advisory</a>
+          <a href="#technical">Technical Intelligence</a>
+          <a href="#projects">Projects portfolio</a>
+        </nav>
+        <a href="#contact" class="btn btn-primary header-cta">Discuss an Opportunity</a>
+      </div>
     </div>
   </header>
 
@@ -62,7 +64,7 @@
       <div class="container">
         <div class="banner">
           <p class="eyebrow">Clarity Before Capital | Structure Before Scale</p>
-          <h1 id="hero-heading">Pakistan's Mineral Investment Gateway</h1>
+          <h1 id="hero-heading">Pakistan's Mineral Investment <br> Gateway</h1>
           <div class="banner-text">
             <h3 class="hero-subheading">OREXITY | Mineral Investment &amp; Advisory Pakistan</h3>
             <p class="lead">
@@ -75,10 +77,10 @@
             <a href="#projects" class="btn btn-outline">View Projects Portfolio</a>
           </div>
         </div>
-
+      
         <!-- Quick Answer / Key Takeaways (AEO) -->
-        <div class="key-takeaways">
-          <h2>Quick Answer — What OREXITY Does</h2>
+        <!--<div class="key-takeaways">
+          <h2>Quick Answer — What OREXITY Does?</h2>
           <ul>
             <li>Provides structured mineral investment advisory and due diligence for projects in Pakistan.</li>
             <li>Combines investment intelligence, risk assessment, commercial analysis and investment facilitation.</li>
@@ -88,7 +90,22 @@
           </ul>
         </div>
         <p class="faq-p">Disciplined Mineral Investment, Risk-Based Due Diligence, and Internationally Aligned Technical Intelligence for Pakistan’s Mineral Opportunities.</p>
+      </div>-->
+      <div id="faq">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Frequently asked questions</p>
+          <h2 class="faq-h2">What should investors know?</h2>
+        </div>
+        <div class="faq-list">
+          <details><summary>What does OREXITY do?</summary><p>OREXITY provides mineral investment advisory and project assessment support, including opportunity screening, due diligence coordination, investment structuring, financial and commercial analysis, investor readiness and engagement.</p></details>
+          <details><summary>What technical services are described?</summary><p>The source describes geological exploration and targeting, geochemical and geophysical surveys, drilling and sampling programme support, technical intelligence and modelling, exploration data management and QA/QC, environmental baseline and field HSE, and technical integration and reporting.</p></details>
+          <details><summary>Where is the projects portfolio focused?</summary><p>The source identifies mineral opportunities associated with Gilgit-Baltistan, Pakistan, and names Markhor 1, Markhor 2, Rakaposhi 1 and Ketu 1.</p></details>
+          <details><summary>Does OREXITY guarantee mineral discovery or investment returns?</summary><p>No. The source expressly states that OREXITY does not guarantee mineral discovery, resource classification, regulatory approvals, investment returns or transaction completion.</p></details>
+          <details><summary>When do service scope, deliverables and fees become binding?</summary><p>The source states that scope, deliverables, fees, payment terms, responsibilities, rights, obligations and other conditions are defined in the relevant written engagement or other duly executed contractual instrument, as applicable.</p></details>
+        </div>
       </div>
+    </div>
     </section>
 
     <!-- ===== ADVISORY SERVICES ===== -->
@@ -287,7 +304,7 @@
             <p class="eyebrow">Projects Portfolio</p>
             <h2 id="projects-heading">A Portfolio of Mineral Opportunities in Gilgit-Baltistan</h2>
             <p class="lead lead-projects">
-              OREXITY’s project portfolio focuses on mineral opportunities associated with Gilgit-Baltistan, Pakistan. Each opportunity should be assessed on its own tenure position, available technical evidence, access and logistics, stakeholder context, work-program requirements and investment structure.
+              OREXITY's project portfolio focuses on mineral opportunities associated with Gilgit-Baltistan, Pakistan. Each opportunity should be assessed on its own tenure position, available technical evidence, access and logistics, stakeholder context, work-program requirements and investment structure.
             </p>
             <p class="projects-note">
               Project information is shared according to its availability, verification status and applicable confidentiality requirements. Technical claims, license details, resource figures, project stage and investment terms should be published only after the relevant information has been confirmed.
@@ -487,13 +504,13 @@
               </article>
             </section>
 
-            <p class="footnote">
+            <!--<p class="footnote">
               <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                 <circle cx="8" cy="8" r="6.2" stroke="currentColor" stroke-width="1.2"/>
                 <path d="M8 7v4M8 4.7h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
               </svg>
               Project phases, funding figures, equity offers and legal due-diligence statuses are presented as supplied and should be confirmed through formal project documentation and independent due diligence. “Verified” is a supplied status, not an independent certification by this page.
-            </p>
+            </p>-->
           </div>
 
           <div class="projects-cta-block">
@@ -560,21 +577,42 @@
   </main>
 
   <!-- ===== FOOTER ===== -->
-  <footer class="orexity-footer">
-    <div class="footer-container">
+   <footer class="site-footer">
+    <div class="container footer-row">
+      <div>
+        <a href="index.html" class="footer-brand" aria-label="OREXITY home">
+        <img src="images/logo.svg" alt="Orexity" class="logo">
+        </a>
+        <p class="small">
+          Mineral Investment &amp; Advisory · Pakistan
+        </p>
+      </div>
+      <div class="footer-links">
+        <a href="#advisory">Investment Advisory</a>
+        <a href="#technical">Technical Intelligence</a>
+        <a href="#projects">Projects</a>
+        <a href="#disclaimer">Disclaimer &amp; Terms</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <p class="small">Website content is informational and subject to the terms above and applicable written agreements.</p>
+    </div>
+  </footer>
+
+  <!--<footer class="orexity-footer">
+    <div class="footer-container">-->
 
       <!-- Column 1: Brand & Info -->
-      <div class="footer-col footer-brand">
+      <!--<div class="footer-col footer-brand">
         <div class="footer-logo">
           <span class="logo-diamond"></span>
           <span class="logo-text">OREXITY</span>
         </div>
         <p class="footer-desc">Mineral Investment &amp; Advisory Platform</p>
         <p class="footer-address">Business Office: Maple Hotel, Astana, Airport Road, Skardu, Pakistan</p>
-      </div>
+      </div>-->
 
       <!-- Column 2: Navigate -->
-      <div class="footer-col">
+      <!--<div class="footer-col">
         <button class="footer-heading accordion-btn" aria-expanded="false">
           Navigate
           <span class="accordion-icon" aria-hidden="true">+</span>
@@ -586,10 +624,10 @@
             <li><a href="#projects">Project Portfolio</a></li>
           </ul>
         </div>
-      </div>
+      </div>-->
 
       <!-- Column 3: Engage -->
-      <div class="footer-col">
+      <!--<div class="footer-col">
         <button class="footer-heading accordion-btn" aria-expanded="false">
           Engage
           <span class="accordion-icon" aria-hidden="true">+</span>
@@ -602,16 +640,16 @@
         </div>
       </div>
 
-    </div>
+    </div>-->
 
     <!-- Bottom Bar -->
-    <div class="footer-bottom">
+    <!--<div class="footer-bottom">
       <div class="footer-bottom-container">
         <p class="copyright">&copy; 2025 OREXITY. All rights reserved. Target URL: <a href="https://www.orexity.com">www.orexity.com</a></p>
         <p class="disclaimer"><a href="#disclaimer">Disclaimer</a> · <a href="#advisory">Advisory</a></p>
       </div>
     </div>
-  </footer>
+  </footer>-->
 
 </body>
 </html>
