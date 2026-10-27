@@ -629,6 +629,9 @@ details p {
 /* ──────────────────────────────────────────────────────────────
    12. KEY TAKEAWAYS & MISC
    ────────────────────────────────────────────────────────────── */
+   #faq {
+    margin-top: 4rem;
+   }
     .faq-list { border-top: 1px solid var(--line); }
     #faq .eyebrow {
         color: var(--muted);
@@ -639,7 +642,7 @@ details p {
         margin-bottom: 0.65rem;
     }
 
-/*.key-takeaways {
+.key-takeaways {
     background: var(--gray-50);
     border-left: 4px solid var(--gold);
     padding: 1.25rem 1.5rem;
@@ -681,7 +684,7 @@ details p {
     font-family: 'Bree Serif';
     font-size: 1.25rem;
     color: var(--gray-500);
-}*/
+}
 
 /* Inline "Private-sector chain" box */
 .value-chain-box {
