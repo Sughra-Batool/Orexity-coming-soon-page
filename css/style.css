@@ -749,7 +749,6 @@ main > .hero { padding-block: 0; }
 
 .eyebrow> .first-eyebrow {
     border-right: 1px solid var(--gray-200);
-    padding-right: 1.5rem;
 }
 
 .banner > #hero-heading {
