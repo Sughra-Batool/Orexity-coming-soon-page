@@ -737,6 +737,11 @@ main > .hero { padding-block: 0; }
     grid-column: 1 / -1;
 }
 
+.eyebrow> .first-eyebrow {
+    border-right: 1px solid var(--gold);
+    padding-right: 1.5rem;
+}
+
 .banner > #hero-heading {
     border-right: 2px solid var(--gray-200);
     font-family: 'Bree Serif';
@@ -1599,12 +1604,16 @@ main > .hero { padding-block: 0; }
 @media (max-width: 768px) {
     /* --- Header: Center logo, position burger to the right --- */
     .header-inner {
-        justify-content: center; 
+        justify-content: space-between; 
         align-items: center;
         min-height: 70px; /* Gives enough height for the absolute burger */
         padding-block: 0.5rem;
     }
 
+    img {
+        max-width: 80%;
+        display: block;
+    }
     .brand {
         width: auto;
         height: 60px;
@@ -1712,16 +1721,44 @@ main > .hero { padding-block: 0; }
         font-size: 2.5rem;
     }
 
-    .banner > .eyebrow { text-underline-offset: 0.5rem; }
+    .banner > .eyebrow { 
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        text-underline-offset: 0.5rem;
+     }
+    
+    .eyebrow > .first-eyebrow { 
+        border-right: none;
+        text-decoration: underline;
+        text-underline-offset: 0.5rem;
+     }
+    .hero p {
+        text-align: left;
+    }
+
+    .banner-text> .lead {
+        text-align: justify;
+    }
 
     /* --- Key takeaways: reduce generous margins --- */
     .key-takeaways {
         margin: 2rem 1rem 1rem;
     }
 
+    #advisory {
+        margin-top: 0;
+    }
+
+    .key-takeaways li {
+        text-align: justify;
+    }
+
     .faq-p {
         padding: 0.25rem 1rem 2rem;
+        text-align: justify;
     }
+    
 
     /* --- Footer: stack columns & enable mobile accordion --- */
     .footer-container {
@@ -1762,6 +1799,18 @@ main > .hero { padding-block: 0; }
     .dark-project .grid,
     .body .grid {
         grid-template-columns: 1fr;
+    }
+
+    .footer-links {
+        gap: 0.5rem;
+    }
+
+    .footer-links li a {
+        font-size: 0.65rem;
+    }
+
+    .footer-row { 
+        gap: 0.25rem; 
     }
 }
 
