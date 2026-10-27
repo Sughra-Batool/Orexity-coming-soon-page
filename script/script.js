@@ -239,3 +239,41 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const burgerToggle = document.querySelector('.burger-toggle');
+    const navMenu = document.querySelector('.nav'); // Targets your <nav class="nav">
+    const navOverlay = document.querySelector('.nav-overlay');
+    const navLinks = document.querySelectorAll('.nav a');
+
+    if (burgerToggle && navMenu && navOverlay) {
+        // 1. Toggle menu on burger click
+        burgerToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('mobile-open');
+            navOverlay.classList.toggle('active');
+            burgerToggle.classList.toggle('active');
+            
+            // Accessibility: update aria-expanded
+            const isExpanded = burgerToggle.getAttribute('aria-expanded') === 'true';
+            burgerToggle.setAttribute('aria-expanded', !isExpanded);
+        });
+
+        // 2. Close menu when clicking the dark overlay background
+        navOverlay.addEventListener('click', () => {
+            navMenu.classList.remove('mobile-open');
+            navOverlay.classList.remove('active');
+            burgerToggle.classList.remove('active');
+            burgerToggle.setAttribute('aria-expanded', 'false');
+        });
+
+        // 3. Close menu when a link is clicked
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('mobile-open');
+                navOverlay.classList.remove('active');
+                burgerToggle.classList.remove('active');
+                burgerToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+    }
+});
