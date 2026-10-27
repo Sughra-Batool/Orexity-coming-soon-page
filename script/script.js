@@ -180,9 +180,12 @@ document.querySelectorAll('.collapse-item').forEach(parent => {
 /* ──────────────────────────────────────────────────────────────
    6. MOBILE NAV (guarded — only runs if elements exist)
    ────────────────────────────────────────────────────────────── */
+/* ──────────────────────────────────────────────────────────────
+   6. MOBILE NAV (burger drawer)
+   ────────────────────────────────────────────────────────────── */
 (function initMobileNav() {
     const burger  = document.querySelector('.burger-toggle');
-    const navBar  = document.querySelector('.nav-bar');
+    const navBar  = document.querySelector('.nav');          // ← was '.nav-bar'
     const overlay = document.querySelector('.nav-overlay');
     if (!burger || !navBar || !overlay) return;
 
@@ -191,14 +194,22 @@ document.querySelectorAll('.collapse-item').forEach(parent => {
         burger.classList.toggle('active', open);
         overlay.classList.toggle('active', open);
         burger.setAttribute('aria-expanded', String(open));
+        document.body.classList.toggle('nav-open', open);    // lock scroll
     };
 
-    burger.addEventListener('click', () => {
+    burger.addEventListener('click', (e) => {
+        e.stopPropagation();
         setMenu(!navBar.classList.contains('mobile-open'));
     });
+
     overlay.addEventListener('click', () => setMenu(false));
+
     navBar.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => setMenu(false));
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') setMenu(false);
     });
 })();
 

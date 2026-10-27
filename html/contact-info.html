@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OREXITY | Investor Qualification Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../script/contact-info.js"></script>
+</head>
+<body>
+
+    <main class="form-wrapper">
+
+        <!-- Header -->
+        <header class="header">
+            <div class="confidential">Confidential Investor Screening Document</div>
+            <img src="../images/logo.svg" alt="OREXITY" class="brand-logo">
+            <h2>Mineral Investment &amp; Advisory Platform</h2>
+            <p class="header-tagline">MINERAL SECTOR MARKET ENTRY | INVESTOR QUALIFICATION FORM</p>
+        </header>
+
+        <!-- Form -->
+        <form id="enquiryForm" class="form-body" method="post" action="#" enctype="multipart/form-data">
+
+            <!-- Anti-bot honeypot (hidden via CSS) -->
+            <div class="honeypot" aria-hidden="true">
+                <label for="website_url">Website</label>
+                <input type="text" id="website_url" name="website_url" tabindex="-1" autocomplete="off">
+            </div>
+
+            <!-- Section 1 -->
+            <section class="contact-section">
+                <h2 class="section-title">1. Corporate Identity &amp; Authority</h2>
+                <div class="form-grid">
+                    <div class="input-group full-width">
+                        <label for="companyLegalEntity">Company Legal Entity</label>
+                        <input type="text" id="companyLegalEntity" name="companyLegalEntity"
+                               class="input-line" placeholder="(NAME)" autocomplete="organization" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="ubo">Ultimate Beneficial Owner (UBO)</label>
+                        <input type="text" id="ubo" name="ubo" class="input-line" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="representative">Authorized Representative / Designation</label>
+                        <input type="text" id="representative" name="representative" class="input-line" required>
+                    </div>
+                    <div class="input-group full-width">
+                        <label for="contactNumber">Contact Number</label>
+                        <input type="tel" id="contactNumber" name="contactNumber"
+                               class="input-line" autocomplete="tel" required>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2 -->
+            <section class="contact-section">
+                <h2 class="section-title">2. Financial Capacity &amp; Funding</h2>
+                <div class="form-grid">
+                    <div class="input-group full-width">
+                        <label for="proposedInvestment">Proposed Investment</label>
+                        <input type="text" id="proposedInvestment" name="proposedInvestment"
+                               class="input-line" required>
+                    </div>
+                </div>
+
+                <div class="options-block options-block--top">
+                    <span class="options-label">Funding Source</span>
+                    <div class="options-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="fundingSource" value="Equity">
+                            <span class="custom-box"></span>
+                            <span>Equity</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="fundingSource" value="Debt">
+                            <span class="custom-box"></span>
+                            <span>Debt</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="fundingSource" value="Private Equity">
+                            <span class="custom-box"></span>
+                            <span>Private Equity</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="fundingSource" value="Strategic Partner">
+                            <span class="custom-box"></span>
+                            <span>Strategic Partner</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="fundingSource" value="Other">
+                            <span class="custom-box"></span>
+                            <span>Other</span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3 -->
+            <section class="contact-section">
+                <h2 class="section-title">3. Technical Competence &amp; Track Record</h2>
+
+                <div class="options-block">
+                    <span class="options-label">Commodity Focus</span>
+                    <div class="options-group">
+                        <label class="checkbox-label"><input type="checkbox" name="commodityFocus" value="Copper"><span class="custom-box"></span><span>Copper</span></label>
+                        <label class="checkbox-label"><input type="checkbox" name="commodityFocus" value="Gold"><span class="custom-box"></span><span>Gold</span></label>
+                        <label class="checkbox-label"><input type="checkbox" name="commodityFocus" value="Lithium"><span class="custom-box"></span><span>Lithium</span></label>
+                        <label class="checkbox-label"><input type="checkbox" name="commodityFocus" value="Critical Minerals"><span class="custom-box"></span><span>Critical Minerals</span></label>
+                        <label class="checkbox-label"><input type="checkbox" name="commodityFocus" value="Gemstones"><span class="custom-box"></span><span>Gemstones</span></label>
+                        <label class="checkbox-label"><input type="checkbox" name="commodityFocus" value="Any/All"><span class="custom-box"></span><span>Any/All</span></label>
+                    </div>
+                </div>
+
+                <div class="options-block">
+                    <span class="options-label">Experience Stage</span>
+                    <div class="options-group">
+                        <label class="checkbox-label"><input type="checkbox" name="experienceStage" value="Exploration"><span class="custom-box"></span><span>Exploration</span></label>
+                        <label class="checkbox-label"><input type="checkbox" name="experienceStage" value="Resource Definition"><span class="custom-box"></span><span>Resource Definition</span></label>
+                        <label class="checkbox-label"><input type="checkbox" name="experienceStage" value="Feasibility"><span class="custom-box"></span><span>Feasibility</span></label>
+                        <label class="checkbox-label"><input type="checkbox" name="experienceStage" value="Mine Development"><span class="custom-box"></span><span>Mine Development</span></label>
+                        <label class="checkbox-label"><input type="checkbox" name="experienceStage" value="Production"><span class="custom-box"></span><span>Production</span></label>
+                        <label class="checkbox-label"><input type="checkbox" name="experienceStage" value="Processing"><span class="custom-box"></span><span>Processing</span></label>
+                    </div>
+                </div>
+
+                <div class="options-block">
+                    <span class="options-label">Role</span>
+                    <div class="options-group">
+                        <label class="checkbox-label"><input type="checkbox" name="role" value="Investor"><span class="custom-box"></span><span>Investor</span></label>
+                        <label class="checkbox-label"><input type="checkbox" name="role" value="Operator"><span class="custom-box"></span><span>Operator</span></label>
+                        <label class="checkbox-label"><input type="checkbox" name="role" value="Technical Partner"><span class="custom-box"></span><span>Technical Partner</span></label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4 -->
+            <section class="contact-section">
+                <h2 class="section-title">4. Strategic Fit &amp; Market Entry</h2>
+
+                <div class="options-block">
+                    <span class="options-label">Target Stage</span>
+                    <div class="options-group">
+                        <label class="checkbox-label"><input type="checkbox" name="targetStage" value="Pre-Exploration"><span class="custom-box"></span><span>Pre-Exploration</span></label>
+                        <label class="checkbox-label"><input type="checkbox" name="targetStage" value="Primary Exploration"><span class="custom-box"></span><span>Primary Exploration</span></label>
+                        <label class="checkbox-label"><input type="checkbox" name="targetStage" value="Prospect Development"><span class="custom-box"></span><span>Prospect Development</span></label>
+                        <label class="checkbox-label"><input type="checkbox" name="targetStage" value="Resource Delineation"><span class="custom-box"></span><span>Resource Delineation</span></label>
+                    </div>
+                </div>
+
+                <div class="options-block">
+                    <span class="options-label">Proposed Structure</span>
+                    <div class="options-group">
+                        <label class="checkbox-label"><input type="checkbox" name="proposedStructure" value="Joint Venture"><span class="custom-box"></span><span>Joint Venture</span></label>
+                        <label class="checkbox-label"><input type="checkbox" name="proposedStructure" value="Equity"><span class="custom-box"></span><span>Equity</span></label>
+                        <label class="checkbox-label"><input type="checkbox" name="proposedStructure" value="Acquisition"><span class="custom-box"></span><span>Acquisition</span></label>
+                        <label class="checkbox-label"><input type="checkbox" name="proposedStructure" value="Project Finance"><span class="custom-box"></span><span>Project Finance</span></label>
+                        <label class="checkbox-label"><input type="checkbox" name="proposedStructure" value="Partnership"><span class="custom-box"></span><span>Partnership</span></label>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="input-group">
+                        <label for="proposedOwnership">Proposed Ownership (%)</label>
+                        <input type="text" id="proposedOwnership" name="proposedOwnership" class="input-line" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="investmentTimeline">Investment Timeline</label>
+                        <input type="text" id="investmentTimeline" name="investmentTimeline" class="input-line" required>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5 -->
+            <section class="contact-section">
+                <h2 class="section-title">5. Supporting Documents</h2>
+                                <!-- ... existing checkboxes ... -->
+                <div class="options-group">
+                    <label class="checkbox-label"><input type="checkbox" name="supportingDocuments" value="Incorporation &amp; UBO Records"><span class="custom-box"></span><span>Incorporation &amp; UBO Records</span></label>
+                    <label class="checkbox-label"><input type="checkbox" name="supportingDocuments" value="Board Authorization"><span class="custom-box"></span><span>Board Authorization</span></label>
+                    <label class="checkbox-label"><input type="checkbox" name="supportingDocuments" value="Proof of Funds"><span class="custom-box"></span><span>Proof of Funds</span></label>
+                    <label class="checkbox-label"><input type="checkbox" name="supportingDocuments" value="Investment Proposal"><span class="custom-box"></span><span>Investment Proposal</span></label>
+                </div>
+
+                <!-- NEW: Document Upload Section -->
+                <div class="upload-container">
+                    <span class="options-label">Upload Supporting Documents (Max 15MB per file)</span>
+                    <div class="upload-box">
+                        <input type="file" id="documentUpload" name="documentUpload" class="file-input" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" multiple>
+                        <label for="documentUpload" class="upload-btn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                            Choose Files
+                        </label>
+                        <span class="file-name" id="fileNameDisplay">No files chosen</span>
+                    </div>
+                    <div class="upload-error" id="uploadError"></div>
+                </div>
+            </section>
+
+            <!-- Declaration -->
+            <div class="declaration-block">
+                <h2 class="section-title section-title--plain">Investor Declaration</h2>
+                <p>I confirm that the information provided is accurate to the best of my knowledge and authorize reasonable verification, subject to applicable law and confidentiality arrangements.</p>
+
+                <label class="checkbox-label declaration-confirm">
+                    <input type="checkbox" id="declarationConfirm" name="declarationConfirm" value="Yes" required>
+                    <span class="custom-box"></span>
+                    <span class="confirm-text">Yes, I confirm</span>
+                </label>
+
+                <div class="signature-area">
+                    <div class="input-group">
+                        <label for="signatoryName">Name</label>
+                        <input type="text" id="signatoryName" name="signatoryName" class="input-line" autocomplete="name" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="signatoryDesignation">Designation</label>
+                        <input type="text" id="signatoryDesignation" name="signatoryDesignation" class="input-line">
+                    </div>
+                    <div class="input-group">
+                        <label for="signatoryContact">Contact No.</label>
+                        <input type="tel" id="signatoryContact" name="signatoryContact" class="input-line" autocomplete="tel">
+                    </div>
+                    <div class="input-group">
+                        <label for="signatoryEmail">E-Mail</label>
+                        <input type="email" id="signatoryEmail" name="signatoryEmail" class="input-line" autocomplete="email" required>
+                    </div>
+                </div>
+            </div>
+                <button class="cta-cont" type="submit">Submit Investment Enquiry <span aria-hidden="true">↗</span></button>
+
+                <!-- Submission status -->
+                <p class="form-message" id="formMessage" role="status" aria-live="polite"></p>
+            
+
+        </form>
+
+        <!-- Footer -->
+        <footer class="footer">
+            OREXITY | Confidential Investor Screening Document
+        </footer>
+
+    </main>
+
+</body>
+</html>

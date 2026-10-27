@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OREXITY | Investor Qualification Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables based on OREXITY Branding */
+        :root {
+            --primary-navy: #0a192f; /* Logo dark blue */
+            --accent-gold: #ffd000; /* Requested rare accent */
+            --bg-dark: #121212; /* Dark gray body background */
+            --bg-card: #ffffff; /* White form background */
+            --text-main: #1a1a1a; /* Black/Dark gray text */
+            --text-muted: #555555; /* Lighter gray for hints */
+            --border-light: #e0e0e0;
+            --border-dark: #333333;
+            --font-sans: 'Inter', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+        }
+
+        /* Reset & Base */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Form Container */
+        .form-wrapper {
+            background-color: var(--bg-card);
+            width: 100%;
+            max-width: 900px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Top Gold Accent Bar */
+        .form-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background-color: var(--accent-gold);
+        }
+
+        /* Header */
+        .header {
+            background-color: var(--primary-navy);
+            padding: 40px 50px;
+            text-align: center;
+            color: #ffffff;
+            border-bottom: 2px solid var(--accent-gold);
+        }
+
+        .header .confidential {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-gold);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .header h1 {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .header h2 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #a0aec0;
+            font-weight: 400;
+        }
+
+        /* Form Body */
+        .form-body {
+            padding: 50px;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            color: var(--primary-navy);
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--border-light);
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title::before {
+            content: '';
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background-color: var(--accent-gold);
+            margin-right: 12px;
+            transform: rotate(45deg);
+        }
+
+        /* Form Grid & Layout */
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .full-width {
+                grid-column: 1 / -1;
+            }
+        }
+
+        /* Elegant Line Inputs */
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .input-group label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary-navy);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .input-line {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid var(--border-light);
+            padding: 8px 0;
+            font-size: 1rem;
+            font-family: var(--font-sans);
+            color: var(--text-main);
+            transition: border-color 0.3s ease;
+            outline: none;
+        }
+
+        .input-line:focus {
+            border-bottom-color: var(--accent-gold);
+        }
+
+        .input-line::placeholder {
+            color: #aaaaaa;
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+
+        /* Custom Checkboxes & Radio Buttons */
+        .options-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 5px;
+        }
+
+        .options-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary-navy);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            font-size: 0.95rem;
+            cursor: pointer;
+            padding: 6px 12px;
+            background-color: #f8f9fa;
+            border: 1px solid var(--border-light);
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .checkbox-label:hover {
+            background-color: #eef2f6;
+        }
+
+        .checkbox-label input {
+            display: none; /* Hide default */
+        }
+
+        .custom-box {
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--primary-navy);
+            border-radius: 3px;
+            margin-right: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            background-color: #fff;
+        }
+
+        .checkbox-label input:checked + .custom-box {
+            background-color: var(--primary-navy);
+            border-color: var(--primary-navy);
+        }
+
+        .checkbox-label input:checked + .custom-box::after {
+            content: '';
+            width: 5px;
+            height: 10px;
+            border: solid var(--accent-gold);
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            margin-bottom: 2px;
+        }
+
+        .checkbox-label input:checked ~ span {
+            font-weight: 600;
+            color: var(--primary-navy);
+        }
+
+        /* Declaration Block */
+        .declaration-block {
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-left: 4px solid var(--accent-gold);
+            border-radius: 4px;
+            margin-top: 40px;
+        }
+
+        .declaration-block p {
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .signature-area {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .signature-area {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--primary-navy);
+            color: #a0aec0;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <main class="form-wrapper">
+        
+        <!-- Header -->
+        <header class="header">
+            <div class="confidential">Confidential Investor Screening Document</div>
+            <h1>OREXITY</h1>
+            <h2>Mineral Investment & Advisory Platform</h2>
+            <div style="font-size: 0.9rem; margin-top: 15px; font-weight: 500; color: #fff;">
+                MINERAL SECTOR MARKET ENTRY | INVESTOR QUALIFICATION FORM
+            </div>
+        </header>
+
+        <!-- Form Body -->
+        <div class="form-body">
+
+            <!-- Section 1 -->
+            <section class="section">
+                <h2 class="section-title">1. Corporate Identity & Authority</h2>
+                <div class="form-grid">
+                    <div class="input-group full-width">
+                        <label>Company Legal Entity</label>
+                        <input type="text" class="input-line" placeholder="(NAME)">
+                    </div>
+                    <div class="input-group">
+                        <label>Ultimate Beneficial Owner (UBO)</label>
+                        <input type="text" class="input-line">
+                    </div>
+                    <div class="input-group">
+                        <label>Authorized Representative / Designation</label>
+                        <input type="text" class="input-line">
+                    </div>
+                    <div class="input-group full-width">
+                        <label>Contact Number</label>
+                        <input type="tel" class="input-line">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2 -->
+            <section class="section">
+                <h2 class="section-title">2. Financial Capacity & Funding</h2>
+                <div class="form-grid">
+                    <div class="input-group full-width">
+                        <label>Proposed Investment</label>
+                        <input type="text" class="input-line">
+                    </div>
+                </div>
+                <div style="margin-top: 20px;">
+                    <span class="options-label">Funding Source</span>
+                    <div class="options-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox">
+                            <span class="custom-box"></span>
+                            <span>Equity</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox">
+                            <span class="custom-box"></span>
+                            <span>Debt</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox">
+                            <span class="custom-box"></span>
+                            <span>Private Equity</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox">
+                            <span class="custom-box"></span>
+                            <span>Strategic Partner</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox">
+                            <span class="custom-box"></span>
+                            <span>Other</span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3 -->
+            <section class="section">
+                <h2 class="section-title">3. Technical Competence & Track Record</h2>
+                
+                <div style="margin-bottom: 20px;">
+                    <span class="options-label">Commodity Focus</span>
+                    <div class="options-group">
+                        <label class="checkbox-label"><input type="checkbox"><span class="custom-box"></span><span>Copper</span></label>
+                        <label class="checkbox-label"><input type="checkbox"><span class="custom-box"></span><span>Gold</span></label>
+                        <label class="checkbox-label"><input type="checkbox"><span class="custom-box"></span><span>Lithium</span></label>
+                        <label class="checkbox-label"><input type="checkbox"><span class="custom-box"></span><span>Critical Minerals</span></label>
+                        <label class="checkbox-label"><input type="checkbox"><span class="custom-box"></span><span>Gemstones</span></label>
+                        <label class="checkbox-label"><input type="checkbox"><span class="custom-box"></span><span>Any/All</span></label>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <span class="options-label">Experience Stage</span>
+                    <div class="options-group">
+                        <label class="checkbox-label"><input type="checkbox"><span class="custom-box"></span><span>Exploration</span></label>
+                        <label class="checkbox-label"><input type="checkbox"><span class="custom-box"></span><span>Resource Definition</span></label>
+                        <label class="checkbox-label"><input type="checkbox"><span class="custom-box"></span><span>Feasibility</span></label>
+                        <label class="checkbox-label"><input type="checkbox"><span class="custom-box"></span><span>Mine Development</span></label>
+                        <label class="checkbox-label"><input type="checkbox"><span class="custom-box"></span><span>Production</span></label>
+                        <label class="checkbox-label"><input type="checkbox"><span class="custom-box"></span><span>Processing</span></label>
+                    </div>
+                </div>
+
+                <div>
+                    <span class="options-label">Role</span>
+                    <div class="options-group">
+                        <label class="checkbox-label"><input type="checkbox"><span class="custom-box"></span><span>Investor</span></label>
+                        <label class="checkbox-label"><input type="checkbox"><span class="custom-box"></span><span>Operator</span></label>
+                        <label class="checkbox-label"><input type="checkbox"><span class="custom-box"></span><span>Technical Partner</span></label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4 -->
+            <section class="section">
+                <h2 class="section-title">4. Strategic Fit & Market Entry</h2>
+                
+                <div style="margin-bottom: 20px;">
+                    <span class="options-label">Target Stage</span>
+                    <div class="options-group">
+                        <label class="checkbox-label"><input type="checkbox"><span class="custom-box"></span><span>Pre-Exploration</span></label>
+                        <label class="checkbox-label"><input type="checkbox"><span class="custom-box"></span><span>Primary Exploration</span></label>
+                        <label class="checkbox-label"><input type="checkbox"><span class="custom-box"></span><span>Prospect Development</span></label>
+                        <label class="checkbox-label"><input type="checkbox"><span class="custom-box"></span><span>Resource Delineation</span></label>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <span class="options-label">Proposed Structure</span>
+                    <div class="options-group">
+                        <label class="checkbox-label"><input type="checkbox"><span class="custom-box"></span><span>Joint Venture</span></label>
+                        <label class="checkbox-label"><input type="checkbox"><span class="custom-box"></span><span>Equity</span></label>
+                        <label class="checkbox-label"><input type="checkbox"><span class="custom-box"></span><span>Acquisition</span></label>
+                        <label class="checkbox-label"><input type="checkbox"><span class="custom-box"></span><span>Project Finance</span></label>
+                        <label class="checkbox-label"><input type="checkbox"><span class="custom-box"></span><span>Partnership</span></label>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="input-group">
+                        <label>Proposed Ownership (%)</label>
+                        <input type="text" class="input-line">
+                    </div>
+                    <div class="input-group">
+                        <label>Investment Timeline</label>
+                        <input type="text" class="input-line">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5 -->
+            <section class="section">
+                <h2 class="section-title">5. Supporting Documents</h2>
+                <div class="options-group">
+                    <label class="checkbox-label"><input type="checkbox"><span class="custom-box"></span><span>Incorporation & UBO Records</span></label>
+                    <label class="checkbox-label"><input type="checkbox"><span class="custom-box"></span><span>Board Authorization</span></label>
+                    <label class="checkbox-label"><input type="checkbox"><span class="custom-box"></span><span>Proof of Funds</span></label>
+                    <label class="checkbox-label"><input type="checkbox"><span class="custom-box"></span><span>Investment Proposal</span></label>
+                </div>
+            </section>
+
+            <!-- Declaration -->
+            <div class="declaration-block">
+                <h2 class="section-title" style="border-bottom: none; margin-bottom: 10px;">Investor Declaration</h2>
+                <p>I confirm that the information provided is accurate to the best of my knowledge and authorize reasonable verification, subject to applicable law and confidentiality arrangements.</p>
+                
+                <label class="checkbox-label" style="display: inline-flex; background: transparent; border: none; padding: 0; margin-bottom: 20px;">
+                    <input type="checkbox">
+                    <span class="custom-box"></span>
+                    <span style="font-weight: 600;">Yes, I confirm</span>
+                </label>
+
+                <div class="signature-area">
+                    <div class="input-group">
+                        <label>Name</label>
+                        <input type="text" class="input-line">
+                    </div>
+                    <div class="input-group">
+                        <label>Designation</label>
+                        <input type="text" class="input-line">
+                    </div>
+                    <div class="input-group">
+                        <label>Contact No.</label>
+                        <input type="tel" class="input-line">
+                    </div>
+                    <div class="input-group">
+                        <label>E-Mail</label>
+                        <input type="email" class="input-line">
+                    </div>
+                </div>
+                <button class="cta" type="submit">Send Enquiry <span aria-hidden="true">↗</span></button>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            OREXITY | Confidential Investor Screening Document
+        </footer>
+
+    </main>
+
+</body>
+</html>

@@ -63,7 +63,9 @@ document.addEventListener('DOMContentLoaded', function () {
       body: data
     })
     .then(() => {
-      status.textContent = 'Thank you! Your enquiry has been received. We will contact you shortly.';
+      status.textContent = '<strong>Thank you for your submission to OREXITY.</strong><br>' +
+        'Your information has been received and will be reviewed by our team. ' +
+        'We will contact you regarding the next steps, where appropriate.';
       status.style.color = 'green';
       form.reset();
     })

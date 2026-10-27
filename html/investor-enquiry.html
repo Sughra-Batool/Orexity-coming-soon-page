@@ -16,38 +16,34 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
     <script src="../script/investor-form.js" defer></script>
 </head>
-<body>
+<body class="investor-body">
 
     <div class="standalone-enquiry-wrapper">
         
         <div class="back-link">
-            <a href="index.html">&larr; Back to website</a>
+            <a href="../index.html">&larr; Back to website</a>
         </div>
+        <div class="contact-header">
+               <div class="eyebrow">Share Your Inquiry with</div>
+                <div><img src="../images/logo.svg" alt="OREXITY" width="200px"></div> 
+            </div>
 
         <!-- Removed the modal-backdrop div, directly using .modal -->
         <div class="modal" id="requestModal" role="dialog" aria-labelledby="modalTitle">
+            
             <div class="modal-top">
-                <div>
-                    <div class="eyebrow">Investor Enquiry</div>
-                    <h3 id="modalTitle">Request project information</h3>
-                </div>
+                <!--<div class="eyebrow">Share Your Inquiry with</div>
+                <div><img src="../images/logo.svg" alt="OREXITY" width="200px"></div>
+                <div class="eyebrow">Investor Enquiry</div>
+                <h3 id="modalTitle">Request project information</h3>-->
             </div>
             
-            <p>Share your details below and our investment team will contact you regarding the selected project.</p>
+            <!--<p>Share your details below and our investment team will contact you regarding the selected project.</p>-->
             
             <form id="enquiryForm" novalidate>
                 <!-- Honeypot: hidden from users, visible to bots -->
                 <input type="text" id="website_url" name="website_url" tabindex="-1" autocomplete="off"
                        style="position:absolute;left:-9999px;opacity:0;height:0;width:0;" aria-hidden="true">
-
-                <label class="form-field">Project
-                    <select id="projectSelect" name="project" required>
-                        <option>MARKHOR 1</option>
-                        <option>MARKHOR 2</option>
-                        <option>Ketu 1</option>
-                        <option>Rakaposhi 1</option>
-                    </select>
-                </label>
                 
                 <label class="form-field">Full name*
                     <input name="name" autocomplete="name" required placeholder="Your full name">
@@ -56,16 +52,12 @@
                 <label class="form-field">Business email*
                     <input name="email" type="email" autocomplete="email" required placeholder="you@company.com">
                 </label>
-                
-                <label class="form-field">Company / organisation*
-                    <input name="company" autocomplete="organization" required placeholder="Company name">
-                </label>
 
                 <label for="message" class="form-field">Enquiry details *
                     <textarea id="message" name="message" required placeholder="Briefly describe your investment interest."></textarea>
                 </label>
                 
-                <button class="cta" type="submit">Send Enquiry <span aria-hidden="true">↗</span></button>
+                <button class="cta-invest" type="submit">Send Enquiry <span aria-hidden="true">↗</span></button>
                 
                 <p class="form-note" id="formMessage" aria-live="polite"></p>
             </form>
