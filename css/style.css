@@ -1459,18 +1459,23 @@ main > .hero { padding-block: 0; }
     margin-bottom: 20px;
 }
 
-.back-link a {
+.back-link button {
     text-decoration: none;
-    color: #a0a5ab;
+    color: var(--bg-dark);
+    padding: 5px 10px;
+    border-radius: 16px;
     font-weight: bold;
+    font-size: 1rem;
+    text-align: center;
     transition: color 0.3s;
 }
 
-.back-link a:hover { color: #ffd000; }
+.back-link button:hover { color: #ffd000;
+background-color: var(--primary-navy); }
 
 .contact-header {
     display: flex;
-    flex-direction: column;
+    /*flex-direction: column;*/
     align-items: center;
     justify-content: center;
     gap: 0.75rem;
