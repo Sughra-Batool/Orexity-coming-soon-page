@@ -798,12 +798,12 @@ main > .hero { padding-block: 0; }
    14. DARK SECTIONS (generic dark theme)
    ────────────────────────────────────────────────────────────── */
 .dark {
-    background-color: var(--black);
+    background-color: #1f2833;
     color: var(--gray-200);
 }
 
 .dark > .container > .grid > .card {
-    background-color: #313131a4;
+    background-color: #222e3dad;
     color: var(--gray-200);
     border-color: var(--gold);
 }
