@@ -62,6 +62,7 @@
     --gray-200: #E5E7E7;
     --gray-500: #6B7280;
     --black: #202020;
+    --charcoal: #646464;
 
     /* Brand */
     --gold: #ffd000;        /* primary gold (cascade: wins over original #ffd000) */
@@ -743,10 +744,11 @@ main > .hero { padding-block: 0; }
 .banner > .eyebrow {
     grid-column: 1 / -1;
     margin-top: 0.5rem;
+    color: var(--gray-200);
 }
 
 .eyebrow> .first-eyebrow {
-    border-right: 1px solid var(--gold);
+    border-right: 1px solid var(--gray-200);
     padding-right: 1.5rem;
 }
 
@@ -1476,7 +1478,7 @@ main > .hero { padding-block: 0; }
     margin-inline: 0;
     border-bottom: 2px solid var(--accent-gold);
     border-radius: 16px 16px 0 0;
-    background-color: #14181b;
+    background-color: var(--panel-hi);
 }
 
 .modal h3 {
@@ -1580,8 +1582,7 @@ main > .hero { padding-block: 0; }
     border-radius: 4px;
     overflow: hidden;
     position: relative;
-    /* ❌ removed: display:flex; flex-direction:column;
-       ❌ removed: align-items:center; justify-content:center; */
+    
 }
 
 /* Top Gold Accent Bar */
@@ -1603,6 +1604,7 @@ main > .hero { padding-block: 0; }
     color: #ffffff;
     border-bottom: 2px solid var(--accent-gold);
     width: 100%;
+    
 }
 
 .header .confidential {
@@ -1647,9 +1649,19 @@ main > .hero { padding-block: 0; }
     color: #fff;
 }
 
+.contact-body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    -webkit-font-smoothing: antialiased;
+        }
+
 /* Form Body */
 .form-body {
-    background-color:var(--black) ;
     padding: 50px;
     width: 100%;
 }
@@ -1661,15 +1673,15 @@ main > .hero { padding-block: 0; }
 }
 
 .section-title {
-    font-family: 'Bree Serif';
-    font-size: 1.35rem;
-    font-weight: 800;
-    text-decoration: underline;
-    text-underline-offset: 1rem;
-    color: var(--gray-200);
-    margin-bottom: 2.5rem;
-    padding-bottom: 8px;
-    /*border-bottom: 2px solid var(--gray-500);*/
+    font-family: 'Bree Serif', sans-serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--primary-navy);
+    margin-bottom: 20px;
+    padding: 5px 10px;
+    border: 2px solid var(--border-light);
+    border-radius: 8px;
+    background-color: var(--charcoal);
     display: flex;
     align-items: center;
 }
@@ -1686,10 +1698,10 @@ main > .hero { padding-block: 0; }
 }
 
 /* Declaration section title — removes border and reduces margin */
-.section-title--plain {
+/*.section-title--plain {
     border-bottom: none;
     margin-bottom: 10px;
-}
+}*/
 
 /* Form Grid & Layout */
 .form-grid {
@@ -1718,28 +1730,27 @@ main > .hero { padding-block: 0; }
 .input-group label {
     font-size: 0.85rem;
     font-weight: 600;
-    color: var(--gray-200);
+    color: var(--primary-navy);
     margin-bottom: 5px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
 .input-line {
-    /*width: 100%;*/
+    width: 100%;
     background: transparent;
-    border-radius: 8px;
-    border: 2px solid var(--border-light);
-    padding: 0.5rem 0.25rem;
-    margin-bottom: 1rem;
+    border: none;
+    border-bottom: 2px solid var(--border-light);
+    padding: 8px 0;
     font-size: 1rem;
     font-family: var(--font-sans);
-    color: var(--gray-200);
+    color: var(--text-main);
     transition: border-color 0.3s ease;
     outline: none;
 }
 
 .input-line:focus {
-    border-color: var(--accent-gold);
+    border-bottom-color: var(--accent-gold);
 }
 
 .input-line::placeholder {
@@ -1759,11 +1770,10 @@ main > .hero { padding-block: 0; }
 .options-label {
     font-size: 0.85rem;
     font-weight: 600;
-    color: var(--gray-200);
+    color: var(--primary-navy);
     text-transform: uppercase;
     letter-spacing: 0.5px;
     margin-bottom: 8px;
-    margin-top: 2rem;
     display: block;
 }
 
@@ -1771,18 +1781,16 @@ main > .hero { padding-block: 0; }
     display: flex;
     align-items: center;
     font-size: 0.95rem;
-    color: var(--gray-200);
     cursor: pointer;
     padding: 6px 12px;
-    background-color: var(--black);
-    border: 1px solid var(--border-dark);
-    border-radius: 8px;
+    background-color: #f8f9fa;
+    border: 1px solid var(--border-light);
+    border-radius: 4px;
     transition: all 0.2s ease;
 }
 
 .checkbox-label:hover {
-    border-color: var(--gold);
-    color: var(--gold);
+    background-color: #eef2f6;
 }
 
 .checkbox-label input {
@@ -1800,7 +1808,6 @@ main > .hero { padding-block: 0; }
     justify-content: center;
     transition: all 0.2s ease;
     background-color: #fff;
-    flex-shrink: 0;
 }
 
 .checkbox-label input:checked + .custom-box {
@@ -1820,22 +1827,12 @@ main > .hero { padding-block: 0; }
 
 .checkbox-label input:checked ~ span {
     font-weight: 600;
-    color: var(--gold);
-}
-
-/* Option blocks — replaces inline margin styles */
-.options-block {
-    margin-bottom: 20px;
-}
-
-.options-block--top {
-    margin-top: 20px;
-    margin-bottom: 0;
+    color: var(--primary-navy);
 }
 
 /* Declaration Block */
 .declaration-block {
-    background-color: var(--black);
+    background-color: #f8f9fa;
     padding: 30px;
     border-left: 4px solid var(--accent-gold);
     border-radius: 4px;
@@ -1845,20 +1842,7 @@ main > .hero { padding-block: 0; }
 .declaration-block p {
     font-size: 0.95rem;
     margin-bottom: 20px;
-    color: var(--gray-200);
-}
-
-/* Declaration confirmation — removes default box styling */
-.declaration-confirm {
-    display: inline-flex;
-    background: transparent;
-    border: none;
-    padding: 0;
-    margin-bottom: 20px;
-}
-
-.declaration-confirm .confirm-text {
-    font-weight: 600;
+    color: var(--text-main);
 }
 
 .signature-area {
@@ -1874,6 +1858,16 @@ main > .hero { padding-block: 0; }
     }
 }
 
+/* Footer */
+.cont-footer {
+    background-color: var(--primary-navy);
+    color: #a0aec0;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 /* CTA Button */
 .cta-cont {
     display: inline-flex;
@@ -1888,7 +1882,7 @@ main > .hero { padding-block: 0; }
     font-weight: 600;
     letter-spacing: 0.5px;
     text-transform: uppercase;
-    border-radius: 4px;
+    border-radius: 16px;
     cursor: pointer;
     transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
     margin-top: 10px;

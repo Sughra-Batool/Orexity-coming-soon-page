@@ -8,25 +8,25 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
-    <script src="../script/contact-info.js"></script>
+    <script src="../script/contact-info.js" defer></script>
 </head>
-<body>
+<body class="contact-body">
 
+    <!--<div class="back-link">
+        <a href="../index.html">&larr; Back to website</a>
+    </div>-->
     <main class="form-wrapper">
-        <div class="back-link">
-            <a href="../index.html">&larr; Back to website</a>
-        </div>
         <!-- Header -->
         <header class="header">
+            
             <div class="confidential">Confidential Investor Screening Document</div>
-            <img src="../images/logo.svg" alt="OREXITY" class="brand-logo">
+            <img src="../images/REXITYGrey.png" alt="OREXITY" class="brand-logo">
             <h2>Mineral Investment &amp; Advisory Platform</h2>
             <p class="header-tagline">MINERAL SECTOR MARKET ENTRY | INVESTOR QUALIFICATION FORM</p>
         </header>
 
         <!-- Form -->
         <form id="enquiryForm" class="form-body" method="post" action="#" enctype="multipart/form-data">
-
             <!-- Anti-bot honeypot (hidden via CSS) -->
             <div class="honeypot" aria-hidden="true">
                 <label for="website_url">Website</label>
@@ -73,7 +73,7 @@
                     <span class="options-label">Funding Source</span>
                     <div class="options-group">
                         <label class="checkbox-label">
-                            <input type="checkbox" name="fundingSource" value="Equity">
+                            <input type="checkbox" name="fundingSource" value="Equity" required>
                             <span class="custom-box"></span>
                             <span>Equity</span>
                         </label>
@@ -108,7 +108,7 @@
                 <div class="options-block">
                     <span class="options-label">Commodity Focus</span>
                     <div class="options-group">
-                        <label class="checkbox-label"><input type="checkbox" name="commodityFocus" value="Copper"><span class="custom-box"></span><span>Copper</span></label>
+                        <label class="checkbox-label"><input type="checkbox" name="commodityFocus" value="Copper" required><span class="custom-box"></span><span>Copper</span></label>
                         <label class="checkbox-label"><input type="checkbox" name="commodityFocus" value="Gold"><span class="custom-box"></span><span>Gold</span></label>
                         <label class="checkbox-label"><input type="checkbox" name="commodityFocus" value="Lithium"><span class="custom-box"></span><span>Lithium</span></label>
                         <label class="checkbox-label"><input type="checkbox" name="commodityFocus" value="Critical Minerals"><span class="custom-box"></span><span>Critical Minerals</span></label>
@@ -120,7 +120,7 @@
                 <div class="options-block">
                     <span class="options-label">Experience Stage</span>
                     <div class="options-group">
-                        <label class="checkbox-label"><input type="checkbox" name="experienceStage" value="Exploration"><span class="custom-box"></span><span>Exploration</span></label>
+                        <label class="checkbox-label"><input type="checkbox" name="experienceStage" value="Exploration" required><span class="custom-box"></span><span>Exploration</span></label>
                         <label class="checkbox-label"><input type="checkbox" name="experienceStage" value="Resource Definition"><span class="custom-box"></span><span>Resource Definition</span></label>
                         <label class="checkbox-label"><input type="checkbox" name="experienceStage" value="Feasibility"><span class="custom-box"></span><span>Feasibility</span></label>
                         <label class="checkbox-label"><input type="checkbox" name="experienceStage" value="Mine Development"><span class="custom-box"></span><span>Mine Development</span></label>
@@ -132,7 +132,7 @@
                 <div class="options-block">
                     <span class="options-label">Role</span>
                     <div class="options-group">
-                        <label class="checkbox-label"><input type="checkbox" name="role" value="Investor"><span class="custom-box"></span><span>Investor</span></label>
+                        <label class="checkbox-label"><input type="checkbox" name="role" value="Investor" required><span class="custom-box"></span><span>Investor</span></label>
                         <label class="checkbox-label"><input type="checkbox" name="role" value="Operator"><span class="custom-box"></span><span>Operator</span></label>
                         <label class="checkbox-label"><input type="checkbox" name="role" value="Technical Partner"><span class="custom-box"></span><span>Technical Partner</span></label>
                     </div>
@@ -146,7 +146,7 @@
                 <div class="options-block">
                     <span class="options-label">Target Stage</span>
                     <div class="options-group">
-                        <label class="checkbox-label"><input type="checkbox" name="targetStage" value="Pre-Exploration"><span class="custom-box"></span><span>Pre-Exploration</span></label>
+                        <label class="checkbox-label"><input type="checkbox" name="targetStage" value="Pre-Exploration" required><span class="custom-box"></span><span>Pre-Exploration</span></label>
                         <label class="checkbox-label"><input type="checkbox" name="targetStage" value="Primary Exploration"><span class="custom-box"></span><span>Primary Exploration</span></label>
                         <label class="checkbox-label"><input type="checkbox" name="targetStage" value="Prospect Development"><span class="custom-box"></span><span>Prospect Development</span></label>
                         <label class="checkbox-label"><input type="checkbox" name="targetStage" value="Resource Delineation"><span class="custom-box"></span><span>Resource Delineation</span></label>
@@ -156,7 +156,7 @@
                 <div class="options-block">
                     <span class="options-label">Proposed Structure</span>
                     <div class="options-group">
-                        <label class="checkbox-label"><input type="checkbox" name="proposedStructure" value="Joint Venture"><span class="custom-box"></span><span>Joint Venture</span></label>
+                        <label class="checkbox-label"><input type="checkbox" name="proposedStructure" value="Joint Venture" required><span class="custom-box"></span><span>Joint Venture</span></label>
                         <label class="checkbox-label"><input type="checkbox" name="proposedStructure" value="Equity"><span class="custom-box"></span><span>Equity</span></label>
                         <label class="checkbox-label"><input type="checkbox" name="proposedStructure" value="Acquisition"><span class="custom-box"></span><span>Acquisition</span></label>
                         <label class="checkbox-label"><input type="checkbox" name="proposedStructure" value="Project Finance"><span class="custom-box"></span><span>Project Finance</span></label>
@@ -181,7 +181,7 @@
                 <h2 class="section-title">5. Supporting Documents</h2>
                                 <!-- ... existing checkboxes ... -->
                 <div class="options-group">
-                    <label class="checkbox-label"><input type="checkbox" name="supportingDocuments" value="Incorporation &amp; UBO Records"><span class="custom-box"></span><span>Incorporation &amp; UBO Records</span></label>
+                    <label class="checkbox-label"><input type="checkbox" name="supportingDocuments" value="Incorporation &amp; UBO Records" required><span class="custom-box"></span><span>Incorporation &amp; UBO Records</span></label>
                     <label class="checkbox-label"><input type="checkbox" name="supportingDocuments" value="Board Authorization"><span class="custom-box"></span><span>Board Authorization</span></label>
                     <label class="checkbox-label"><input type="checkbox" name="supportingDocuments" value="Proof of Funds"><span class="custom-box"></span><span>Proof of Funds</span></label>
                     <label class="checkbox-label"><input type="checkbox" name="supportingDocuments" value="Investment Proposal"><span class="custom-box"></span><span>Investment Proposal</span></label>
@@ -191,7 +191,7 @@
                 <div class="upload-container">
                     <span class="options-label">Upload Supporting Documents (Max 15MB per file)</span>
                     <div class="upload-box">
-                        <input type="file" id="documentUpload" name="documentUpload" class="file-input" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" multiple>
+                        <input type="file" id="documentUpload" name="documentUpload" class="file-input" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" multiple required>
                         <label for="documentUpload" class="upload-btn">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
                             Choose Files
@@ -220,7 +220,7 @@
                     </div>
                     <div class="input-group">
                         <label for="signatoryDesignation">Designation</label>
-                        <input type="text" id="signatoryDesignation" name="signatoryDesignation" class="input-line">
+                        <input type="text" id="signatoryDesignation" name="signatoryDesignation" class="input-line" required>
                     </div>
                     <div class="input-group">
                         <label for="signatoryContact">Contact No.</label>
@@ -241,7 +241,7 @@
         </form>
 
         <!-- Footer -->
-        <footer class="footer">
+        <footer class="cont-footer">
             OREXITY | Confidential Investor Screening Document
         </footer>
 
