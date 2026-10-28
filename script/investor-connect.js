@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // A. HONEYPOT CHECK
     const honeypotEl = document.getElementById('website_url');
     if (honeypotEl && honeypotEl.value !== '') {
-      status.innerHTML = '<strong>Thank you for your submission to OREXITY.</strong><br>' +
+      status.innerHTML = 'Your information has been received and our team will respond with informed insights, professional guidance, and relevant expertise tailored to your requirements' + '<strong>Thank you for your submission to OREXITY.</strong><br>' +
         'Your information has been received and will be reviewed by our team. ' +
         'We will contact you regarding the next steps, where appropriate.';
       status.style.color = 'green';

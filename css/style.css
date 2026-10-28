@@ -205,12 +205,28 @@ h4 { font-size: 1rem; }
    6. LAYOUT UTILITIES
    ────────────────────────────────────────────────────────────── */
 .container {
-    /*width: 100%;
-    max-width: var(--max-width);*/
+    width: 100%;
+    max-width: var(--max-width);
     margin-inline: auto;
-    padding-inline: 1.25rem;
+    padding-inline: 4rem;
 }
 
+.bg-gray-50>.container,
+#technical>.container {
+    padding-left: 3.25rem;
+}
+
+#projects>.container {
+    padding-inline: 0rem;
+}
+
+#disclaimer>.container {
+    padding-inline: 3.75rem 5.65rem;
+}
+
+#faq>.container {
+    padding-inline: 3.5rem 5.95rem;
+}
 .section { padding-block: 3.5rem; }
 .section-sm { padding-block: 2rem; }
 
@@ -226,7 +242,11 @@ h4 { font-size: 1rem; }
 /* Grid system */
 .grid {
     display: grid;
-    gap: 1.5rem;
+    gap: 2rem;
+    margin-right: 1.95rem;
+}
+.body>.wrap {
+    padding-inline: 2rem 3rem;
 }
 
 .grid-2 { grid-template-columns: 1fr 1fr; }
@@ -275,6 +295,7 @@ h4 { font-size: 1rem; }
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding-inline: 3.125rem 6rem;
 }
 
 .nav-right {
@@ -287,7 +308,6 @@ h4 { font-size: 1rem; }
     justify-content: center;
     width: 250px;
     height: 91px;
-    padding-left: 1rem;
 }
 
 .brand span {
@@ -377,6 +397,7 @@ h4 { font-size: 1rem; }
     background-color: transparent;
     color: var(--gray-200);
     border-color: var(--gray-200);
+    padding-inline: 2.5rem;
 }
 
 .btn-outline:hover {
@@ -442,6 +463,8 @@ h4 { font-size: 1rem; }
     margin-bottom: 1rem;
     transition: background-color var(--transition), color var(--transition);
 }
+
+
 
 .card:hover .card-icon {
     background-color: var(--gold);
@@ -518,7 +541,7 @@ h4 { font-size: 1rem; }
     background: var(--white);
     border: 1px solid var(--gray-200);
     border-radius: var(--radius-md);
-    padding: 1.75rem 1.5rem;
+    /*padding: 1.75rem 1.5rem;*/
     box-shadow: var(--shadow-sm);
     transition: transform 0.25s ease, box-shadow 0.25s ease,
                 border-color 0.25s ease, background-color 0.25s ease;
@@ -657,7 +680,7 @@ details p {
     border-left: 4px solid var(--gold);
     padding: 1.25rem 1.5rem;
     border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-    margin: 3rem 1.5rem 1.5rem 3.5rem;
+    margin: 3rem 1.5rem 3rem 5.75rem;
     display: flex;
     flex-direction: column;
 
@@ -695,7 +718,7 @@ details p {
 .faq-p {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: 0.25rem 1.5rem 3.5rem 3.5rem;
+    padding: 0.25rem 1.5rem 0rem 5.75rem;
     margin-bottom: 1.5rem;
     font-family: 'Bree Serif';
     font-size: 1.25rem;
@@ -735,7 +758,7 @@ main > .hero { padding-block: 0; }
     grid-template-rows: 1fr 4fr 1fr 1fr;
     align-content: center;
     gap: 0.5rem;
-    padding: 4rem 4rem 1.5rem 6rem;
+    padding: 4rem 6rem 1.5rem 5.5rem;
     margin-block-end: 4rem;
     background-color: var(--black);
     color: var(--white);
@@ -752,6 +775,7 @@ main > .hero { padding-block: 0; }
 }
 
 .banner > #hero-heading {
+    padding-right: 0.5rem;
     border-right: 2px solid var(--gray-200);
     font-family: 'Bree Serif';
     font-size: 4rem;
@@ -764,6 +788,7 @@ main > .hero { padding-block: 0; }
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-end;
+    padding-left: 0.5rem;
 }
 
 .banner h3 {
@@ -790,6 +815,7 @@ main > .hero { padding-block: 0; }
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
+    margin-left: 0.15rem;
     margin-top: 1.75rem;
 }
 
@@ -803,7 +829,7 @@ main > .hero { padding-block: 0; }
 }
 
 .dark > .container > .grid > .card {
-    background-color: #222e3dad;
+    background-color: #000;
     color: var(--gray-200);
     border-color: var(--gold);
 }
@@ -847,7 +873,7 @@ main > .hero { padding-block: 0; }
    ────────────────────────────────────────────────────────────── */
 .body {
     box-sizing: border-box;
-    padding-inline: 1rem;
+    /*padding-inline: 1rem;*/
     padding-bottom: 1rem;
     margin: 0;
     background:
@@ -932,6 +958,7 @@ main > .hero { padding-block: 0; }
 .projects-cta-block {
     margin-top: 2.5rem;
     text-align: center;
+    padding-inline: 1.15rem;
 }
 .projects-cta-block h3 { margin-bottom: 0.75rem; }
 .projects-cta-block p {
@@ -1421,6 +1448,7 @@ main > .hero { padding-block: 0; }
 }
 
 
+
 /* ──────────────────────────────────────────────────────────────
    20. INVESTOR ENQUIRY (standalone page)
    ────────────────────────────────────────────────────────────── */
@@ -1680,7 +1708,7 @@ background-color: var(--primary-navy); }
     font-family: 'Bree Serif', sans-serif;
     font-weight: 600;
     font-size: 1.25rem;
-    color: var(--primary-navy);
+    color: var(--white);
     margin-bottom: 20px;
     padding: 5px 10px;
     border: 2px solid var(--border-light);
@@ -1700,12 +1728,6 @@ background-color: var(--primary-navy); }
     transform: rotate(45deg);
     flex-shrink: 0;
 }
-
-/* Declaration section title — removes border and reduces margin */
-/*.section-title--plain {
-    border-bottom: none;
-    margin-bottom: 10px;
-}*/
 
 /* Form Grid & Layout */
 .form-grid {
@@ -1798,7 +1820,11 @@ background-color: var(--primary-navy); }
 }
 
 .checkbox-label input {
-    display: none; /* Hide default */
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
 }
 
 .custom-box {
@@ -2013,6 +2039,7 @@ background-color: var(--primary-navy); }
         align-items: center;
         min-height: 70px; /* Gives enough height for the absolute burger */
         padding-block: 0.5rem;
+        
     }
 
     img {
@@ -2022,6 +2049,7 @@ background-color: var(--primary-navy); }
     .brand {
         width: auto;
         height: 60px;
+        margin-left: 0;
         padding: 0;
     }
 
@@ -2116,7 +2144,7 @@ background-color: var(--primary-navy); }
     .banner {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
-        padding: 2.5rem 1.5rem 1.5rem;
+        padding: 2rem;
     }
 
     .grid-2 { grid-template-columns: 1fr; }
@@ -2152,7 +2180,7 @@ background-color: var(--primary-navy); }
 
     /* --- Key takeaways: reduce generous margins --- */
     .key-takeaways {
-        margin: 2rem 1rem 1rem;
+        margin: 2rem;
     }
 
     #advisory {
@@ -2164,9 +2192,46 @@ background-color: var(--primary-navy); }
     }
 
     .faq-p {
+        font-size: 1.15rem;
         grid-template-columns: 1fr;
-        padding: 0.25rem 1rem 2rem;
+        padding: 0.25rem 2rem;
         text-align: justify;
+    }
+
+    .bg-gray-50>.container, #technical>.container {
+        padding: 2rem;
+    }
+    #disclaimer>.container {
+        padding: 2rem;
+    }
+    .text-center>.lead-contact {
+        text-align: center;
+    }
+
+    #faq>.container {
+        padding: 2rem;
+    }
+    .site-footer>.container {
+        padding-inline: 2rem;
+    }
+    .grid {
+        margin-right: 0;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .value-chain-box {
+        display: flex;
+        flex-direction: column;
+    }
+    .value-chain-flow {
+        font-size: 0.9rem;
+    }
+    .btn-lg{
+        font-size: 0.95rem;
+        padding: 0.7rem 1.5rem;
     }
     
 
@@ -2222,6 +2287,51 @@ background-color: var(--primary-navy); }
     .footer-row { 
         gap: 0.25rem; 
     }
+    .potential {
+    gap: 5px;
+    flex-shrink: 0;
+    }
+
+    .funding {
+        font-size: 1.15rem;
+    }
+    .body>.wrap {
+        padding-inline: 0.5rem;
+        padding-block-start: 0;
+    }
+
+
+    .projects-cta-block {
+        padding-inline-start: 1.5rem;
+    }
+
+    .project-card h2 {
+        font-size: 1.25rem;
+    }
+    .equity-number {
+        font-size: 1.25rem;
+    }
+    .value {
+        font-size: 0.95rem;
+    }
+    .banner > .bottom-tag {
+        font-size: 1rem;
+    }
+    .btn-outline {
+        padding-inline: 2.15rem;
+    }
+    .lead-spaced {
+        text-align: justify;
+    }
+    .step-card>p {
+        text-align: justify;
+    }
+    .grid-3 p {
+        text-align: justify;
+    }
+    .lead-projects, .projects-note {
+        text-align: justify;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2234,4 +2344,680 @@ background-color: var(--primary-navy); }
         scroll-behavior: auto !important;
     }
     .cta-highlight { animation: none; }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   22. INLINE FORM MODE (index.html)
+   Investor form section + Contact Us modal
+   ────────────────────────────────────────────────────────────── */
+
+/* Utility: hide elements */
+.hidden { display: none !important; }
+
+/* ---------- Investor Form Section ---------- */
+#investor-form-section {
+    min-height: calc(100vh - 91px);
+    background:
+        radial-gradient(ellipse at 12% 0%, rgba(184, 115, 51, .12), transparent 32rem),
+        radial-gradient(ellipse at 90% 20%, rgba(212, 175, 55, .08), transparent 28rem),
+        var(--bg);
+    padding: 2rem 1rem 4rem;
+    font-family: "DM Sans", sans-serif;
+}
+
+#investor-form-section .less-info-box {
+    max-width: 900px;
+    margin: 0 auto 1.5rem;
+    padding: 1rem 1.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--charcoal);
+    border-left: 4px solid var(--gold);
+    border-radius: 8px;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+#investor-form-section .less-info-box p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--text-main);
+}
+
+#investor-form-section .less-info-box .contact-us-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.55rem 1.25rem;
+    background: var(--gold);
+    color: var(--black);
+    border: none;
+    border-radius: 100px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    white-space: nowrap;
+}
+
+#investor-form-section .less-info-box .contact-us-btn:hover {
+    background: var(--gold-dark);
+}
+
+#investor-form-section .less-info-box .contact-us-btn:active {
+    transform: scale(0.98);
+}
+
+#investor-form-section .form-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* ---------- Contact Us Modal ---------- */
+#contact-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 15, 20, 0.88);
+    z-index: 2000;
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    padding: 1rem;
+    overflow: hidden; /* Prevent background scrolling */
+    backdrop-filter: blur(4px);
+}
+
+#contact-modal .modal {
+    width: 100%;
+    max-width: 480px; /* Slightly narrower */
+    max-height: 95vh; /* Prevent overflowing the screen */
+    background: #14181b;
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    padding: 20px 30px; /* Reduced vertical padding */
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    position: relative;
+    margin: 0; 
+    overflow: hidden; /* Hide internal scrollbars */
+}
+
+#contact-modal .modal-close-x {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    color: var(--muted);
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1;
+    transition: color 0.2s ease;
+}
+
+#contact-modal .modal-close-x:hover { color: var(--gold); }
+
+#contact-modal .contact-header {
+    background: transparent;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0 0 10px 0;
+    margin-bottom: 10px;
+    border-bottom: 2px solid var(--gold);
+    text-align: center;
+}
+
+#contact-modal .contact-header .eyebrow {
+    color: var(--gold);
+    margin: 0;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+#contact-modal .contact-header img {
+    max-width: 150px; /* Smaller logo to save space */
+    height: auto;
+    display: block;
+}
+
+#contact-modal .modal h3 {
+    color: var(--text);
+    text-align: center;
+    margin: 5px 0 5px;
+    font-size: 1.3rem;
+}
+
+#contact-modal .modal > p {
+    color: var(--muted);
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 0.85rem;
+}
+
+#contact-modal .form-field {
+    margin: 10px 0;
+}
+
+#contact-modal .form-field input,
+#contact-modal .form-field textarea {
+    background: #0d1113;
+    color: var(--text);
+    border-color: rgba(255, 255, 255, 0.14);
+    padding: 10px 13px; /* Slightly smaller padding */
+}
+
+#contact-modal .form-field textarea {
+    min-height: 70px; /* Reduced height to fit screen */
+}
+
+#contact-modal .form-field input:focus,
+#contact-modal .form-field textarea:focus {
+    outline: 1px solid var(--gold);
+    border-color: var(--gold);
+}
+
+#contact-modal .cta-invest {
+    margin-top: 5px;
+    padding: 12px;
+}
+
+/* Fix success message to match modal center */
+#contactSuccessMessage {
+    margin: 0;
+    width: 100%;
+    max-width: 480px;
+}
+/* ---------- Responsive tweaks for inline forms ---------- */
+@media (max-width: 768px) {
+    #investor-form-section {
+        padding: 1rem 0.5rem 3rem;
+        min-height: calc(100vh - 70px);
+    }
+    #investor-form-section .less-info-box {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    #contact-modal {
+        padding: 3rem 0.75rem 1.5rem;
+    }
+    #contact-modal .modal {
+        padding: 20px;
+    }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   23. SUBMISSION SUCCESS MESSAGES
+   Appear in the same place as the form, matching its background.
+   ────────────────────────────────────────────────────────────── */
+
+/* --- Investor form success card (matches .form-wrapper: white card, gold top bar) --- */
+#investorSuccessMessage {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3.5rem 2.5rem;
+    background: #ffffff;
+    border-top: 6px solid var(--gold);
+    border-radius: 4px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    color: #1a1a1a;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+}
+
+#investorSuccessMessage strong {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0a192f;
+    margin-bottom: 0.85rem;
+    font-family: 'Playfair Display', serif;
+}
+
+#investorSuccessMessage p {
+    font-size: 1rem;
+    color: #555;
+    margin: 0;
+    line-height: 1.7;
+}
+
+/* --- Contact modal success card (matches .modal: dark card, gold border) --- */
+#contactSuccessMessage {
+    max-width: 500px;
+    margin: auto 0;
+    padding: 3rem 2rem;
+    background: #14181b;
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    color: #f4f1e9;
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.6;
+}
+
+#contactSuccessMessage strong {
+    display: block;
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--gold);
+    margin-bottom: 0.85rem;
+    font-family: 'Manrope', sans-serif;
+}
+
+#contactSuccessMessage p {
+    font-size: 0.95rem;
+    color: #9da6a8;
+    margin: 0;
+    line-height: 1.7;
+}
+
+/* Mobile tweaks */
+@media (max-width: 768px) {
+    #investorSuccessMessage {
+        padding: 2.5rem 1.5rem;
+    }
+    #investorSuccessMessage strong {
+        font-size: 1.25rem;
+    }
+    #contactSuccessMessage {
+        margin: 3rem 0 0;
+        padding: 2.25rem 1.5rem;
+    }
+    #contactSuccessMessage strong {
+        font-size: 1.15rem;
+    }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   MOBILE RESPONSIVENESS FOR CONTACT US MODAL
+   ────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    #contact-modal {
+        padding: 0.5rem; /* Less padding on the background */
+    }
+
+    #contact-modal .modal {
+        padding: 15px 20px; /* Tighter padding inside the box */
+        max-height: 95dvh; /* dvh handles mobile keyboards better than vh */
+        width: 100%;
+    }
+
+    #contact-modal .contact-header {
+        padding-bottom: 8px;
+        margin-bottom: 8px;
+    }
+
+    #contact-modal .contact-header .eyebrow {
+        font-size: 0.65rem; /* Smaller eyebrow text */
+    }
+
+    #contact-modal .contact-header img {
+        max-width: 110px; /* Significantly smaller logo on mobile */
+    }
+
+    #contact-modal .modal h3 {
+        font-size: 1.15rem; /* Smaller heading */
+        margin: 4px 0;
+    }
+
+    #contact-modal .modal > p {
+        font-size: 0.8rem; /* Smaller description */
+        margin-bottom: 8px;
+    }
+
+    #contact-modal .form-field {
+        margin: 8px 0; /* Tighter spacing between fields */
+        font-size: 0.7rem; /* Smaller label text */
+    }
+
+    #contact-modal .form-field input,
+    #contact-modal .form-field textarea {
+        padding: 8px 10px; /* Smaller inputs */
+        font-size: 0.85rem;
+    }
+
+    #contact-modal .form-field textarea {
+        min-height: 50px; /* Smaller text area to save space */
+        height: 50px;
+    }
+
+    #contact-modal .cta-invest {
+        padding: 10px;
+        margin-top: 5px;
+        font-size: 0.8rem;
+    }
+    
+    #contact-modal .modal-close-x {
+        top: 5px;
+        right: 12px;
+        font-size: 1.8rem;
+    }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   MOBILE RESPONSIVENESS FOR INVESTOR CONNECT FORM
+   ────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    /* Section wrapper */
+    #investor-form-section {
+        padding: 1.5rem 0.5rem 3rem;
+    }
+
+    /* Less Info Box (Contact Us prompt) */
+    #investor-form-section .less-info-box {
+        padding: 0.75rem 1rem;
+        margin-bottom: 1rem;
+    }
+    #investor-form-section .less-info-box p {
+        font-size: 0.85rem;
+    }
+
+    /* Form Wrapper (White Box) */
+    #investor-form-section .form-wrapper {
+        border-radius: 8px; /* Slightly softer corners */
+    }
+
+    /* Header inside the form */
+    #investor-form-section .header {
+        padding: 20px 15px; /* Reduced from 40px 50px */
+    }
+    #investor-form-section .header h1 {
+        font-size: 1.4rem;
+    }
+    #investor-form-section .header h2 {
+        font-size: 0.75rem;
+        letter-spacing: 1px;
+    }
+    #investor-form-section .brand-logo {
+        width: 140px; /* Fixed smaller size for mobile */
+    }
+    #investor-form-section .header-tagline {
+        font-size: 0.75rem;
+        margin-top: 10px;
+    }
+
+    /* Form Body */
+    #investor-form-section .form-body {
+        padding: 20px 15px; /* Reduced from 50px */
+    }
+    
+    /* Section Titles (1. Corporate Identity, etc.) */
+    #investor-form-section .section-title {
+        font-size: 1.05rem;
+        padding: 8px;
+        margin-bottom: 15px;
+    }
+
+    /* Form Grid & Inputs */
+    #investor-form-section .form-grid {
+        gap: 15px;
+    }
+    
+    /* Prevent iOS auto-zoom on inputs */
+    #investor-form-section .input-line {
+        font-size: 1rem; 
+    }
+
+    /* Checkboxes & Options (Stack them for easier tapping) */
+    #investor-form-section .options-group {
+        gap: 8px;
+    }
+    #investor-form-section .checkbox-label {
+        width: 100%; /* Full width stacked buttons */
+        padding: 10px 12px; 
+    }
+
+    /* File Upload Box */
+    #investor-form-section .upload-box {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    #investor-form-section .upload-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Declaration Block */
+    #investor-form-section .declaration-block {
+        padding: 15px;
+        margin-top: 20px;
+    }
+    #investor-form-section .signature-area {
+        gap: 15px;
+    }
+
+    /* Submit Button */
+    #investor-form-section .cta-cont {
+        width: 100%; /* Full width for easy tapping */
+        padding: 14px;
+        font-size: 0.85rem;
+    }
+
+    /* Success Message (Shown after submission) */
+    #investorSuccessMessage {
+        padding: 2.5rem 1.5rem;
+        margin: 0 0.5rem;
+    }
+    #investorSuccessMessage strong {
+        font-size: 1.3rem;
+    }
+    #investorSuccessMessage p {
+        font-size: 0.9rem;
+    }
+}
+
+
+/* ──────────────────────────────────────────────────────────────
+   FORM IMPORTANT NOTE (ALIGNED & STYLED)
+   ────────────────────────────────────────────────────────────── */
+.form-important-note {
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 0.95rem;
+    color: #202020;
+    margin-top: 30px;
+    margin-bottom: 20px; /* Adds space between the note and the declaration box */
+    padding: 15px 20px; /* Matches the padding style of the form */
+    background-color: #f8f9fa; /* Same background as the declaration block */
+    border-left: 4px solid var(--accent-gold); /* The gold line */
+    border-radius: 4px;
+    line-height: 1.5;
+}
+
+.form-important-note strong {
+    color: #d93025; /* Red color for "Important:" */
+    font-weight: 700;
+}
+/* ──────────────────────────────────────────────────────────────
+   GOLD HIGHLIGHT FOR INVALID REQUIRED FIELDS
+   ────────────────────────────────────────────────────────────── */
+
+/* Text Inputs & Textareas */
+#investor-form-section .input-line.gold-highlight {
+    border-bottom-color: var(--gold);
+    background-color: rgba(255, 208, 0, 0.05);
+    box-shadow: 0 4px 10px -5px rgba(255, 208, 0, 0.4);
+    transition: all 0.3s ease;
+}
+
+/* Checkbox Groups (e.g., Funding Source, Commodity Focus) */
+#investor-form-section .checkbox-label.gold-highlight {
+    border-color: var(--gold);
+    background-color: rgba(255, 208, 0, 0.1);
+    box-shadow: 0 0 0 2px rgba(255, 208, 0, 0.2);
+}
+
+/* File Upload Box */
+#investor-form-section .upload-box.gold-highlight {
+    border: 2px dashed var(--gold);
+    background-color: rgba(255, 208, 0, 0.05);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* Error text alignment */
+#investor-form-section .form-message {
+    text-align: center;
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   SUCCESS MESSAGE CARDS (MATCHING THE DESIGN)
+   ────────────────────────────────────────────────────────────── */
+
+/* Shared Layout */
+#investorSuccessMessage,
+#contactSuccessMessage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 2rem 2rem 2rem; /* Bottom padding handled by the border */
+    position: relative;
+    overflow: hidden;
+}
+
+/* The SVG Medal */
+.success-icon {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 1.5rem;
+}
+
+/* Typography */
+.success-title {
+    font-family: 'Bree Serif', Georgia, serif;
+    font-size: 1.8rem;
+    font-weight: normal;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.success-text {
+    font-family: 'Roboto', -apple-system, sans-serif;
+    font-size: 1.05rem;
+    max-width: 650px;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+}
+
+/* The Gold Bottom Line */
+.success-border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background-color: var(--gold);
+}
+
+
+/* --- 1. Investor Form Theme (Light) --- */
+#investorSuccessMessage {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    color: #1a1a1a;
+}
+
+#investorSuccessMessage .success-icon {
+    color: #202020; /* Black ribbon for light theme */
+}
+
+#investorSuccessMessage .success-title {
+    color: #000000;
+}
+
+#investorSuccessMessage .success-text {
+    color: #333333;
+}
+
+
+/* --- 2. Contact Form Theme (Dark) --- */
+
+#contactSuccessMessage {
+    max-width: 500px;
+    margin: auto 0;
+    background: #14181b;
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    color: #f4f1e9;
+}
+
+#contactSuccessMessage .success-icon {
+    color: var(--charcoal); /* Keeps the ribbon black */
+}
+
+#contactSuccessMessage .success-title {
+    color: #f4f1e9;
+    font-size: 1.5rem;
+}
+
+#contactSuccessMessage .success-text {
+    color: #9da6a8;
+    font-size: 0.95rem;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    #investorSuccessMessage,
+    #contactSuccessMessage {
+        padding: 3rem 1.5rem 0 1.5rem;
+    }
+    
+    .success-icon {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 1rem;
+    }
+    
+    .success-title {
+        font-size: 1.4rem;
+    }
+    
+    .success-text {
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+    }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   PERMANENT GOLDEN BORDERS FOR REQUIRED FIELDS
+   ────────────────────────────────────────────────────────────── */
+
+/* 1. Text Inputs (Company Name, UBO, etc.) */
+#investor-form-section .input-line[required] {
+    border-bottom-color: var(--gold);
+}
+
+/* Make the focus state slightly thicker to differentiate from default */
+#investor-form-section .input-line[required]:focus {
+    border-bottom-width: 3px;
+    border-bottom-color: var(--gold-dark);
+}
+
+/* 2. Checkboxes (Declaration & dynamically marked groups) */
+#investor-form-section .checkbox-label input[required] + .custom-box,
+#investor-form-section .required-group .custom-box {
+    border-color: var(--gold);
+}
+
+/* 3. File Upload Button */
+#investor-form-section .file-input[required] + .upload-btn {
+    border-color: var(--gold);
 }
