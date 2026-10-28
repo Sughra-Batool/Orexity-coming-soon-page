@@ -3021,3 +3021,10 @@ background-color: var(--primary-navy); }
 #investor-form-section .file-input[required] + .upload-btn {
     border-color: var(--gold);
 }
+
+/* ──────────────────────────────────────────────────────────────
+   HEADER VISIBILITY DURING CONTACT SUCCESS
+   ────────────────────────────────────────────────────────────── */
+body.contact-success-mode .site-header {
+    z-index: 3000 !important; /* Pops the header above the modal backdrop */
+}

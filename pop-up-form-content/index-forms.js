@@ -5,7 +5,7 @@
 document.addEventListener('DOMContentLoaded', function () {
 
   /* =========================================================
-     SUCCESS MESSAGES & DESIGNS
+     1. SUCCESS MESSAGES & DESIGNS
      ========================================================= */
   const medalSVG = `
     <svg class="success-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -17,14 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
     </svg>
   `;
 
-  const INVESTOR_SUCCESS_HTML = `
-    ${medalSVG}
-    <h2 class="success-title">Thank you for your submission to OREXITY.</h2>
-    <p class="success-text">Your information has been received and our team will respond with informed insights, professional guidance, and relevant expertise tailored to your requirements.</p>
-    <div class="success-border"></div>
-  `;
-
-  const CONTACT_SUCCESS_HTML = `
+  const SUCCESS_HTML = `
     ${medalSVG}
     <h2 class="success-title">Thank you for your submission to OREXITY.</h2>
     <p class="success-text">Your information has been received and our team will respond with informed insights, professional guidance, and relevant expertise tailored to your requirements.</p>
@@ -32,12 +25,13 @@ document.addEventListener('DOMContentLoaded', function () {
   `;
 
   /* =========================================================
-     1. FORM CONTROLLER (Open/Close & Success Swap)
+     2. FORM CONTROLLER (Open/Close & Header Visibility)
      ========================================================= */
   const mainContent     = document.getElementById('main-content');
   const investorSection = document.getElementById('investor-form-section');
   const contactModal    = document.getElementById('contact-modal');
 
+  // --- Investor Form Controls ---
   function resetInvestorState() {
     const formWrapper = investorSection && investorSection.querySelector('.form-wrapper');
     const lessInfoBox = investorSection && investorSection.querySelector('.less-info-box');
@@ -45,13 +39,6 @@ document.addEventListener('DOMContentLoaded', function () {
     if (formWrapper) formWrapper.classList.remove('hidden');
     if (lessInfoBox) lessInfoBox.classList.remove('hidden');
     if (successEl)   { successEl.classList.add('hidden'); successEl.innerHTML = ''; }
-  }
-
-  function resetContactState() {
-    const modalEl   = contactModal && contactModal.querySelector('.modal');
-    const successEl = document.getElementById('contactSuccessMessage');
-    if (modalEl)   modalEl.classList.remove('hidden');
-    if (successEl) { successEl.classList.add('hidden'); successEl.innerHTML = ''; }
   }
 
   function openInvestorForm() {
@@ -66,6 +53,28 @@ document.addEventListener('DOMContentLoaded', function () {
     if (mainContent) mainContent.classList.remove('hidden');
   }
 
+  function showInvestorSuccess() {
+    const formWrapper = investorSection && investorSection.querySelector('.form-wrapper');
+    const lessInfoBox = investorSection && investorSection.querySelector('.less-info-box');
+    const successEl   = document.getElementById('investorSuccessMessage');
+    if (formWrapper) formWrapper.classList.add('hidden');
+    if (lessInfoBox) lessInfoBox.classList.add('hidden');
+    if (successEl) {
+      successEl.innerHTML = SUCCESS_HTML;
+      successEl.classList.remove('hidden');
+      successEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  // --- Contact Modal Controls ---
+  function resetContactState() {
+    const modalEl   = contactModal && contactModal.querySelector('.modal');
+    const successEl = document.getElementById('contactSuccessMessage');
+    if (modalEl)   modalEl.classList.remove('hidden');
+    if (successEl) { successEl.classList.add('hidden'); successEl.innerHTML = ''; }
+    document.body.classList.remove('contact-success-mode'); // Hide header again
+  }
+
   function openContactModal() {
     resetContactState();
     if (contactModal) {
@@ -78,19 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (contactModal) {
       contactModal.classList.add('hidden');
       document.body.style.overflow = '';
-    }
-  }
-
-  function showInvestorSuccess() {
-    const formWrapper = investorSection && investorSection.querySelector('.form-wrapper');
-    const lessInfoBox = investorSection && investorSection.querySelector('.less-info-box');
-    const successEl   = document.getElementById('investorSuccessMessage');
-    if (formWrapper) formWrapper.classList.add('hidden');
-    if (lessInfoBox) lessInfoBox.classList.add('hidden');
-    if (successEl) {
-      successEl.innerHTML = INVESTOR_SUCCESS_HTML;
-      successEl.classList.remove('hidden');
-      successEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      document.body.classList.remove('contact-success-mode'); // Hide header again
     }
   }
 
@@ -99,12 +96,15 @@ document.addEventListener('DOMContentLoaded', function () {
     const successEl = document.getElementById('contactSuccessMessage');
     if (modalEl)   modalEl.classList.add('hidden');
     if (successEl) {
-      successEl.innerHTML = CONTACT_SUCCESS_HTML;
+      successEl.innerHTML = SUCCESS_HTML;
       successEl.classList.remove('hidden');
+      document.body.classList.add('contact-success-mode'); // SHOW HEADER ABOVE BACKDROP
     }
   }
 
-  // Event Listeners for Buttons
+  /* =========================================================
+     3. GLOBAL EVENT LISTENERS (Buttons, Nav, Escape)
+     ========================================================= */
   document.querySelectorAll('[data-open-form="investor"]').forEach(el => {
     el.addEventListener('click', e => { e.preventDefault(); openInvestorForm(); });
   });
@@ -131,14 +131,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
   document.querySelectorAll('.site-header .nav a[href^="#"]').forEach(link => {
     link.addEventListener('click', function (e) {
+      if (contactModal && !contactModal.classList.contains('hidden')) closeContactModal();
       if (investorSection && !investorSection.classList.contains('hidden')) {
         e.preventDefault();
         closeInvestorForm();
         const href = this.getAttribute('href');
         const target = href && href !== '#' ? document.querySelector(href) : null;
-        if (target) {
-          requestAnimationFrame(() => target.scrollIntoView({ behavior: 'smooth' }));
-        }
+        if (target) requestAnimationFrame(() => target.scrollIntoView({ behavior: 'smooth' }));
       }
     });
   });
@@ -146,6 +145,12 @@ document.addEventListener('DOMContentLoaded', function () {
   const brandLink = document.querySelector('.site-header .brand');
   if (brandLink) {
     brandLink.addEventListener('click', e => {
+      if (contactModal && !contactModal.classList.contains('hidden')) {
+        e.preventDefault();
+        closeContactModal();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
       if (investorSection && !investorSection.classList.contains('hidden')) {
         e.preventDefault();
         closeInvestorForm();
@@ -156,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   /* =========================================================
-     2. INVESTOR FORM SUBMISSION (WITH SILENT FALLBACK)
+     4. INVESTOR FORM SUBMISSION LOGIC
      ========================================================= */
   const investorForm      = document.getElementById('investorForm');
   const investorStatus    = document.getElementById('investorFormMessage');
@@ -185,34 +190,25 @@ document.addEventListener('DOMContentLoaded', function () {
           fileNameDisplay.textContent = 'No files chosen';
           return;
         }
-        fileNameDisplay.textContent = files.length === 1
-          ? files[0].name
-          : `${files.length} files selected`;
+        fileNameDisplay.textContent = files.length === 1 ? files[0].name : `${files.length} files selected`;
       } else {
         fileNameDisplay.textContent = 'No files chosen';
       }
     });
   }
 
-    if (investorForm) {
-
-    /* =========================================================
-       ADD GOLDEN BORDER TO SPECIFIC REQUIRED CHECKBOX GROUPS
-       ========================================================= */
+  if (investorForm) {
+    // Add golden border to specific required checkbox groups
     const groupsToHighlight = ['role', 'targetStage', 'proposedStructure'];
-    
     groupsToHighlight.forEach(groupName => {
       const firstInput = investorForm.querySelector(`input[name="${groupName}"]`);
       if (firstInput) {
-        // Find the wrapper div and add a class to make it gold
         const groupContainer = firstInput.closest('.options-group');
-        if (groupContainer) {
-          groupContainer.classList.add('required-group');
-        }
+        if (groupContainer) groupContainer.classList.add('required-group');
       }
     });
 
-    // Listen for changes to remove gold highlights when user fixes fields
+    // Remove gold highlights when user fixes fields
     investorForm.addEventListener('input', function (e) {
       const target = e.target;
       if (target.validity.valid) {
@@ -237,8 +233,8 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
 
-    // The actual fetch function (Accepts a 'silent' parameter)
-    function executeSubmission(isSilent = false) {
+    // Fetch Submission Function (Accepts silent parameter)
+    function executeInvestorSubmission(isSilent = false) {
       if (!isSilent) {
         if (investorStatus) {
           investorStatus.textContent = 'Sending enquiry...';
@@ -253,13 +249,8 @@ document.addEventListener('DOMContentLoaded', function () {
       const formData = new FormData(investorForm);
       formData.delete('website_url');
 
-      fetch(INVESTOR_WEB_APP_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        body: formData
-      })
+      fetch(INVESTOR_WEB_APP_URL, { method: 'POST', mode: 'no-cors', body: formData })
       .then(() => {
-        // ONLY show success message if this is NOT a silent submission
         if (!isSilent) {
           setTimeout(() => {
             investorForm.reset();
@@ -283,7 +274,7 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }
 
-    // Submit Event Listener
+    // Submit Event
     investorForm.addEventListener('submit', function (e) {
       e.preventDefault();
 
@@ -296,12 +287,10 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
       }
 
-      // 1. Clear previous highlights
-      investorForm.querySelectorAll('.gold-highlight').forEach(el => {
-        el.classList.remove('gold-highlight');
-      });
+      // Clear previous highlights
+      investorForm.querySelectorAll('.gold-highlight').forEach(el => el.classList.remove('gold-highlight'));
 
-      // 2. Checkbox Group Validation Trick
+      // Checkbox Group Validation Trick
       const requiredGroups = ['role', 'targetStage', 'proposedStructure'];
       requiredGroups.forEach(groupName => {
         const checkboxes = investorForm.querySelectorAll(`input[name="${groupName}"]`);
@@ -315,11 +304,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       });
 
-      // 3. Validity Check
-      const isValid = investorForm.checkValidity();
-
-      if (!isValid) {
-        // Show browser validation popups
+      // Validity Check
+      if (!investorForm.checkValidity()) {
         investorForm.reportValidity(); 
 
         // Apply Gold Highlights
@@ -338,20 +324,17 @@ document.addEventListener('DOMContentLoaded', function () {
           }
         });
 
-        // SILENT SUBMISSION: Send data but don't show success message
-        executeSubmission(true); 
-        
+        executeInvestorSubmission(true); // Silent fallback
         return;
       }
 
-      // If the form is fully valid, submit normally
-      executeSubmission(false);
+      executeInvestorSubmission(false); // Normal submission
     });
   }
 
 
   /* =========================================================
-     3. CONTACT FORM SUBMISSION (inside modal)
+     5. CONTACT FORM SUBMISSION LOGIC
      ========================================================= */
   const contactForm      = document.getElementById('contactForm');
   const contactStatus    = document.getElementById('contactFormMessage');
@@ -403,7 +386,7 @@ document.addEventListener('DOMContentLoaded', function () {
       .then(() => {
         setTimeout(() => {
           contactForm.reset();
-          showContactSuccess();
+          showContactSuccess(); // This triggers the header to pop up
         }, 1000);
       })
       .catch(error => {
