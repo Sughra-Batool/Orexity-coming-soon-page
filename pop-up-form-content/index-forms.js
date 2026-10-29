@@ -198,7 +198,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (investorForm) {
     // Add golden border to specific required checkbox groups
-    const groupsToHighlight = ['role', 'targetStage', 'proposedStructure'];
+    const groupsToHighlight = [
+      'fundingSource', 
+      'commodityFocus', 
+      'experienceStage', 
+      'role', 
+      'targetStage', 
+      'proposedStructure', 
+      'supportingDocuments'
+    ];
     groupsToHighlight.forEach(groupName => {
       const firstInput = investorForm.querySelector(`input[name="${groupName}"]`);
       if (firstInput) {
