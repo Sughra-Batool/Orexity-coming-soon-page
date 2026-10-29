@@ -159,7 +159,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-
   /* =========================================================
      4. INVESTOR FORM SUBMISSION LOGIC
      ========================================================= */
@@ -190,7 +189,7 @@ document.addEventListener('DOMContentLoaded', function () {
           fileNameDisplay.textContent = 'No files chosen';
           return;
         }
-        fileNameDisplay.textContent = files.length === 1 ? files[0].name : `${files.length} files selected`;
+        fileNameDisplay.textContent = files.length === 1 ? files[0].name : `${files.length} files uploaded`;
       } else {
         fileNameDisplay.textContent = 'No files chosen';
       }
@@ -233,7 +232,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
 
-    // Fetch Submission Function (Accepts silent parameter)
+    // Fetch Submission Function
     function executeInvestorSubmission(isSilent = false) {
       if (!isSilent) {
         if (investorStatus) {
@@ -247,31 +246,55 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       const formData = new FormData(investorForm);
-      formData.delete('website_url');
+      formData.delete('website_url'); // Remove honeypot
 
-      fetch(INVESTOR_WEB_APP_URL, { method: 'POST', mode: 'no-cors', body: formData })
-      .then(() => {
-        if (!isSilent) {
-          setTimeout(() => {
-            investorForm.reset();
-            if (fileNameDisplay) fileNameDisplay.textContent = 'No files chosen';
-            showInvestorSuccess();
-          }, 1000); 
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        if (!isSilent && investorStatus) {
-          investorStatus.textContent = 'An error occurred. Please try again.';
-          investorStatus.style.color = 'red';
-        }
-      })
-      .finally(() => {
-        if (!isSilent && investorSubmitBtn) {
-          investorSubmitBtn.disabled = false;
-          investorSubmitBtn.textContent = 'Submit Investment Enquiry ↗';
-        }
-      });
+      // ✅ FILE UPLOAD LOGIC (Base64 Conversion)
+      function sendData() {
+        fetch(INVESTOR_WEB_APP_URL, { method: 'POST', mode: 'no-cors', body: formData })
+        .then(() => {
+          if (!isSilent) {
+            setTimeout(() => {
+              investorForm.reset();
+              if (fileNameDisplay) fileNameDisplay.textContent = 'No files chosen';
+              showInvestorSuccess();
+            }, 1000); 
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          if (!isSilent && investorStatus) {
+            investorStatus.textContent = 'An error occurred. Please try again.';
+            investorStatus.style.color = 'red';
+          }
+        })
+        .finally(() => {
+          if (!isSilent && investorSubmitBtn) {
+            investorSubmitBtn.disabled = false;
+            investorSubmitBtn.textContent = 'Submit Investment Enquiry ↗';
+          }
+        });
+      }
+
+      // Check if a file is selected
+      if (fileInput && fileInput.files.length > 0) {
+        const file = fileInput.files[0]; // Process first file
+        const reader = new FileReader();
+        
+        reader.onload = function(event) {
+          // Extract the Base64 string from the Data URL
+          const base64String = event.target.result.split(',')[1];
+          
+          // Add file data to the FormData as text
+          formData.append('fileData', base64String);
+          formData.append('fileName', file.name);
+          formData.append('fileMimeType', file.type || 'application/octet-stream');
+          
+          sendData(); // Send data after file is converted
+        };
+        reader.readAsDataURL(file);
+      } else {
+        sendData(); // Send data normally (no file)
+      }
     }
 
     // Submit Event
@@ -331,7 +354,6 @@ document.addEventListener('DOMContentLoaded', function () {
       executeInvestorSubmission(false); // Normal submission
     });
   }
-
 
   /* =========================================================
      5. CONTACT FORM SUBMISSION LOGIC

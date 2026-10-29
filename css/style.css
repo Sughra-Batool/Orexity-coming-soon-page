@@ -65,9 +65,9 @@
     --charcoal: #646464;
 
     /* Brand */
-    --gold: #ffd000;        /* primary gold (cascade: wins over original #ffd000) */
-    --gold-dark: #e6bc00;   /* darker hover gold */
-    --gold-light: #ffd000;  /* highlight gold (project cards) */
+    --gold: #ffd000;        
+    --gold-dark: #e6bc00;   
+    --gold-light: #ffd000;  
     --copper: #b87333;
 
     /* Dark theme (project section) */
@@ -123,6 +123,7 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden; /* Prevents rogue horizontal scrolling */
 }
 
 main {
@@ -181,18 +182,10 @@ h4 { font-size: 1rem; }
     margin-bottom: 0.5rem;
 }
 
-/*.eyebrow::before {
-    content: "";
-    width: 26px;
-    height: 1px;
-    background: var(--copper);
-    flex-shrink: 0;
-}*/
-
 .lead {
     font-size: clamp(1rem, 1.6vw, 1.15rem);
     color: var(--gray-500);
-    max-width: 70ch;
+    max-width: clamp(90ch, 2vw, 200ch);
 }
 
 /* Section-level lead spacing */
@@ -202,31 +195,29 @@ h4 { font-size: 1rem; }
 
 
 /* ──────────────────────────────────────────────────────────────
-   6. LAYOUT UTILITIES
+   6. LAYOUT UTILITIES & ALIGNMENT
    ────────────────────────────────────────────────────────────── */
-.container {
+.container,
+.header-inner {
     width: 100%;
     max-width: var(--max-width);
     margin-inline: auto;
-    padding-inline: 4rem;
+    padding-inline: clamp(1.5rem, 4vw, 4rem); 
+    box-sizing: border-box;
 }
 
-.bg-gray-50>.container,
-#technical>.container {
-    padding-left: 3.25rem;
+/* Remove specific container overrides that broke alignment */
+.bg-gray-50 > .container,
+#technical > .container,
+#disclaimer > .container,
+#faq > .container {
+    padding-inline: clamp(1.5rem, 4vw, 4rem);
 }
 
-#projects>.container {
-    padding-inline: 0rem;
+#projects > .container {
+    padding-inline: 0;
 }
 
-#disclaimer>.container {
-    padding-inline: 3.75rem 5.65rem;
-}
-
-#faq>.container {
-    padding-inline: 3.5rem 5.95rem;
-}
 .section { padding-block: 3.5rem; }
 .section-sm { padding-block: 2rem; }
 
@@ -243,15 +234,15 @@ h4 { font-size: 1rem; }
 .grid {
     display: grid;
     gap: 2rem;
-    margin-right: 1.95rem;
+    margin-right: 0; /* Removed the forced right margin that squeezed grids */
 }
-.body>.wrap {
-    padding-inline: 2rem 3rem;
+.body > .wrap {
+    padding-inline: 0;
 }
 
-.grid-2 { grid-template-columns: 1fr 1fr; }
-.grid-3 { grid-template-columns: 1fr 1fr 1fr; }
-.grid-4 { grid-template-columns: 1fr 1fr; }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(2, 1fr); }
 
 /* Gap modifiers */
 .grid-gap-sm { gap: 1rem; }
@@ -289,25 +280,34 @@ h4 { font-size: 1rem; }
     background-color: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--gray-200);
+    width: 100%;
 }
 
 .header-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-inline: 3.125rem 6rem;
+    flex-wrap: nowrap; /* Prevents wrapping */
+    min-height: 91px;
 }
 
 .nav-right {
     display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex: 1;
+    min-width: 0;
+    gap: clamp(1rem, 2vw, 2rem);
 }
 
 .brand {
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 250px;
+    justify-content: flex-start;
+    width: clamp(160px, 20vw, 250px); /* Scales down gracefully */
     height: 91px;
+    flex-shrink: 0; /* Prevents logo from crushing */
 }
 
 .brand span {
@@ -316,36 +316,40 @@ h4 { font-size: 1rem; }
 
 .brand .logo {
     max-height: 100%;
-    width: auto;
+    width: 100%;
     object-fit: contain;
+    object-position: left;
 }
 
 .nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
-    gap: 1rem;
-    font-size: 0.9rem;
+    gap: clamp(0.75rem, 1.5vw, 1.5rem); 
+    font-size: clamp(0.75rem, 1.1vw, 0.9rem); 
     font-weight: 500;
-    padding-right: 0.5rem;
-    padding-left: 5rem;
+    padding: 0; /* Removed invalid 'auto' padding */
 }
 
 .nav > a {
-    padding-right: 0.5rem;
     text-decoration: none;
     color: #0b0c10;
+    white-space: nowrap; /* Forces links to stay on one line */
+    transition: color 0.2s ease;
 }
 
-.nav > a:hover       { color: #ffd000; }
+.nav > a:hover { 
+    color: var(--gold); 
+}
 
 .header-cta {
-    display: none;
+    display: flex; 
     align-items: center;
     justify-content: center;
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-    font-weight: 600;
+    white-space: nowrap; 
+    flex-shrink: 0;
+    font-size: clamp(0.75rem, 1vw, 0.9rem);
+    padding: clamp(0.5rem, 1vw, 0.7rem) clamp(1rem, 1.5vw, 1.5rem); 
     border-radius: 8px;
 }
 
@@ -368,7 +372,7 @@ h4 { font-size: 1rem; }
     justify-content: center;
     gap: 0.4rem;
     padding: 0.7rem 1.5rem;
-    font-size: 0.9rem;
+    font-size: clamp(0.66rem, 1.1vw, 0.9rem);
     font-weight: 600;
     border-radius: 100px;
     border: 1.5px solid transparent;
@@ -405,7 +409,6 @@ h4 { font-size: 1rem; }
     background-color: var(--gray-50);
 }
 
-/* Large button variant */
 .btn-lg {
     font-size: 1rem;
     padding: 0.9rem 2rem;
@@ -464,8 +467,6 @@ h4 { font-size: 1rem; }
     transition: background-color var(--transition), color var(--transition);
 }
 
-
-
 .card:hover .card-icon {
     background-color: var(--gold);
     color: var(--black);
@@ -498,7 +499,6 @@ h4 { font-size: 1rem; }
 
 .card:hover ul li::before { background: var(--black); }
 
-/* Step cards */
 .step-card {
     background: var(--white);
     border: 1px solid var(--gray-200);
@@ -541,7 +541,6 @@ h4 { font-size: 1rem; }
     background: var(--white);
     border: 1px solid var(--gray-200);
     border-radius: var(--radius-md);
-    /*padding: 1.75rem 1.5rem;*/
     box-shadow: var(--shadow-sm);
     transition: transform 0.25s ease, box-shadow 0.25s ease,
                 border-color 0.25s ease, background-color 0.25s ease;
@@ -662,36 +661,46 @@ details p {
 /* ──────────────────────────────────────────────────────────────
    12. KEY TAKEAWAYS & MISC
    ────────────────────────────────────────────────────────────── */
-   #faq {
+#faq {
     margin-top: 4rem;
-   }
-    .faq-list { border-top: 1px solid var(--line); }
-    #faq .eyebrow {
-        color: var(--muted);
-        font-size:1.05rem ;
-    }
-    #faq .eyebrow::before { content: ""; width: 23px; height: 3px; background: var(--gold); }
-    .faq-h2 {
-        margin-bottom: 0.65rem;
-    }
+}
+.faq-list { border-top: 1px solid var(--line); }
+#faq .eyebrow {
+    color: var(--muted);
+    font-size:1.05rem ;
+}
+#faq .eyebrow::before { content: ""; width: 23px; height: 3px; background: var(--gold); }
+.faq-h2 {
+    margin-bottom: 0.65rem;
+}
 
 .key-takeaways {
     background: var(--gray-50);
     border-left: 4px solid var(--gold);
     padding: 1.25rem 1.5rem;
     border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-    margin: 3rem 1.5rem 3rem 5.75rem;
+    margin: 0 5.5rem; /* Aligns perfectly with the logo */
     display: flex;
     flex-direction: column;
-
-     width: fit-content;
+    /*width: clamp(50%, 2vw, 90%);*/
     max-width: 100%;
-    
+}
+
+.key-takeaways .key-heading {
+    font-weight: bold;
 }
 
 .key-takeaways h2 {
-    font-size: 1rem;
-    margin-bottom: 0.25rem;
+    font-family: 'Bree Serif', sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-bottom: 0.45rem;
+}
+
+.key-takeaways h3 {
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin-bottom: 0.35rem;
 }
 
 .key-takeaways ul {
@@ -718,8 +727,9 @@ details p {
 .faq-p {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: 0.25rem 1.5rem 0rem 5.75rem;
-    margin-bottom: 1.5rem;
+    padding: 0; /* Removed the custom padding */
+    margin-block: 0.25rem 1.5rem;
+    margin-inline-start: 5.5rem;
     font-family: 'Bree Serif';
     font-size: 1.25rem;
     text-align: justify;
@@ -755,7 +765,7 @@ main > .hero { padding-block: 0; }
 .banner {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 4fr 1fr 1fr;
+    grid-template-rows: 1fr 2fr 1fr 1fr;
     align-content: center;
     gap: 0.5rem;
     padding: 4rem 6rem 1.5rem 5.5rem;
@@ -793,7 +803,8 @@ main > .hero { padding-block: 0; }
 
 .banner h3 {
     font-weight: normal;
-    font-size: 1.15rem;
+    font-size: clamp(1.5rem, 2vw, 1.15rem);
+    
 }
 
 .banner p { 
@@ -816,7 +827,13 @@ main > .hero { padding-block: 0; }
     flex-wrap: wrap;
     gap: 0.75rem;
     margin-left: 0.15rem;
-    margin-top: 1.75rem;
+    padding-top: 1.75rem;
+}
+.banner-btns>.btn {
+    padding-block: 0;
+    flex: 0 0 auto;
+    height: 3rem;
+
 }
 
 
@@ -849,7 +866,7 @@ main > .hero { padding-block: 0; }
 #advisory {
     margin-top: 4rem;
 }
-   .sequence-block {
+.sequence-block {
     margin-top: 3rem;
 }
 
@@ -873,7 +890,6 @@ main > .hero { padding-block: 0; }
    ────────────────────────────────────────────────────────────── */
 .body {
     box-sizing: border-box;
-    /*padding-inline: 1rem;*/
     padding-bottom: 1rem;
     margin: 0;
     background:
@@ -939,7 +955,6 @@ main > .hero { padding-block: 0; }
     white-space: nowrap;
 }
 
-/* Project section: 2-column grid (scoped — does NOT affect other .grid usages) */
 .dark-project .grid,
 .body .grid {
     display: grid;
@@ -947,14 +962,12 @@ main > .hero { padding-block: 0; }
     gap: 18px;
 }
 
-/* Project section description spacing */
 .projects-note {
     font-size: 0.9rem;
     color: var(--gray-500);
     margin-bottom: 2rem;
 }
 
-/* Project section bottom CTA block */
 .projects-cta-block {
     margin-top: 2.5rem;
     text-align: center;
@@ -1087,7 +1100,6 @@ main > .hero { padding-block: 0; }
     box-shadow: 0 4px 18px rgba(212, 175, 55, .13);
 }
 
-/* Data grid inside project card */
 .data-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1126,7 +1138,6 @@ main > .hero { padding-block: 0; }
     line-height: 1.4;
 }
 
-/* Commodity chips */
 .commodities {
     display: flex;
     align-items: center;
@@ -1180,7 +1191,6 @@ main > .hero { padding-block: 0; }
     border: 1px solid rgba(184, 115, 51, .28);
 }
 
-/* Phase indicator */
 .phase {
     display: flex;
     align-items: center;
@@ -1210,7 +1220,6 @@ main > .hero { padding-block: 0; }
 
 .phase-track span.active { background-color: #ffd000; }
 
-/* Funding */
 .funding {
     font-family: Manrope, sans-serif;
     font-size: clamp(1.45rem, 2.6vw, 2rem);
@@ -1227,7 +1236,6 @@ main > .hero { padding-block: 0; }
     margin-right: 5px;
 }
 
-/* Equity ring */
 .equity-line {
     display: flex;
     align-items: center;
@@ -1260,7 +1268,6 @@ main > .hero { padding-block: 0; }
     font-weight: 800;
 }
 
-/* Conic-gradient overrides for specific percentages */
 .equity-ring.ring-45 {
     background: conic-gradient(var(--gold) 0 45%, #30383a 45% 100%);
 }
@@ -1276,7 +1283,6 @@ main > .hero { padding-block: 0; }
     letter-spacing: -.04em;
 }
 
-/* Verified badge */
 .verified {
     display: inline-flex;
     align-items: center;
@@ -1297,7 +1303,6 @@ main > .hero { padding-block: 0; }
     font-size: .7rem;
 }
 
-/* Card footer CTA */
 .card-footer { padding-top: 19px; }
 
 .cta-invest,
@@ -1336,7 +1341,6 @@ main > .hero { padding-block: 0; }
 .cta-invest svg, .project-cta svg { transition: transform .2s ease; }
 .cta-invest:hover svg, .project-cta:hover { transform: translateX(3px); }
 
-/* Footnote */
 .footnote {
     display: flex;
     align-items: flex-start;
@@ -1353,7 +1357,6 @@ main > .hero { padding-block: 0; }
     color: var(--gold);
 }
 
-/* Reveal-on-scroll utility */
 .reveal {
     opacity: 0;
     transform: translateY(12px);
@@ -1379,27 +1382,25 @@ main > .hero { padding-block: 0; }
    18. DISCLAIMER & CONTACT CTA
    ────────────────────────────────────────────────────────────── */
 .disclaimer-details { margin-top: 1.5rem; }
-
 .contact-heading { margin-bottom: 0.75rem; }
 
 
 /* ──────────────────────────────────────────────────────────────
    19. FOOTER
    ────────────────────────────────────────────────────────────── */
+.site-footer { padding: 2.5rem 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
+.footer-row { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 1rem; }
+.footer-links a { color: var(--muted); }
+.small {
+    font-size: .88rem; 
+    color: var(--muted);
+    margin-top:.8rem;
+}
 
-   .site-footer { padding: 2.5rem 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
-    .footer-row { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
-    .footer-links { display: flex; flex-wrap: wrap; gap: 1rem; }
-    .footer-links a { color: var(--muted); }
-    .small {
-        font-size: .88rem; 
-        color: var(--muted);
-        margin-top:.8rem;
-    }
-
-    .footer-brand>img {
-        width: 12vw;
-    }
+.footer-brand>img {
+    width: 12vw;
+}
 
 .footer-links {
     list-style: none;
@@ -1423,7 +1424,6 @@ main > .hero { padding-block: 0; }
     font-weight: bold;
  }
 
-/* Bottom bar */
 .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     padding: 1.5rem 0;
@@ -1448,19 +1448,15 @@ main > .hero { padding-block: 0; }
 }
 
 
-
 /* ──────────────────────────────────────────────────────────────
    20. INVESTOR ENQUIRY (standalone page)
    ────────────────────────────────────────────────────────────── */
 .standalone-enquiry-wrapper {
     font-family: 'Roboto', sans-serif;
-    margin: 0 auto;            /* bulletproof horizontal centering */
-    /**box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);*/
+    margin: 0 auto;
     border-radius: 4px;
     overflow: hidden;
     position: relative;
-    /*display: flex;
-    flex-direction: column;**/
     align-items: center;
     justify-content: center;
     padding: 40px 20px;
@@ -1566,26 +1562,23 @@ background-color: var(--primary-navy); }
     margin: 14px 0 0 !important;
 }
 
-/* ══════════════════════════════════════════════════
-   OREXITY | Investor Qualification Form Styles
-   Extracted from original inline <style> and style=""
-   ══════════════════════════════════════════════════ */
 
-/* CSS Variables based on OREXITY Branding */
+/* ──────────────────────────────────────────────────────────────
+   OREXITY | Investor Qualification Form Styles
+   ────────────────────────────────────────────────────────────── */
 :root {
-    --primary-navy: #0a192f; /* Logo dark blue */
-    --accent-gold: #ffd000; /* Requested rare accent */
-    --bg-dark: #121212; /* Dark gray body background */
-    --bg-card: #ffffff; /* White form background */
-    --text-main: #1a1a1a; /* Black/Dark gray text */
-    --text-muted: #555555; /* Lighter gray for hints */
+    --primary-navy: #0a192f; 
+    --accent-gold: #ffd000; 
+    --bg-dark: #121212; 
+    --bg-card: #ffffff; 
+    --text-main: #1a1a1a; 
+    --text-muted: #555555; 
     --border-light: #e0e0e0;
     --border-dark: #333333;
     --font-sans: 'Inter', sans-serif;
     --font-serif: 'Playfair Display', serif;
 }
 
-/* ─── FIXED body ─────────────────────────────── */
 .investor-body {
     font-family: var(--font-sans);
     background-color: var(--bg-dark);
@@ -1593,7 +1586,7 @@ background-color: var(--primary-navy); }
     line-height: 1.6;
     display: flex;
     justify-content: center;
-    align-items: flex-start;   /* stops vertical stretching */
+    align-items: flex-start;   
     min-height: 100vh;
     margin: 0;
     padding: 40px 20px;
@@ -1601,7 +1594,6 @@ background-color: var(--primary-navy); }
     -webkit-font-smoothing: antialiased;
 }
 
-/* ─── FIXED form-wrapper ─────────────────────── */
 .contact-section {
     margin-top: 3rem;
 }
@@ -1609,15 +1601,13 @@ background-color: var(--primary-navy); }
     background-color: var(--bg-card);
     width: 100%;
     max-width: 900px;
-    margin: 0 auto;            /* bulletproof horizontal centering */
+    margin: 0 auto;            
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
     border-radius: 4px;
     overflow: hidden;
     position: relative;
-    
 }
 
-/* Top Gold Accent Bar */
 .form-wrapper::before {
     content: '';
     position: absolute;
@@ -1628,7 +1618,6 @@ background-color: var(--primary-navy); }
     background-color: var(--accent-gold);
 }
 
-/* Header */
 .header {
     background-color: var(--primary-navy);
     padding: 40px 50px;
@@ -1636,7 +1625,6 @@ background-color: var(--primary-navy); }
     color: #ffffff;
     border-bottom: 2px solid var(--accent-gold);
     width: 100%;
-    
 }
 
 .header .confidential {
@@ -1664,7 +1652,6 @@ background-color: var(--primary-navy); }
     font-weight: 400;
 }
 
-/* Brand logo — replaces inline width="300vw" */
 .brand-logo {
     width: 20vw;
     max-width: 100%;
@@ -1673,7 +1660,6 @@ background-color: var(--primary-navy); }
     margin: 0.5rem auto;
 }
 
-/* Header tagline — replaces inline style on the div */
 .header-tagline {
     font-size: 0.9rem;
     margin-top: 15px;
@@ -1690,15 +1676,13 @@ background-color: var(--primary-navy); }
     justify-content: center;
     padding: 40px 20px;
     -webkit-font-smoothing: antialiased;
-        }
+}
 
-/* Form Body */
 .form-body {
     padding: 50px;
     width: 100%;
 }
 
-/* Sections */
 .section {
     margin-bottom: 40px;
     position: relative;
@@ -1729,7 +1713,6 @@ background-color: var(--primary-navy); }
     flex-shrink: 0;
 }
 
-/* Form Grid & Layout */
 .form-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -1746,11 +1729,14 @@ background-color: var(--primary-navy); }
     }
 }
 
-/* Elegant Line Inputs */
 .input-group {
     display: flex;
     flex-direction: column;
     position: relative;
+}
+.input-group [for = 'investmentTimeline'],
+.input-group [for = 'proposedOwnership'] {
+    margin-block-start: 1.25rem;
 }
 
 .input-group label {
@@ -1785,12 +1771,15 @@ background-color: var(--primary-navy); }
     font-size: 0.9rem;
 }
 
-/* Custom Checkboxes & Radio Buttons */
 .options-group {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
     margin-top: 5px;
+}
+
+.options-block {
+    margin-block-start: 1.25rem;
 }
 
 .options-label {
@@ -1860,7 +1849,6 @@ background-color: var(--primary-navy); }
     color: var(--primary-navy);
 }
 
-/* Declaration Block */
 .declaration-block {
     background-color: #f8f9fa;
     padding: 30px;
@@ -1888,7 +1876,6 @@ background-color: var(--primary-navy); }
     }
 }
 
-/* Footer */
 .cont-footer {
     background-color: var(--primary-navy);
     color: #a0aec0;
@@ -1898,7 +1885,7 @@ background-color: var(--primary-navy); }
     text-transform: uppercase;
     letter-spacing: 1px;
 }
-/* CTA Button */
+
 .cta-cont {
     display: inline-flex;
     align-items: center;
@@ -1919,8 +1906,8 @@ background-color: var(--primary-navy); }
 }
 
 .cta-cont {
-    display: flex;             /* Changed from inline-flex */
-    width: max-content;        /* Prevents button from stretching full-width */
+    display: flex;             
+    width: max-content;        
     margin: 20px auto 0;
     background-color: var(--primary-navy);
 }
@@ -1942,7 +1929,6 @@ background-color: var(--primary-navy); }
     cursor: not-allowed;
 }
 
-/* Submission status message */
 .form-message {
     margin-top: 15px;
     font-size: 0.9rem;
@@ -1950,7 +1936,6 @@ background-color: var(--primary-navy); }
     min-height: 1.4em;
 }
 
-/* ─── Document Upload Styles ─────────────────────── */
 .upload-container {
     margin-top: 25px;
     padding-top: 20px;
@@ -1964,12 +1949,10 @@ background-color: var(--primary-navy); }
     flex-wrap: wrap;
 }
 
-/* Hide the default file input */
 .file-input {
     display: none;
 }
 
-/* Style the label to look like a button */
 .upload-btn {
     display: inline-flex;
     align-items: center;
@@ -2005,7 +1988,6 @@ background-color: var(--primary-navy); }
     margin-top: 8px;
 }
 
-/* Footer */
 .footer {
     background-color: var(--primary-navy);
     color: #a0aec0;
@@ -2017,7 +1999,6 @@ background-color: var(--primary-navy); }
     width: 100%;
 }
 
-/* Honeypot — visually hidden but accessible to bots */
 .honeypot {
     position: absolute;
     left: -9999px;
@@ -2027,19 +2008,50 @@ background-color: var(--primary-navy); }
     overflow: hidden;
 }
 
+
 /* ──────────────────────────────────────────────────────────────
    21. RESPONSIVE — BREAKPOINTS
    ────────────────────────────────────────────────────────────── */
 
+/* INTERMEDIATE DESKTOP / TABLET (Prevents header squishing & grid overflow) */
+@media (max-width: 1100px) {
+    .banner {
+        grid-template-columns: 1fr;
+        padding: 2rem;
+        /*gap: 2rem;*/
+    }
+    .banner > #hero-heading {
+        border-right: none;
+        border-bottom: 2px solid var(--gray-200);
+        padding-bottom: 1.5rem;
+    }
+    .banner > .banner-text {
+        padding-left: 0;
+    }
+    .grid-3 {
+        grid-template-columns: repeat(2, 1fr); /* 3 cols to 2 on tablets */
+    }
+
+    .key-takeaways {
+        margin: 0 2rem;
+    }
+    .banner-btns {
+        margin-top: 2rem;
+    }
+    .faq-p {
+        margin-inline-start: 2rem;
+        grid-template-columns: 2fr 1fr;
+    }
+    
+}
+
 /* Mobile (≤ 768px) */
 @media (max-width: 768px) {
-    /* --- Header: Center logo, position burger to the right --- */
     .header-inner {
         justify-content: space-between; 
         align-items: center;
-        min-height: 70px; /* Gives enough height for the absolute burger */
+        min-height: 70px;
         padding-block: 0.5rem;
-        
     }
 
     img {
@@ -2053,7 +2065,6 @@ background-color: var(--primary-navy); }
         padding: 0;
     }
 
-    /* Hide standard navigation and CTA on mobile */
     .nav {
         display: none; 
     }
@@ -2062,7 +2073,6 @@ background-color: var(--primary-navy); }
         display: none;
     }
 
-    /* Burger menu icon - absolutely positioned */
     .burger-toggle {
         display: flex;
         flex-direction: column;
@@ -2075,7 +2085,7 @@ background-color: var(--primary-navy); }
         padding: 0;
         position: absolute;
         top: 50%;
-        right: 1.25rem; /* Aligns with container padding */
+        right: 1.25rem; 
         transform: translateY(-50%);
         z-index: 1100;
     }
@@ -2093,7 +2103,6 @@ background-color: var(--primary-navy); }
     .burger-toggle.active span:nth-child(2) { opacity: 0; }
     .burger-toggle.active span:nth-child(3) { transform: translateY(-8.5px) rotate(-45deg); }
 
-    /* Mobile navigation drawer - targeting .nav.mobile-open */
     .nav.mobile-open {
         display: flex;
         flex-direction: column;
@@ -2140,7 +2149,6 @@ background-color: var(--primary-navy); }
         z-index: 1040;
     }
 
-    /* --- Hero banner: single column --- */
     .banner {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
@@ -2178,9 +2186,11 @@ background-color: var(--primary-navy); }
         text-align: justify;
     }
 
-    /* --- Key takeaways: reduce generous margins --- */
     .key-takeaways {
-        margin: 2rem;
+        margin: 2rem 0;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0; /* Resets the min-width for mobile */
     }
 
     #advisory {
@@ -2235,7 +2245,6 @@ background-color: var(--primary-navy); }
     }
     
 
-    /* --- Footer: stack columns & enable mobile accordion --- */
     .footer-container {
         display: flex;
         flex-direction: column;
@@ -2253,7 +2262,7 @@ background-color: var(--primary-navy); }
     }
 
     .accordion-btn[aria-expanded="true"] .accordion-icon {
-        transform: rotate(45deg); /* + becomes × */
+        transform: rotate(45deg); 
     }
 
     .accordion-content { display: none; }
@@ -2270,7 +2279,6 @@ background-color: var(--primary-navy); }
 
     .footer-address { max-width: 100%; }
 
-    /* --- Project grid: single column on narrow screens --- */
     .dark-project .grid,
     .body .grid {
         grid-template-columns: 1fr;
@@ -2351,16 +2359,10 @@ background-color: var(--primary-navy); }
    Investor form section + Contact Us modal
    ────────────────────────────────────────────────────────────── */
 
-/* Utility: hide elements */
 .hidden { display: none !important; }
 
-/* ---------- Investor Form Section ---------- */
 #investor-form-section {
     min-height: calc(100vh - 91px);
-    background:
-        radial-gradient(ellipse at 12% 0%, rgba(184, 115, 51, .12), transparent 32rem),
-        radial-gradient(ellipse at 90% 20%, rgba(212, 175, 55, .08), transparent 28rem),
-        var(--bg);
     padding: 2rem 1rem 4rem;
     font-family: "DM Sans", sans-serif;
 }
@@ -2376,7 +2378,7 @@ background-color: var(--primary-navy); }
     color: var(--text);
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     gap: 1rem;
     flex-wrap: wrap;
 }
@@ -2416,32 +2418,31 @@ background-color: var(--primary-navy); }
     margin: 0 auto;
 }
 
-/* ---------- Contact Us Modal ---------- */
 #contact-modal {
     position: fixed;
     inset: 0;
     background: rgba(10, 15, 20, 0.88);
     z-index: 2000;
     display: flex;
-    align-items: center; /* Center vertically */
-    justify-content: center; /* Center horizontally */
+    align-items: center;
+    justify-content: center;
     padding: 1rem;
-    overflow: hidden; /* Prevent background scrolling */
+    overflow: hidden;
     backdrop-filter: blur(4px);
 }
 
 #contact-modal .modal {
     width: 100%;
-    max-width: 480px; /* Slightly narrower */
-    max-height: 95vh; /* Prevent overflowing the screen */
+    max-width: 480px;
+    max-height: 95vh;
     background: #14181b;
     border: 1px solid rgba(212, 175, 55, 0.25);
-    padding: 20px 30px; /* Reduced vertical padding */
+    padding: 20px 30px;
     border-radius: 12px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
     position: relative;
     margin: 0; 
-    overflow: hidden; /* Hide internal scrollbars */
+    overflow: hidden;
 }
 
 #contact-modal .modal-close-x {
@@ -2484,7 +2485,7 @@ background-color: var(--primary-navy); }
 }
 
 #contact-modal .contact-header img {
-    max-width: 150px; /* Smaller logo to save space */
+    max-width: 150px;
     height: auto;
     display: block;
 }
@@ -2512,11 +2513,11 @@ background-color: var(--primary-navy); }
     background: #0d1113;
     color: var(--text);
     border-color: rgba(255, 255, 255, 0.14);
-    padding: 10px 13px; /* Slightly smaller padding */
+    padding: 10px 13px;
 }
 
 #contact-modal .form-field textarea {
-    min-height: 70px; /* Reduced height to fit screen */
+    min-height: 70px;
 }
 
 #contact-modal .form-field input:focus,
@@ -2530,13 +2531,12 @@ background-color: var(--primary-navy); }
     padding: 12px;
 }
 
-/* Fix success message to match modal center */
 #contactSuccessMessage {
     margin: 0;
     width: 100%;
     max-width: 480px;
 }
-/* ---------- Responsive tweaks for inline forms ---------- */
+
 @media (max-width: 768px) {
     #investor-form-section {
         padding: 1rem 0.5rem 3rem;
@@ -2554,12 +2554,11 @@ background-color: var(--primary-navy); }
     }
 }
 
+
 /* ──────────────────────────────────────────────────────────────
    23. SUBMISSION SUCCESS MESSAGES
-   Appear in the same place as the form, matching its background.
    ────────────────────────────────────────────────────────────── */
 
-/* --- Investor form success card (matches .form-wrapper: white card, gold top bar) --- */
 #investorSuccessMessage {
     max-width: 900px;
     margin: 0 auto;
@@ -2590,7 +2589,6 @@ background-color: var(--primary-navy); }
     line-height: 1.7;
 }
 
-/* --- Contact modal success card (matches .modal: dark card, gold border) --- */
 #contactSuccessMessage {
     max-width: 500px;
     margin: auto 0;
@@ -2621,7 +2619,6 @@ background-color: var(--primary-navy); }
     line-height: 1.7;
 }
 
-/* Mobile tweaks */
 @media (max-width: 768px) {
     #investorSuccessMessage {
         padding: 2.5rem 1.5rem;
@@ -2638,17 +2635,18 @@ background-color: var(--primary-navy); }
     }
 }
 
+
 /* ──────────────────────────────────────────────────────────────
    MOBILE RESPONSIVENESS FOR CONTACT US MODAL
    ────────────────────────────────────────────────────────────── */
 @media (max-width: 768px) {
     #contact-modal {
-        padding: 0.5rem; /* Less padding on the background */
+        padding: 0.5rem;
     }
 
     #contact-modal .modal {
-        padding: 15px 20px; /* Tighter padding inside the box */
-        max-height: 95dvh; /* dvh handles mobile keyboards better than vh */
+        padding: 15px 20px;
+        max-height: 95dvh;
         width: 100%;
     }
 
@@ -2658,36 +2656,36 @@ background-color: var(--primary-navy); }
     }
 
     #contact-modal .contact-header .eyebrow {
-        font-size: 0.65rem; /* Smaller eyebrow text */
+        font-size: 0.65rem;
     }
 
     #contact-modal .contact-header img {
-        max-width: 110px; /* Significantly smaller logo on mobile */
+        max-width: 110px;
     }
 
     #contact-modal .modal h3 {
-        font-size: 1.15rem; /* Smaller heading */
+        font-size: 1.15rem;
         margin: 4px 0;
     }
 
     #contact-modal .modal > p {
-        font-size: 0.8rem; /* Smaller description */
+        font-size: 0.8rem;
         margin-bottom: 8px;
     }
 
     #contact-modal .form-field {
-        margin: 8px 0; /* Tighter spacing between fields */
-        font-size: 0.7rem; /* Smaller label text */
+        margin: 8px 0;
+        font-size: 0.7rem;
     }
 
     #contact-modal .form-field input,
     #contact-modal .form-field textarea {
-        padding: 8px 10px; /* Smaller inputs */
+        padding: 8px 10px;
         font-size: 0.85rem;
     }
 
     #contact-modal .form-field textarea {
-        min-height: 50px; /* Smaller text area to save space */
+        min-height: 50px;
         height: 50px;
     }
 
@@ -2704,16 +2702,15 @@ background-color: var(--primary-navy); }
     }
 }
 
+
 /* ──────────────────────────────────────────────────────────────
    MOBILE RESPONSIVENESS FOR INVESTOR CONNECT FORM
    ────────────────────────────────────────────────────────────── */
 @media (max-width: 768px) {
-    /* Section wrapper */
     #investor-form-section {
         padding: 1.5rem 0.5rem 3rem;
     }
 
-    /* Less Info Box (Contact Us prompt) */
     #investor-form-section .less-info-box {
         padding: 0.75rem 1rem;
         margin-bottom: 1rem;
@@ -2722,14 +2719,12 @@ background-color: var(--primary-navy); }
         font-size: 0.85rem;
     }
 
-    /* Form Wrapper (White Box) */
     #investor-form-section .form-wrapper {
-        border-radius: 8px; /* Slightly softer corners */
+        border-radius: 8px;
     }
 
-    /* Header inside the form */
     #investor-form-section .header {
-        padding: 20px 15px; /* Reduced from 40px 50px */
+        padding: 20px 15px;
     }
     #investor-form-section .header h1 {
         font-size: 1.4rem;
@@ -2739,45 +2734,39 @@ background-color: var(--primary-navy); }
         letter-spacing: 1px;
     }
     #investor-form-section .brand-logo {
-        width: 140px; /* Fixed smaller size for mobile */
+        width: 140px;
     }
     #investor-form-section .header-tagline {
         font-size: 0.75rem;
         margin-top: 10px;
     }
 
-    /* Form Body */
     #investor-form-section .form-body {
-        padding: 20px 15px; /* Reduced from 50px */
+        padding: 20px 15px;
     }
     
-    /* Section Titles (1. Corporate Identity, etc.) */
     #investor-form-section .section-title {
         font-size: 1.05rem;
         padding: 8px;
         margin-bottom: 15px;
     }
 
-    /* Form Grid & Inputs */
     #investor-form-section .form-grid {
         gap: 15px;
     }
     
-    /* Prevent iOS auto-zoom on inputs */
     #investor-form-section .input-line {
         font-size: 1rem; 
     }
 
-    /* Checkboxes & Options (Stack them for easier tapping) */
     #investor-form-section .options-group {
         gap: 8px;
     }
     #investor-form-section .checkbox-label {
-        width: 100%; /* Full width stacked buttons */
+        width: 100%;
         padding: 10px 12px; 
     }
 
-    /* File Upload Box */
     #investor-form-section .upload-box {
         flex-direction: column;
         align-items: flex-start;
@@ -2788,7 +2777,6 @@ background-color: var(--primary-navy); }
         justify-content: center;
     }
 
-    /* Declaration Block */
     #investor-form-section .declaration-block {
         padding: 15px;
         margin-top: 20px;
@@ -2797,14 +2785,12 @@ background-color: var(--primary-navy); }
         gap: 15px;
     }
 
-    /* Submit Button */
     #investor-form-section .cta-cont {
-        width: 100%; /* Full width for easy tapping */
+        width: 100%;
         padding: 14px;
         font-size: 0.85rem;
     }
 
-    /* Success Message (Shown after submission) */
     #investorSuccessMessage {
         padding: 2.5rem 1.5rem;
         margin: 0 0.5rem;
@@ -2826,23 +2812,23 @@ background-color: var(--primary-navy); }
     font-size: 0.95rem;
     color: #202020;
     margin-top: 30px;
-    margin-bottom: 20px; /* Adds space between the note and the declaration box */
-    padding: 15px 20px; /* Matches the padding style of the form */
-    background-color: #f8f9fa; /* Same background as the declaration block */
-    border-left: 4px solid var(--accent-gold); /* The gold line */
+    margin-bottom: 20px;
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    border-left: 4px solid var(--accent-gold);
     border-radius: 4px;
     line-height: 1.5;
 }
 
 .form-important-note strong {
-    color: #d93025; /* Red color for "Important:" */
+    color: #d93025;
     font-weight: 700;
 }
+
+
 /* ──────────────────────────────────────────────────────────────
    GOLD HIGHLIGHT FOR INVALID REQUIRED FIELDS
    ────────────────────────────────────────────────────────────── */
-
-/* Text Inputs & Textareas */
 #investor-form-section .input-line.gold-highlight {
     border-bottom-color: var(--gold);
     background-color: rgba(255, 208, 0, 0.05);
@@ -2850,14 +2836,12 @@ background-color: var(--primary-navy); }
     transition: all 0.3s ease;
 }
 
-/* Checkbox Groups (e.g., Funding Source, Commodity Focus) */
 #investor-form-section .checkbox-label.gold-highlight {
     border-color: var(--gold);
     background-color: rgba(255, 208, 0, 0.1);
     box-shadow: 0 0 0 2px rgba(255, 208, 0, 0.2);
 }
 
-/* File Upload Box */
 #investor-form-section .upload-box.gold-highlight {
     border: 2px dashed var(--gold);
     background-color: rgba(255, 208, 0, 0.05);
@@ -2865,18 +2849,16 @@ background-color: var(--primary-navy); }
     border-radius: 8px;
 }
 
-/* Error text alignment */
 #investor-form-section .form-message {
     text-align: center;
     margin-top: 15px;
     font-weight: 600;
 }
 
+
 /* ──────────────────────────────────────────────────────────────
    SUCCESS MESSAGE CARDS (MATCHING THE DESIGN)
    ────────────────────────────────────────────────────────────── */
-
-/* Shared Layout */
 #investorSuccessMessage,
 #contactSuccessMessage {
     display: flex;
@@ -2884,19 +2866,17 @@ background-color: var(--primary-navy); }
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 4rem 2rem 2rem 2rem; /* Bottom padding handled by the border */
+    padding: 4rem 2rem 2rem 2rem;
     position: relative;
     overflow: hidden;
 }
 
-/* The SVG Medal */
 .success-icon {
     width: 90px;
     height: 90px;
     margin-bottom: 1.5rem;
 }
 
-/* Typography */
 .success-title {
     font-family: 'Bree Serif', Georgia, serif;
     font-size: 1.8rem;
@@ -2913,7 +2893,6 @@ background-color: var(--primary-navy); }
     margin-bottom: 3rem;
 }
 
-/* The Gold Bottom Line */
 .success-border {
     position: absolute;
     bottom: 0;
@@ -2923,8 +2902,6 @@ background-color: var(--primary-navy); }
     background-color: var(--gold);
 }
 
-
-/* --- 1. Investor Form Theme (Light) --- */
 #investorSuccessMessage {
     max-width: 900px;
     margin: 0 auto;
@@ -2935,7 +2912,7 @@ background-color: var(--primary-navy); }
 }
 
 #investorSuccessMessage .success-icon {
-    color: #202020; /* Black ribbon for light theme */
+    color: #202020;
 }
 
 #investorSuccessMessage .success-title {
@@ -2945,9 +2922,6 @@ background-color: var(--primary-navy); }
 #investorSuccessMessage .success-text {
     color: #333333;
 }
-
-
-/* --- 2. Contact Form Theme (Dark) --- */
 
 #contactSuccessMessage {
     max-width: 500px;
@@ -2960,7 +2934,7 @@ background-color: var(--primary-navy); }
 }
 
 #contactSuccessMessage .success-icon {
-    color: var(--charcoal); /* Keeps the ribbon black */
+    color: var(--charcoal);
 }
 
 #contactSuccessMessage .success-title {
@@ -2973,7 +2947,6 @@ background-color: var(--primary-navy); }
     font-size: 0.95rem;
 }
 
-/* Mobile Adjustments */
 @media (max-width: 768px) {
     #investorSuccessMessage,
     #contactSuccessMessage {
@@ -2996,35 +2969,37 @@ background-color: var(--primary-navy); }
     }
 }
 
+
 /* ──────────────────────────────────────────────────────────────
    PERMANENT GOLDEN BORDERS FOR REQUIRED FIELDS
    ────────────────────────────────────────────────────────────── */
-
-/* 1. Text Inputs (Company Name, UBO, etc.) */
 #investor-form-section .input-line[required] {
     border-bottom-color: var(--gold);
 }
 
-/* Make the focus state slightly thicker to differentiate from default */
 #investor-form-section .input-line[required]:focus {
     border-bottom-width: 3px;
     border-bottom-color: var(--gold-dark);
 }
 
-/* 2. Checkboxes (Declaration & dynamically marked groups) */
 #investor-form-section .checkbox-label input[required] + .custom-box,
 #investor-form-section .required-group .custom-box {
     border-color: var(--gold);
 }
 
-/* 3. File Upload Button */
 #investor-form-section .file-input[required] + .upload-btn {
     border-color: var(--gold);
 }
+
 
 /* ──────────────────────────────────────────────────────────────
    HEADER VISIBILITY DURING CONTACT SUCCESS
    ────────────────────────────────────────────────────────────── */
 body.contact-success-mode .site-header {
-    z-index: 3000 !important; /* Pops the header above the modal backdrop */
+    z-index: 3000 !important;
+}
+
+#investorFileNameDisplay {
+    font-weight: 700;
+    color: #0a192f;
 }
