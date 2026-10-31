@@ -1,20 +1,20 @@
 /* ══════════════════════════════════════════════════════════════
-   OREXITY — STYLESHEET
-   Organized by section. Every block is documented with a heading.
+   OREXITY — STYLESHEET (CLEANED)
+   - Removed dead/light .project-card (A1)
+   - Merged duplicate .section (A3)
+   - Renamed --bg in new-body → --bg-light + updated usages (A4)
+   - Merged .footer-links (A5, A6)
+   - Fixed invalid selectors in .cta-invest / .project-cta (A10, D1, D2)
+   - Merged .cta-cont, .footer-links, success messages (C1, C2, C3)
+   - Removed dead media rules for non-existent elements (B2, B3, B4)
+   - Removed dead .faq-p commented block + dead grid-template-columns (B7, B8)
+   - Removed commented-out block at bottom (B9)
    ══════════════════════════════════════════════════════════════ */
 
 
 /* ──────────────────────────────────────────────────────────────
    1. FONT FACES
    ────────────────────────────────────────────────────────────── */
-@font-face {
-    font-family: 'BoomBox';
-    src: url('../fonts/BoomBox.woff2') format('woff2'),
-         url('../fonts/BoomBox.woff')  format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
 
 @font-face {
     font-family: 'Bree Serif';
@@ -24,16 +24,6 @@
     font-style: normal;
     font-display: swap;
 }
-
-@font-face {
-    font-family: 'Subway Novella';
-    src: url('../fonts/SubwayNovella.woff2') format('woff2'),
-         url('../fonts/SubwayNovella.woff')  format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
 
 /* ──────────────────────────────────────────────────────────────
    2. GOOGLE-FONT UTILITY CLASSES
@@ -65,9 +55,9 @@
     --charcoal: #646464;
 
     /* Brand */
-    --gold: #ffd000;        
-    --gold-dark: #e6bc00;   
-    --gold-light: #ffd000;  
+    --gold: #ffd000;
+    --gold-dark: #e6bc00;
+    --gold-light: #ffd000;
     --copper: #b87333;
 
     /* Dark theme (project section) */
@@ -123,7 +113,7 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden; /* Prevents rogue horizontal scrolling */
+    overflow-x: hidden;
 }
 
 main {
@@ -202,7 +192,7 @@ h4 { font-size: 1rem; }
     width: 100%;
     max-width: var(--max-width);
     margin-inline: auto;
-    padding-inline: clamp(1.5rem, 4vw, 4rem); 
+    padding-inline: clamp(1.5rem, 4vw, 4rem);
     box-sizing: border-box;
 }
 
@@ -218,7 +208,17 @@ h4 { font-size: 1rem; }
     padding-inline: 0;
 }
 
-.section { padding-block: 3.5rem; }
+/* MERGED (A3): both the layout padding-block AND form-style margin/position
+   are applied.  Previously these were two separate .section rules — one in
+   the layout section and one buried in the form styles; running them
+   separately meant the bare .section selector cascaded globally anyway.
+   Now consolidated into a single rule (no behaviour change, just clarity). */
+.section {
+    padding-block: 3.5rem;
+    margin-bottom: 40px;
+    position: relative;
+}
+
 .section-sm { padding-block: 2rem; }
 
 .text-center { text-align: center; }
@@ -234,7 +234,7 @@ h4 { font-size: 1rem; }
 .grid {
     display: grid;
     gap: 2rem;
-    margin-right: 0; /* Removed the forced right margin that squeezed grids */
+    margin-right: 0;
 }
 .body > .wrap {
     padding-inline: 0;
@@ -287,7 +287,7 @@ h4 { font-size: 1rem; }
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: nowrap; /* Prevents wrapping */
+    flex-wrap: nowrap;
     min-height: 91px;
 }
 
@@ -305,9 +305,9 @@ h4 { font-size: 1rem; }
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    width: clamp(160px, 20vw, 250px); /* Scales down gracefully */
+    width: clamp(160px, 20vw, 250px);
     height: 91px;
-    flex-shrink: 0; /* Prevents logo from crushing */
+    flex-shrink: 0;
 }
 
 .brand span {
@@ -325,31 +325,31 @@ h4 { font-size: 1rem; }
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: clamp(0.75rem, 1.5vw, 1.5rem); 
-    font-size: clamp(0.75rem, 1.1vw, 0.9rem); 
+    gap: clamp(0.75rem, 1.5vw, 1.5rem);
+    font-size: clamp(0.75rem, 1.1vw, 0.9rem);
     font-weight: 500;
-    padding: 0; /* Removed invalid 'auto' padding */
+    padding: 0;
 }
 
 .nav > a {
     text-decoration: none;
     color: #0b0c10;
-    white-space: nowrap; /* Forces links to stay on one line */
+    white-space: nowrap;
     transition: color 0.2s ease;
 }
 
-.nav > a:hover { 
-    color: var(--gold); 
+.nav > a:hover {
+    color: var(--gold);
 }
 
 .header-cta {
-    display: flex; 
+    display: flex;
     align-items: center;
     justify-content: center;
-    white-space: nowrap; 
+    white-space: nowrap;
     flex-shrink: 0;
     font-size: clamp(0.75rem, 1vw, 0.9rem);
-    padding: clamp(0.5rem, 1vw, 0.7rem) clamp(1rem, 1.5vw, 1.5rem); 
+    padding: clamp(0.5rem, 1vw, 0.7rem) clamp(1rem, 1.5vw, 1.5rem);
     border-radius: 8px;
 }
 
@@ -416,7 +416,9 @@ h4 { font-size: 1rem; }
 
 
 /* ──────────────────────────────────────────────────────────────
-   9. CARDS (general, step, project base)
+   9. CARDS (general, step)
+   [A1] The light-theme .project-card block was removed entirely —
+   only the dark version in section 17 is used by the HTML.
    ────────────────────────────────────────────────────────────── */
 .card {
     background: var(--white);
@@ -536,45 +538,6 @@ h4 { font-size: 1rem; }
     color: var(--black);
 }
 
-/* Base project card (light, superseded by dark variant later) */
-.project-card {
-    background: var(--white);
-    border: 1px solid var(--gray-200);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
-    transition: transform 0.25s ease, box-shadow 0.25s ease,
-                border-color 0.25s ease, background-color 0.25s ease;
-    text-align: center;
-    font-weight: 600;
-    font-size: 1.1rem;
-    position: relative;
-    overflow: hidden;
-}
-
-.project-card:hover {
-    border-color: var(--gold);
-    box-shadow: 0 12px 32px rgba(255, 208, 0, 0.15);
-    transform: translateY(-4px);
-    background-color: #fffdf3;
-}
-
-.project-card::after {
-    content: '→';
-    position: absolute;
-    right: 1rem;
-    top: 50%;
-    transform: translateY(-50%) translateX(4px);
-    opacity: 0;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-    color: var(--gold-dark);
-    font-size: 1.2rem;
-}
-
-.project-card:hover::after {
-    opacity: 1;
-    transform: translateY(-50%) translateX(0);
-}
-
 
 /* ──────────────────────────────────────────────────────────────
    10. TABLES
@@ -660,6 +623,7 @@ details p {
 
 /* ──────────────────────────────────────────────────────────────
    12. KEY TAKEAWAYS & MISC
+   [B8] The dead commented-out .faq-p grid block was removed.
    ────────────────────────────────────────────────────────────── */
 #faq {
     margin-top: 4rem;
@@ -679,10 +643,9 @@ details p {
     border-left: 4px solid var(--gold);
     padding: 1.25rem 1.5rem;
     border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-    margin: 0 5.5rem; /* Aligns perfectly with the logo */
+    margin: 0 5.5rem;
     display: flex;
     flex-direction: column;
-    /*width: clamp(50%, 2vw, 90%);*/
     max-width: 100%;
 }
 
@@ -722,18 +685,6 @@ details p {
     left: 0;
     color: var(--gold-dark);
     font-weight: 700;
-}
-
-.faq-p {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0; /* Removed the custom padding */
-    margin-block: 0.25rem 1.5rem;
-    margin-inline-start: 5.5rem;
-    font-family: 'Bree Serif';
-    font-size: 1.25rem;
-    text-align: justify;
-    color: var(--gray-500);
 }
 
 /* Inline "Private-sector chain" box */
@@ -804,13 +755,12 @@ main > .hero { padding-block: 0; }
 .banner h3 {
     font-weight: normal;
     font-size: clamp(1.5rem, 2vw, 1.15rem);
-    
 }
 
-.banner p { 
+.banner p {
     text-align: justify;
     font-size: 0.85rem;
- }
+}
 
 .banner > .bottom-tag {
     grid-column: 1 / -1;
@@ -833,7 +783,6 @@ main > .hero { padding-block: 0; }
     padding-block: 0;
     flex: 0 0 auto;
     height: 3rem;
-
 }
 
 
@@ -973,22 +922,20 @@ main > .hero { padding-block: 0; }
     text-align: center;
     padding-inline: 1.15rem;
 }
-.projects-cta-block h3 { margin-bottom: 0.75rem; }
+.projects-cta-block h3 { margin-bottom: 0.75rem;}
+
 .projects-cta-block p {
     color: var(--gray-500);
     max-width: 70ch;
     margin-inline: auto;
     font-size: 0.95rem;
-}
-
-.projects-cta-block p {
     text-align: justify;
 }
 .projects-cta-block .btn { margin-top: 1.5rem; }
 
 
 /* ──────────────────────────────────────────────────────────────
-   17. PROJECT CARDS (dark theme — detailed)
+   17. PROJECT CARDS (dark theme — the ONLY project-card block)
    ────────────────────────────────────────────────────────────── */
 .project-card {
     position: relative;
@@ -1021,7 +968,6 @@ main > .hero { padding-block: 0; }
     right: -100px;
     top: -105px;
     border-radius: 50%;
-    background: rgba(212, 175, 55, .07);
     filter: blur(5px);
     pointer-events: none;
 }
@@ -1305,6 +1251,7 @@ main > .hero { padding-block: 0; }
 
 .card-footer { padding-top: 19px; }
 
+/* [A10 / D1] Fixed missing comma that broke the focus-visible selector chain */
 .cta-invest,
 .project-cta {
     display: flex;
@@ -1330,7 +1277,7 @@ main > .hero { padding-block: 0; }
 
 .cta-invest:hover,
 .project-cta:hover,
-.project-cta:focus-visible
+.project-cta:focus-visible,
 .cta-invest:focus-visible {
     background: linear-gradient(105deg, #c19b2c, #ffd000);
     color: #17150e;
@@ -1338,8 +1285,10 @@ main > .hero { padding-block: 0; }
     outline: none;
 }
 
+/* [D2] Fixed hover target — apply transform to the SVG, not the button */
 .cta-invest svg, .project-cta svg { transition: transform .2s ease; }
-.cta-invest:hover svg, .project-cta:hover { transform: translateX(3px); }
+.cta-invest:hover svg,
+.project-cta:hover svg { transform: translateX(3px); }
 
 .footnote {
     display: flex;
@@ -1387,13 +1336,36 @@ main > .hero { padding-block: 0; }
 
 /* ──────────────────────────────────────────────────────────────
    19. FOOTER
+   [A5 / A6 / C2] Footer links merged into a single consistent rule.
+   Changed `.footer-links li a` → `.footer-links a` so the rule
+   actually matches the HTML markup (div > a, no <li>).
    ────────────────────────────────────────────────────────────── */
 .site-footer { padding: 2.5rem 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
 .footer-row { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
-.footer-links { display: flex; flex-wrap: wrap; gap: 1rem; }
-.footer-links a { color: var(--muted); }
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.footer-links a {
+    color: var(--gray-200);
+    text-decoration: none;
+    font-size: 0.75rem;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: #ffd000;
+    font-weight: bold;
+}
+
 .small {
-    font-size: .88rem; 
+    font-size: .88rem;
     color: var(--muted);
     margin-top:.8rem;
 }
@@ -1401,28 +1373,6 @@ main > .hero { padding-block: 0; }
 .footer-brand>img {
     width: 12vw;
 }
-
-.footer-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    gap: 1.5rem;
-}
-
-.footer-links li a {
-    color: var(--gray-200);
-    text-decoration: none;
-    font-size: 0.75rem;
-    transition: color 0.2s ease;
-    margin: 0;
-    padding: 0;
-}
-
-.footer-links a:hover { 
-    color: #ffd000;
-    font-weight: bold;
- }
 
 .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -1567,12 +1517,12 @@ background-color: var(--primary-navy); }
    OREXITY | Investor Qualification Form Styles
    ────────────────────────────────────────────────────────────── */
 :root {
-    --primary-navy: #0a192f; 
-    --accent-gold: #ffd000; 
-    --bg-dark: #121212; 
-    --bg-card: #ffffff; 
-    --text-main: #1a1a1a; 
-    --text-muted: #555555; 
+    --primary-navy: #0a192f;
+    --accent-gold: #ffd000;
+    --bg-dark: #121212;
+    --bg-card: #ffffff;
+    --text-main: #1a1a1a;
+    --text-muted: #555555;
     --border-light: #e0e0e0;
     --border-dark: #333333;
     --font-sans: 'Inter', sans-serif;
@@ -1586,7 +1536,7 @@ background-color: var(--primary-navy); }
     line-height: 1.6;
     display: flex;
     justify-content: center;
-    align-items: flex-start;   
+    align-items: flex-start;
     min-height: 100vh;
     margin: 0;
     padding: 40px 20px;
@@ -1601,7 +1551,7 @@ background-color: var(--primary-navy); }
     background-color: var(--bg-card);
     width: 100%;
     max-width: 900px;
-    margin: 0 auto;            
+    margin: 0 auto;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
     border-radius: 4px;
     overflow: hidden;
@@ -1683,11 +1633,6 @@ background-color: var(--primary-navy); }
     width: 100%;
 }
 
-.section {
-    margin-bottom: 40px;
-    position: relative;
-}
-
 .section-title {
     font-family: 'Bree Serif', sans-serif;
     font-weight: 600;
@@ -1718,7 +1663,6 @@ background-color: var(--primary-navy); }
     grid-template-columns: 1fr;
     gap: 20px;
 }
-
 
 @media (min-width: 768px) {
     .form-grid {
@@ -1886,11 +1830,14 @@ background-color: var(--primary-navy); }
     letter-spacing: 1px;
 }
 
+/* [C1] Merged the two .cta-cont blocks into a single rule */
 .cta-cont {
-    display: inline-flex;
+    display: flex;
+    width: max-content;
+    margin: 20px auto 0;
     align-items: center;
     gap: 8px;
-    background-color: var(--border-dark);
+    background-color: var(--primary-navy);
     color: #ffffff;
     border: 2px solid var(--accent-gold);
     padding: 14px 28px;
@@ -1905,13 +1852,8 @@ background-color: var(--primary-navy); }
     margin-top: 10px;
 }
 
-.cta-cont {
-    display: flex;             
-    width: max-content;        
-    margin: 20px auto 0;
-    background-color: var(--primary-navy);
-}
-
+/* [A7 kept intentionally] Both .project-cta:hover (gradient) and
+   .cta-cont:hover (solid gold) remain — they target different classes. */
 .project-cta:hover,
 .cta-cont:hover {
     background-color: var(--accent-gold);
@@ -2013,12 +1955,11 @@ background-color: var(--primary-navy); }
    21. RESPONSIVE — BREAKPOINTS
    ────────────────────────────────────────────────────────────── */
 
-/* INTERMEDIATE DESKTOP / TABLET (Prevents header squishing & grid overflow) */
+/* INTERMEDIATE DESKTOP / TABLET */
 @media (max-width: 1100px) {
     .banner {
         grid-template-columns: 1fr;
         padding: 2rem;
-        /*gap: 2rem;*/
     }
     .banner > #hero-heading {
         border-right: none;
@@ -2029,7 +1970,7 @@ background-color: var(--primary-navy); }
         padding-left: 0;
     }
     .grid-3 {
-        grid-template-columns: repeat(2, 1fr); /* 3 cols to 2 on tablets */
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .key-takeaways {
@@ -2038,17 +1979,16 @@ background-color: var(--primary-navy); }
     .banner-btns {
         margin-top: 2rem;
     }
+    /* [B7] Removed meaningless grid-template-columns (base .faq-p grid was commented) */
     .faq-p {
         margin-inline-start: 2rem;
-        grid-template-columns: 2fr 1fr;
     }
-    
 }
 
 /* Mobile (≤ 768px) */
 @media (max-width: 768px) {
     .header-inner {
-        justify-content: space-between; 
+        justify-content: space-between;
         align-items: center;
         min-height: 70px;
         padding-block: 0.5rem;
@@ -2066,9 +2006,9 @@ background-color: var(--primary-navy); }
     }
 
     .nav {
-        display: none; 
+        display: none;
     }
-    
+
     .header-cta {
         display: none;
     }
@@ -2085,7 +2025,7 @@ background-color: var(--primary-navy); }
         padding: 0;
         position: absolute;
         top: 50%;
-        right: 1.25rem; 
+        right: 1.25rem;
         transform: translateY(-50%);
         z-index: 1100;
     }
@@ -2133,14 +2073,14 @@ background-color: var(--primary-navy); }
         color: #0b0c10;
     }
 
-    .nav.mobile-open > a:last-child { 
-        border-bottom: none; 
+    .nav.mobile-open > a:last-child {
+        border-bottom: none;
     }
 
     .nav-overlay {
         display: none;
     }
-    
+
     .nav-overlay.active {
         display: block;
         position: fixed;
@@ -2166,14 +2106,14 @@ background-color: var(--primary-navy); }
         font-size: 2.5rem;
     }
 
-    .banner > .eyebrow { 
+    .banner > .eyebrow {
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
         text-underline-offset: 0.5rem;
      }
-    
-    .eyebrow > .first-eyebrow { 
+
+    .eyebrow > .first-eyebrow {
         border-right: none;
         text-decoration: underline;
         text-underline-offset: 0.5rem;
@@ -2190,7 +2130,7 @@ background-color: var(--primary-navy); }
         margin: 2rem 0;
         width: 100%;
         max-width: 100%;
-        min-width: 0; /* Resets the min-width for mobile */
+        min-width: 0;
     }
 
     #advisory {
@@ -2201,9 +2141,9 @@ background-color: var(--primary-navy); }
         text-align: justify;
     }
 
+    /* [B7 continued] grid-template-columns: 1fr removed (base grid was dead) */
     .faq-p {
         font-size: 1.15rem;
-        grid-template-columns: 1fr;
         padding: 0.25rem 2rem;
         text-align: justify;
     }
@@ -2243,41 +2183,15 @@ background-color: var(--primary-navy); }
         font-size: 0.95rem;
         padding: 0.7rem 1.5rem;
     }
-    
 
-    .footer-container {
-        display: flex;
-        flex-direction: column;
-        gap: 1.25rem;
-    }
-
-    .footer-heading {
-        pointer-events: auto;
-        cursor: pointer;
-    }
-
-    .accordion-icon {
-        display: inline-block;
-        transition: transform 0.2s ease;
-    }
-
-    .accordion-btn[aria-expanded="true"] .accordion-icon {
-        transform: rotate(45deg); 
-    }
-
-    .accordion-content { display: none; }
-
-    .accordion-btn[aria-expanded="true"] + .accordion-content {
-        display: block;
-    }
+    /* [B2 / B3 / B4] Removed dead rules:
+       .footer-container, .footer-address, .accordion-*  — none exist in HTML */
 
     .footer-bottom-container {
         flex-direction: column;
         text-align: center;
         gap: 0.5rem;
     }
-
-    .footer-address { max-width: 100%; }
 
     .dark-project .grid,
     .body .grid {
@@ -2288,12 +2202,12 @@ background-color: var(--primary-navy); }
         gap: 0.5rem;
     }
 
-    .footer-links li a {
+    .footer-links a {
         font-size: 0.65rem;
     }
 
-    .footer-row { 
-        gap: 0.25rem; 
+    .footer-row {
+        gap: 0.25rem;
     }
     .potential {
     gap: 5px;
@@ -2441,7 +2355,7 @@ background-color: var(--primary-navy); }
     border-radius: 12px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
     position: relative;
-    margin: 0; 
+    margin: 0;
     overflow: hidden;
 }
 
@@ -2557,82 +2471,119 @@ background-color: var(--primary-navy); }
 
 /* ──────────────────────────────────────────────────────────────
    23. SUBMISSION SUCCESS MESSAGES
+   [C3] Merged the two overlapping success-message blocks into one
+   canonical set with shared + per-element overrides.
    ────────────────────────────────────────────────────────────── */
+
+/* Shared container styles */
+#investorSuccessMessage,
+#contactSuccessMessage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 2rem 2rem 2rem;
+    position: relative;
+    overflow: hidden;
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.6;
+}
 
 #investorSuccessMessage {
     max-width: 900px;
     margin: 0 auto;
-    padding: 3.5rem 2.5rem;
     background: #ffffff;
     border-top: 6px solid var(--gold);
     border-radius: 4px;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-    text-align: center;
     color: #1a1a1a;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.6;
-}
-
-#investorSuccessMessage strong {
-    display: block;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #0a192f;
-    margin-bottom: 0.85rem;
-    font-family: 'Playfair Display', serif;
-}
-
-#investorSuccessMessage p {
-    font-size: 1rem;
-    color: #555;
-    margin: 0;
-    line-height: 1.7;
 }
 
 #contactSuccessMessage {
     max-width: 500px;
     margin: auto 0;
-    padding: 3rem 2rem;
     background: #14181b;
     border: 1px solid rgba(212, 175, 55, 0.25);
     border-radius: 12px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-    text-align: center;
     color: #f4f1e9;
-    font-family: 'DM Sans', sans-serif;
+}
+
+/* Shared children */
+.success-icon {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 1.5rem;
+}
+
+.success-title {
+    font-family: 'Bree Serif', Georgia, serif;
+    font-size: 1.8rem;
+    font-weight: normal;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.success-text {
+    font-family: 'Roboto', -apple-system, sans-serif;
+    font-size: 1.05rem;
+    max-width: 650px;
     line-height: 1.6;
+    margin-bottom: 3rem;
 }
 
-#contactSuccessMessage strong {
-    display: block;
-    font-size: 1.35rem;
-    font-weight: 800;
-    color: var(--gold);
-    margin-bottom: 0.85rem;
-    font-family: 'Manrope', sans-serif;
+.success-border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background-color: var(--gold);
 }
 
-#contactSuccessMessage p {
-    font-size: 0.95rem;
-    color: #9da6a8;
-    margin: 0;
-    line-height: 1.7;
-}
+/* Per-message overrides */
+#investorSuccessMessage .success-icon   { color: #202020; }
+#investorSuccessMessage .success-title  { color: #000000; }
+#investorSuccessMessage .success-text   { color: #333333; }
+
+#contactSuccessMessage .success-icon    { color: var(--charcoal); }
+#contactSuccessMessage .success-title   { color: #f4f1e9; font-size: 1.5rem; }
+#contactSuccessMessage .success-text    { color: #9da6a8; font-size: 0.95rem; }
 
 @media (max-width: 768px) {
+    #investorSuccessMessage,
+    #contactSuccessMessage {
+        padding: 3rem 1.5rem 0 1.5rem;
+    }
+
+    .success-icon {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 1rem;
+    }
+
+    .success-title {
+        font-size: 1.4rem;
+    }
+
+    .success-text {
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+    }
+
     #investorSuccessMessage {
         padding: 2.5rem 1.5rem;
+        margin: 0 0.5rem;
     }
-    #investorSuccessMessage strong {
-        font-size: 1.25rem;
-    }
+    #investorSuccessMessage strong { font-size: 1.3rem; }
+    #investorSuccessMessage p      { font-size: 0.9rem; }
+
     #contactSuccessMessage {
         margin: 3rem 0 0;
         padding: 2.25rem 1.5rem;
     }
-    #contactSuccessMessage strong {
-        font-size: 1.15rem;
-    }
+    #contactSuccessMessage strong { font-size: 1.15rem; }
 }
 
 
@@ -2694,7 +2645,7 @@ background-color: var(--primary-navy); }
         margin-top: 5px;
         font-size: 0.8rem;
     }
-    
+
     #contact-modal .modal-close-x {
         top: 5px;
         right: 12px;
@@ -2744,7 +2695,7 @@ background-color: var(--primary-navy); }
     #investor-form-section .form-body {
         padding: 20px 15px;
     }
-    
+
     #investor-form-section .section-title {
         font-size: 1.05rem;
         padding: 8px;
@@ -2754,9 +2705,9 @@ background-color: var(--primary-navy); }
     #investor-form-section .form-grid {
         gap: 15px;
     }
-    
+
     #investor-form-section .input-line {
-        font-size: 1rem; 
+        font-size: 1rem;
     }
 
     #investor-form-section .options-group {
@@ -2764,7 +2715,7 @@ background-color: var(--primary-navy); }
     }
     #investor-form-section .checkbox-label {
         width: 100%;
-        padding: 10px 12px; 
+        padding: 10px 12px;
     }
 
     #investor-form-section .upload-box {
@@ -2789,17 +2740,6 @@ background-color: var(--primary-navy); }
         width: 100%;
         padding: 14px;
         font-size: 0.85rem;
-    }
-
-    #investorSuccessMessage {
-        padding: 2.5rem 1.5rem;
-        margin: 0 0.5rem;
-    }
-    #investorSuccessMessage strong {
-        font-size: 1.3rem;
-    }
-    #investorSuccessMessage p {
-        font-size: 0.9rem;
     }
 }
 
@@ -2857,120 +2797,6 @@ background-color: var(--primary-navy); }
 
 
 /* ──────────────────────────────────────────────────────────────
-   SUCCESS MESSAGE CARDS (MATCHING THE DESIGN)
-   ────────────────────────────────────────────────────────────── */
-#investorSuccessMessage,
-#contactSuccessMessage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 4rem 2rem 2rem 2rem;
-    position: relative;
-    overflow: hidden;
-}
-
-.success-icon {
-    width: 90px;
-    height: 90px;
-    margin-bottom: 1.5rem;
-}
-
-.success-title {
-    font-family: 'Bree Serif', Georgia, serif;
-    font-size: 1.8rem;
-    font-weight: normal;
-    margin-bottom: 1rem;
-    line-height: 1.2;
-}
-
-.success-text {
-    font-family: 'Roboto', -apple-system, sans-serif;
-    font-size: 1.05rem;
-    max-width: 650px;
-    line-height: 1.6;
-    margin-bottom: 3rem;
-}
-
-.success-border {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 8px;
-    background-color: var(--gold);
-}
-
-#investorSuccessMessage {
-    max-width: 900px;
-    margin: 0 auto;
-    background: #ffffff;
-    border-radius: 4px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-    color: #1a1a1a;
-}
-
-#investorSuccessMessage .success-icon {
-    color: #202020;
-}
-
-#investorSuccessMessage .success-title {
-    color: #000000;
-}
-
-#investorSuccessMessage .success-text {
-    color: #333333;
-}
-
-#contactSuccessMessage {
-    max-width: 500px;
-    margin: auto 0;
-    background: #14181b;
-    border: 1px solid rgba(212, 175, 55, 0.25);
-    border-radius: 12px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-    color: #f4f1e9;
-}
-
-#contactSuccessMessage .success-icon {
-    color: var(--charcoal);
-}
-
-#contactSuccessMessage .success-title {
-    color: #f4f1e9;
-    font-size: 1.5rem;
-}
-
-#contactSuccessMessage .success-text {
-    color: #9da6a8;
-    font-size: 0.95rem;
-}
-
-@media (max-width: 768px) {
-    #investorSuccessMessage,
-    #contactSuccessMessage {
-        padding: 3rem 1.5rem 0 1.5rem;
-    }
-    
-    .success-icon {
-        width: 70px;
-        height: 70px;
-        margin-bottom: 1rem;
-    }
-    
-    .success-title {
-        font-size: 1.4rem;
-    }
-    
-    .success-text {
-        font-size: 0.95rem;
-        margin-bottom: 2rem;
-    }
-}
-
-
-/* ──────────────────────────────────────────────────────────────
    PERMANENT GOLDEN BORDERS FOR REQUIRED FIELDS
    ────────────────────────────────────────────────────────────── */
 #investor-form-section .input-line[required] {
@@ -3002,4 +2828,381 @@ body.contact-success-mode .site-header {
 #investorFileNameDisplay {
     font-weight: 700;
     color: #0a192f;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   NEW-BODY SECTION (Homepage hero intro + parallel boxes)
+   [A4] Renamed --bg → --bg-light to avoid clobbering the main
+   dark --bg token. All var(--bg) references inside this section
+   have been updated to var(--bg-light).
+   ══════════════════════════════════════════════════════════════ */
+
+:root {
+    --bg-light: #e5e7e7;
+    --ink: #303030;
+    --ink-soft: #4a4a4a;
+    --accent: #ffd000;
+    --radius: 18px;
+    --maxw: 1240px;
+    --font-head: "Bree Serif", Georgia, "Times New Roman", serif;
+    --font-body: "Roboto", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    --shadow: 0 10px 30px rgba(48, 48, 48, 0.08);
+    --shadow-hover: 0 16px 40px rgba(48, 48, 48, 0.14);
+}
+
+.new-body {
+    margin: 0;
+    font-family: var(--font-body);
+    color: var(--ink);
+    background: var(--bg-light);           /* [A4] was var(--bg) */
+    line-height: 1.65;
+    font-size: clamp(16px, 1.05vw, 17px);
+    padding: clamp(2rem, 5vw, 4rem) 0 clamp(2.5rem, 5vw, 4.5rem);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Typography ---------- */
+.new-body h1,
+.new-body h2,
+.new-body h3 {
+    font-family: var(--font-head);
+    color: var(--ink);
+    line-height: 1.18;
+    margin: 0 0 0.5em;
+    font-weight: 400;
+}
+.new-body h1 { font-size: clamp(2rem, 4.2vw, 3rem); letter-spacing: -0.01em; }
+.new-body h2 { font-size: clamp(1.6rem, 2.8vw, 2.2rem); }
+.new-body h3 { font-size: clamp(1.15rem, 1.5vw, 1.35rem); }
+
+.new-body p { margin: 0 0 1em; }
+.new-body p:last-child { margin-bottom: 0; }
+
+.new-eyebrow {
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--ink-soft);
+    margin: 0 0 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.new-eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 26px;
+    height: 3px;
+    background: var(--accent);
+    border-radius: 2px;
+}
+
+/* ---------- Hero Intro ---------- */
+.new-hero {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto clamp(2rem, 4vw, 3rem);
+    padding: 0 1.5rem;
+}
+.new-hero .new-lead {
+    font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+    color: var(--ink-soft);
+    max-width: 60ch;
+    margin: 0.75rem auto 1.75rem;
+}
+
+/* ---------- Button ---------- */
+.new-btn {
+    display: inline-block;
+    padding: 0.85rem 1.6rem;
+    border-radius: 999px;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.92rem;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    background: var(--ink);
+    color: var(--white);                    /* [A4] main --white is used */
+    border: 2px solid var(--ink);
+    transition: background 0.18s ease, color 0.18s ease, transform 0.15s ease, box-shadow 0.18s ease;
+    cursor: pointer;
+}
+.new-btn:hover {
+    background: var(--accent);
+    color: var(--ink);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 208, 0, 0.35);
+}
+.new-btn:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+}
+
+/* ============================================
+   TWO PARALLEL HORIZONTAL INFORMATION BOXES
+   ============================================ */
+.parallel-boxes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(1.25rem, 2.5vw, 2rem);
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    align-items: stretch;
+}
+@media (max-width: 860px) {
+    .parallel-boxes {
+        grid-template-columns: 1fr;
+    }
+}
+
+.info-box1 {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: clamp(1.75rem, 3vw, 2.5rem);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.info-box1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+}
+.info-box1:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+.info-box1:hover::before {
+    transform: scaleX(1);
+}
+
+/* --- Box Header --- */
+.box1-header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid rgba(48, 48, 48, 0.09);
+}
+.box1-header h2 {
+    margin-bottom: 0.4rem;
+}
+.box1-header .box1-subtitle {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    font-weight: 400;
+    margin: 0;
+}
+.box1-tag {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: var(--accent);
+    padding: 0.28rem 0.7rem;
+    border-radius: 999px;
+    margin-bottom: 0.9rem;
+}
+
+/* --- Decision Items (Part 1) --- */
+.box1-decision-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex: 1;
+}
+.box1-decision {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1rem 1rem 1rem 0;
+    border-radius: 12px;
+    transition: background 0.18s ease, padding-left 0.18s ease;
+}
+.box1-decision:hover {
+    background: var(--bg-light);           /* [A4] was var(--bg) */
+    padding-left: 0.75rem;
+}
+.box1-decision-num {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--bg-light);           /* [A4] was var(--bg) */
+    display: grid;
+    place-items: center;
+    font-family: var(--font-head);
+    font-size: 1rem;
+    color: var(--ink);
+    border: 2px solid transparent;
+    transition: border-color 0.18s ease, background 0.18s ease;
+}
+.box1-decision:hover .decision-num {
+    border-color: var(--accent);
+    background: var(--white);
+}
+.box1-decision h3 {
+    font-size: 1.1rem;
+    margin: 0 0 0.2rem;
+}
+.box1-decision p {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.55;
+}
+
+/* --- Process Steps (Part 2) --- */
+.step-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    flex: 1;
+    counter-reset: step-counter;
+}
+.step {
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+    padding: 0.75rem 0.9rem;
+    border-radius: 12px;
+    border-left: 3px solid transparent;
+    transition: background 0.18s ease, border-color 0.18s ease;
+}
+.step:hover {
+    background: var(--bg-light);           /* [A4] was var(--bg) */
+    border-left-color: var(--accent);
+}
+.step-num {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    background: var(--ink);
+    color: var(--white);
+    display: grid;
+    place-items: center;
+    font-family: var(--font-head);
+    font-size: 0.9rem;
+    transition: background 0.18s ease, color 0.18s ease;
+}
+.step:hover .step-num {
+    background: var(--accent);
+    color: var(--ink);
+}
+.step h3 {
+    font-size: 1rem;
+    margin: 0 0 0.15rem;
+}
+.step p {
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* --- Box Footer / CTA --- */
+.box1-footer {
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(48, 48, 48, 0.09);
+}
+
+/* ---------- Contact Section ---------- */
+.contact-section1 {
+    max-width: var(--maxw);
+    margin: clamp(3.5rem, 5vw, 4rem) clamp(6rem, 9vw, 7rem) 0;
+    padding: 0 1.5rem;
+}
+.contact1-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: clamp(2rem, 4vw, 3rem);
+    text-align: center;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+}
+.contact1-card::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: var(--accent);
+}
+.contact1-card #contact1-title {
+    margin-bottom: 1rem;
+    font-size: 1.75rem;
+}
+.contact1-card h3 {font-weight: normal; font-size: 1.05rem;}
+.contact1-card .key-heading {
+    font-weight: bold;
+}
+.contact1-card p {
+    color: var(--ink-soft);
+    max-width: 55ch;
+    margin: 0 auto 1.5rem;
+    text-align: left;
+}
+
+.contact1-card ul {
+    list-style: none;
+    margin-block: 2rem;
+}
+
+.contact1-card li {
+    position: relative;
+    list-style: none;
+    padding-left: 1.4rem;
+    margin-bottom: 0.4rem;
+    font-size: 0.92rem;
+    text-align: justify;
+    color: var(--black);
+}
+
+.contact1-card li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--gold-dark);
+    font-weight: 700;
+}
+
+.contact1-card>.faq-p {
+    font-family: 'Michroma';
+    font-size: 1.25rem;
+    text-align: center;
+    line-height: 1.6rem;
+    color: var(--black);
+}
+
+/* ---------- Reduced Motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .btn, .info-box1, .box1-decision, .step, .box1-decision-num, .step-num { transition: none; }
+    .info-box1:hover, .btn:hover { transform: none; }
 }

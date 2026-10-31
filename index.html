@@ -22,14 +22,75 @@
   <meta name="twitter:description" content="Structured mineral investment advisory, due diligence, technical intelligence and project assessment for international investors and mining companies in Pakistan." />
   <meta name="twitter:image" content="https://www.orexity.com/og-image.jpg" />
 
-  <!-- Fonts (single consolidated request) -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Michroma&family=Manrope:wght@200..800&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
 
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.orexity.com/#organization",
+        "name": "OREXITY",
+        "alternateName": "OREXITY — Mineral Investment and Advisory",
+        "url": "https://www.orexity.com/",
+        "description": "OREXITY supports mineral investors and mineral sector companies through market entry, opportunity screening, due diligence, investment structuring, and project development.",
+        "areaServed": "Global",
+        "knowsAbout": [
+          "Market entry",
+          "Consultancy",
+          "Mineral exploration",
+          "Mining sectors",
+          "Technical Intelligence & Modelling",
+          "Exploration Data Management & QA/QC",
+          "Technical Integration & Reporting",
+          "ESG",
+          "Mineral Opportunity Screening and Due Diligence"
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://www.orexity.com/#webpage",
+        "url": "https://www.orexity.com/",
+        "name": "Define Your Investment Priorities | OREXITY",
+        "isPartOf": { "@id": "https://www.orexity.com/#organization" },
+        "about": { "@id": "https://www.orexity.com/#organization" },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.orexity.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What are the three key investment priority decisions in OREXITY's process?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The three key decisions are: (1) Investment Focus — which commodities and jurisdictions align with your investment mandate; (2) Project Stage & Capital — which project stages and investment range you consider; and (3) Investment Criteria — what evidence or milestones are required before technical review or investment discussions."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does OREXITY support investors from market entry to project development?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "OREXITY supports investors through a structured investment process: Market Entry, Opportunity Screening, Due Diligence, Investment Structuring, and Project Development."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <!-- Styles & Scripts -->
   <link rel="stylesheet" href="css/style.css">
   <script src="script/script.js" defer></script>
+  <script src="script/index-forms.js" defer></script>
 
   <!-- Favicons -->
   <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
@@ -40,7 +101,7 @@
 </head>
 <body class="orexity-container">
 
-  <!-- ===== HEADER ===== -->
+  <!-- ===== HEADER (always visible, fully functional) ===== -->
   <header class="site-header" role="banner">
     <div class="container header-inner">
       <a href="index.html" class="brand" aria-label="OREXITY home">
@@ -48,14 +109,13 @@
       </a>
       <div class="nav-right">
         <nav class="nav" aria-label="Main navigation">
-          <a href="#advisory" class="active">Investment Advisory</a>
-          <a href="#technical">Technical Intelligence</a>
-          <a href="#projects">Projects portfolio</a>
+          <a href="#advisory" class="active nav-text">Investment Advisory</a>
+          <a href="#technical" class="nav-text">Technical Intelligence</a>
+          <a href="#projects" class="nav-text">Projects portfolio</a>
         </nav>
-        <a href="html/investor-connect.html" class="btn btn-primary header-cta" target="_blank">Discuss an Opportunity</a>
+        <a href="#" class="btn btn-primary header-cta" data-open-form="investor">Discuss an Opportunity</a>
       </div>
     </div>
-    <!-- ▼ NEW: burger + backdrop -->
     <button class="burger-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav">
       <span></span>
       <span></span>
@@ -64,538 +124,873 @@
     <div class="nav-overlay" aria-hidden="true"></div>
   </header>
 
-  <main id="main" role="main">
+  <!-- ============================================================ -->
+  <!-- ===== MAIN PAGE CONTENT (hidden when investor form open) ===== -->
+  <!-- ============================================================ -->
+  <div id="main-content">
 
-    <!-- ===== HERO ===== -->
-    <section class="section hero" aria-labelledby="hero-heading">
-      <div class="container">
-        <div class="banner">
-          <p class="eyebrow"><span class="first-eyebrow">Clarity Before Capital &nbsp;</span> &nbsp;Structure Before Scale</p>
-          <h1 id="hero-heading">Pakistan's Mineral Investment <br> Gateway.</h1>
-          <div class="banner-text">
-            <h3 class="hero-subheading">OREXITY | Mineral Investment &amp; Advisory Pakistan</h3>
-            <p class="lead">
-              OREXITY is a private-sector platform connecting international investors with Pakistan's mineral opportunities. We facilitate market entry, local partnerships, due diligence, investment structuring, and project development, enabling investors to assess opportunities, manage material risks, and advance suitable projects toward investment readiness.
-            </p>
-          </div>
-          <p class="bottom-tag">Connect Global Enterprises to Untapped Potential</p>
-          <div class="banner-btns">
-            <a href="#advisory" class="btn btn-primary cta-highlight">Explore Advisory Services</a>
-            <a href="#projects" class="btn btn-outline">View Projects Portfolio</a>
+    <main id="main" role="main">
+
+      <!-- ===== HERO ===== -->
+      <section class="section hero" aria-labelledby="hero-heading">
+        <div class="container">
+          <div class="banner">
+            <p class="eyebrow"><span class="first-eyebrow">Clarity Before Capital &nbsp;</span> &nbsp;Structure Before Scale</p>
+            <h1 id="hero-heading">Pakistan's Mineral Investment <br> Gateway.</h1>
+            <div class="banner-text">
+              <h3 class="hero-subheading">OREXITY | Mineral Investment &amp; Advisory Pakistan</h3>
+              <p class="lead">
+                OREXITY is a private-sector platform connecting international investors with Pakistan's mineral opportunities. We facilitate market entry, local partnerships, due diligence, investment structuring, and project development, enabling investors to assess opportunities, manage material risks, and advance suitable projects toward investment readiness.
+              </p>
+            </div>
+            <p class="bottom-tag">Connect Global Enterprises to Untapped Potential</p>
+            <div class="banner-btns">
+              <a href="#advisory" class="btn btn-primary cta-highlight">Explore Advisory Services</a>
+              <a href="#projects" class="btn btn-outline">View Projects Portfolio</a>
+            </div>
           </div>
         </div>
-      
-        <!-- Quick Answer / Key Takeaways (AEO) -->
-        <div class="key-takeaways">
-          <h2>Quick Answer &nbsp;| &nbsp;What OREXITY Does?</h2>
-          <ul>
-            <li>Provides structured mineral investment advisory and due diligence for projects in Pakistan.</li>
-            <li>Combines investment intelligence, risk assessment, commercial analysis and investment facilitation.</li>
-            <li>Supports opportunity screening, investment structuring, financial analysis and investor readiness.</li>
-            <li>Follows a disciplined five-step investment sequence from asset understanding to execution.</li>
-            <li>Offers technical intelligence aligned with VALMIN, JORC and NI 43-101 frameworks.</li>
-          </ul>
+      </section>
+
+
+
+
+
+
+
+
+
+    <!-- ====== HERO INTRO ====== -->
+     <div class="new-body">
+    <section class="new-hero" aria-labelledby="new-hero-title">
+      <p class="new-eyebrow">Mineral Investment and Advisory</p>
+      <h1 id="new-hero-title">Define Your Investment Priorities</h1>
+      <p class="new-lead">Identify opportunities that match your investment interests. Confirm your investment priorities across three key decisions to advance to the next stage of mineral investment with OREXITY.</p>
+    </section>
+
+    <!-- ====== TWO PARALLEL HORIZONTAL INFORMATION BOXES ====== -->
+    <div class="parallel-boxes">
+
+      <!-- ========== BOX 1: PART 1 — DEFINE YOUR INVESTMENT PRIORITIES ========== -->
+      <section class="info-box1" id="priorities" aria-labelledby="box1-title">
+        <div class="box1-header">
+          <span class="box1-tag">Part 1</span>
+          <h2 id="box1-title">Define Your Investment Priorities</h2>
+          <p class="box1-subtitle">Identify opportunities that match your investment interests.</p>
         </div>
-        <p class="faq-p">Disciplined Mineral Investment, Risk-Based Due Diligence, and Internationally Aligned Technical Intelligence for Pakistan’s Mineral Opportunities.</p>
-      </div>
+
+        <ul class="box1-decision-list">
+          <li class="box1-decision">
+            <span class="box1-decision-num" aria-hidden="true">01</span>
+            <div>
+              <h3>Investment Focus</h3>
+              <p>Which commodities and jurisdictions align with your investment mandate?</p>
+            </div>
+          </li>
+          <li class="box1-decision">
+            <span class="box1-decision-num" aria-hidden="true">02</span>
+            <div>
+              <h3>Project Stage &amp; Capital</h3>
+              <p>What project stages and investment range do you consider?</p>
+            </div>
+          </li>
+          <li class="box1-decision">
+            <span class="box1-decision-num" aria-hidden="true">03</span>
+            <div>
+              <h3>Investment Criteria</h3>
+              <p>What evidence or milestones are required before technical review or investment discussions?</p>
+            </div>
+          </li>
+        </ul>
+
+        <div class="box1-footer">
+          <a class="new-btn" data-open-form="investor">Advance to Next Stage</a>
+        </div>
+      </section>
+
+      <!-- ========== BOX 2: PART 2 — HOW OREXITY WORKS ========== -->
+      <section class="info-box1" id="how-it-works" aria-labelledby="box2-title">
+        <div class="box1-header">
+          <span class="box1-tag">Part 2</span>
+          <h2 id="box1-title">How OREXITY Works</h2>
+          <p class="subtitle">From market entry to project development.</p>
+        </div>
+
+        <ol class="step-list">
+          <li class="step">
+            <span class="step-num" aria-hidden="true">1</span>
+            <div>
+              <h3>Market Entry</h3>
+              <p>Understand investment priorities and market requirements.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">2</span>
+            <div>
+              <h3>Opportunity Screening</h3>
+              <p>Identify and evaluate relevant mineral opportunities.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">3</span>
+            <div>
+              <h3>Due Diligence</h3>
+              <p>Assess available technical, legal, commercial, and operational information.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">4</span>
+            <div>
+              <h3>Investment Structuring</h3>
+              <p>Evaluate investment requirements, commercial arrangements, and partnership alignment.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">5</span>
+            <div>
+              <h3>Project Development</h3>
+              <p>Support investment progression and agreed development milestones.</p>
+            </div>
+          </li>
+        </ol>
+
+        <div class="box1-footer">
+          <a class="new-btn btn" href="#advisory">Explore the Process</a>
+        </div>
+      </section>
+
     </div>
+
+    <!-- ====== CONTACT SECTION ====== -->
+      <section class="contact-section1" id="contact1" aria-labelledby="contact-title">
+      <div class="contact1-card">
+        <!--<p class="new-eyebrow">Get Started</p>-->
+        <h2 id="contact1-title">Quick Answer &nbsp;| &nbsp;What OREXITY Does?</h2>
+        <h3>How OREXITY Accelerates Mineral Investment Decisions?</h3>
+        <ul>
+              <li><span class="key-heading">Consultancy:&nbsp;</span>opportunity screening, review of available technical information, project maturity
+                  assessment, risk identification, and development planning.
+              </li>
+              <li><span class="key-heading">Investment Advisory: &nbsp;</span>commercial analysis, financial scenarios, investment readiness, transaction structuring, and partner alignment.</li>
+              <li><span class="key-heading">Projects:&nbsp;</span> selected opportunities presented through a defined evidence base, project status, material risks, next milestones, and potential investment pathways.</li>
+              <li><span class="key-heading">Technical frameworks:&nbsp;</span> where appropriate to the project and scope, work may be considered against relevant reporting and valuation frameworks, including JORC, NI 43-101, and VALMIN. Such references do not imply certification or compliance unless independently established.</li>
+        </ul>
+        <p class="faq-p">Invest with Clarity, Develop with Confidence</p>
+      </div>
     </section>
+     </div>
+  
 
-    <!-- ===== ADVISORY SERVICES ===== -->
-    <section id="advisory" class="section bg-gray-50" aria-labelledby="advisory-heading">
-      <div class="container card-rect">
-        <p class="eyebrow">Investment Advisory</p>
-        <h2 id="advisory-heading">Capital Discipline Before Capital Commitment.</h2>
-        <p class="lead lead-spaced">
-          OREXITY delivers structured mineral investment advisory and project assessment services to investors, mineral-rights holders and strategic partners evaluating opportunities in Pakistan.
-        </p>
+  
 
-        <div class="grid grid-2">
-          <!-- Card 1 -->
-          <div class="card" tabindex="0">
-            <div class="card-icon" aria-hidden="true">01</div>
-            <h3>Opportunity Screening and Due Diligence</h3>
+
+
+
+
+
+
+
+<!--
+      <section class="section hero">
+        <div class="container">
+          <div class="key-takeaways">
+            <h2>Quick Answer &nbsp;| &nbsp;What OREXITY Does?</h2>
+            <h3>How OREXITY Accelerates Mineral Investment Decisions?</h3>
+            <p class="key-tagline">Our Core Capabilities, Your Strategic Entry into Pakistan’s Mineral Sector.</p>
             <ul>
-              <li>Initial review of the asset, ownership and available project information</li>
-              <li>Coordination of legal, tenure, technical, commercial and ESG due diligence</li>
-              <li>Identification of material risks, assumptions and unresolved questions</li>
-              <li>Assessment of project maturity and the evidence required for the next decision</li>
-              <li>Structured decision briefs for investment committees and potential partners</li>
+              <li><span class="key-heading">Consultancy:&nbsp;</span>opportunity screening, review of available technical information, project maturity
+                  assessment, risk identification, and development planning.
+              </li>
+              <li><span class="key-heading">Investment Advisory: &nbsp;</span>commercial analysis, financial scenarios, investment readiness, transaction structuring, and partner alignment.</li>
+              <li><span class="key-heading">Projects:&nbsp;</span> selected opportunities presented through a defined evidence base, project status, material risks, next milestones, and potential investment pathways.</li>
+              <li><span class="key-heading">Technical frameworks:&nbsp;</span> where appropriate to the project and scope, work may be considered against relevant reporting and valuation frameworks, including JORC, NI 43-101, and VALMIN. Such references do not imply certification or compliance unless independently established.</li>
             </ul>
           </div>
+          <p class="faq-p">Disciplined Mineral Investment, Risk-Based Due Diligence, and Internationally Aligned Technical Intelligence for Pakistan's Mineral Opportunities.</p>
+        </div>
+      </section>-->
 
-          <!-- Card 2 -->
-          <div class="card" tabindex="0">
-            <div class="card-icon" aria-hidden="true">02</div>
-            <h3>Investment Structuring</h3>
-            <ul>
-              <li>Joint-venture, earn-in and farm-in framework advisory</li>
-              <li>Equity participation and staged capital-deployment options</li>
-              <li>Work-program-linked funding and milestone design</li>
-              <li>Governance, reporting and information-rights considerations</li>
-              <li>Exit-pathway analysis, including strategic sale or other negotiated structures where appropriate</li>
-            </ul>
+      <!-- ===== ADVISORY SERVICES ===== -->
+      <section id="advisory" class="section bg-gray-50" aria-labelledby="advisory-heading">
+        <div class="container card-rect">
+          <p class="eyebrow">Investment Advisory</p>
+          <h2 id="advisory-heading">Capital Discipline Before Capital Commitment.</h2>
+          <p class="lead lead-spaced">
+            OREXITY delivers structured mineral investment advisory and project assessment services to investors, mineral-rights holders and strategic partners evaluating opportunities in Pakistan.
+          </p>
+
+          <div class="grid grid-2">
+            <div class="card" tabindex="0">
+              <div class="card-icon" aria-hidden="true">01</div>
+              <h3>Opportunity Screening and Due Diligence</h3>
+              <ul>
+                <li>Initial review of the asset, ownership and available project information</li>
+                <li>Coordination of legal, tenure, technical, commercial and ESG due diligence</li>
+                <li>Identification of material risks, assumptions and unresolved questions</li>
+                <li>Assessment of project maturity and the evidence required for the next decision</li>
+                <li>Structured decision briefs for investment committees and potential partners</li>
+              </ul>
+            </div>
+            <div class="card" tabindex="0">
+              <div class="card-icon" aria-hidden="true">02</div>
+              <h3>Investment Structuring</h3>
+              <ul>
+                <li>Joint-venture, earn-in and farm-in framework advisory</li>
+                <li>Equity participation and staged capital-deployment options</li>
+                <li>Work-program-linked funding and milestone design</li>
+                <li>Governance, reporting and information-rights considerations</li>
+                <li>Exit-pathway analysis, including strategic sale or other negotiated structures where appropriate</li>
+              </ul>
+            </div>
+            <div class="card" tabindex="0">
+              <div class="card-icon" aria-hidden="true">03</div>
+              <h3>Financial and Commercial Analysis</h3>
+              <ul>
+                <li>Project-level financial modelling and scenario analysis</li>
+                <li>Capital expenditure and operating-cost assumptions review</li>
+                <li>Sensitivity analysis and key-driver assessment</li>
+                <li>Royalty, offtake and other commercial structure considerations</li>
+                <li>Coordination of independent asset valuation where warranted</li>
+              </ul>
+            </div>
+            <div class="card" tabindex="0">
+              <div class="card-icon" aria-hidden="true">04</div>
+              <h3>Investor Readiness and Engagement</h3>
+              <ul>
+                <li>Investment teaser, information memorandum and project presentation support</li>
+                <li>Investor data-room structure and document-index preparation</li>
+                <li>Strategic investor and partner mapping</li>
+                <li>Meeting preparation and cross-border communication coordination</li>
+                <li>Transaction process tracking and follow-up support</li>
+              </ul>
+            </div>
           </div>
 
-          <!-- Card 3 -->
-          <div class="card" tabindex="0">
-            <div class="card-icon" aria-hidden="true">03</div>
-            <h3>Financial and Commercial Analysis</h3>
-            <ul>
-              <li>Project-level financial modelling and scenario analysis</li>
-              <li>Capital expenditure and operating-cost assumptions review</li>
-              <li>Sensitivity analysis and key-driver assessment</li>
-              <li>Royalty, offtake and other commercial structure considerations</li>
-              <li>Coordination of independent asset valuation where warranted</li>
-            </ul>
-          </div>
-
-          <!-- Card 4 -->
-          <div class="card" tabindex="0">
-            <div class="card-icon" aria-hidden="true">04</div>
-            <h3>Investor Readiness and Engagement</h3>
-            <ul>
-              <li>Investment teaser, information memorandum and project presentation support</li>
-              <li>Investor data-room structure and document-index preparation</li>
-              <li>Strategic investor and partner mapping</li>
-              <li>Meeting preparation and cross-border communication coordination</li>
-              <li>Transaction process tracking and follow-up support</li>
-            </ul>
+          <div class="sequence-block">
+            <h3>A Disciplined Investment Sequence</h3>
+            <div class="grid grid-3 grid-gap-sm">
+              <div class="step-card"><div class="step-number" aria-hidden="true">1</div><p>Understand the asset and the proposed transaction.</p></div>
+              <div class="step-card"><div class="step-number" aria-hidden="true">2</div><p>Validate title, data quality, project history and key assumptions through appropriate specialists.</p></div>
+              <div class="step-card"><div class="step-number" aria-hidden="true">3</div><p>Define the next work program, its budget, milestones and decision criteria.</p></div>
+              <div class="step-card"><div class="step-number" aria-hidden="true">4</div><p>Structure investment terms and governance to match the evidence and risk profile.</p></div>
+              <div class="step-card"><div class="step-number" aria-hidden="true">5</div><p>Advance only when the agreed technical, legal, commercial and stakeholder conditions are addressed.</p></div>
+            </div>
           </div>
         </div>
+      </section>
 
-        <!-- Disciplined Investment Sequence -->
-        <div class="sequence-block">
-          <h3>A Disciplined Investment Sequence</h3>
-          <div class="grid grid-3 grid-gap-sm">
-            <div class="step-card">
-              <div class="step-number" aria-hidden="true">1</div>
-              <p>Understand the asset and the proposed transaction.</p>
+      <!-- ===== TECHNICAL INTELLIGENCE ===== -->
+      <section id="technical" class="dark section" aria-labelledby="technical-heading">
+        <div class="container">
+          <p class="eyebrow">Technical Intelligence</p>
+          <h2 id="technical-heading">From Surface Signs to Strategic Stakes, Intelligence Before Extraction.</h2>
+          <p class="lead lead-spaced">
+            Built on Experience, Driven by Excellence. OREXITY is transforming geological data into investment-ready mineral opportunities through internationally aligned technical assessments, systematic targeting, resource evaluation and development planning, reducing due diligence costs and information asymmetry under VALMIN, JORC and NI 43-101 frameworks.
+          </p>
+
+          <h3 class="technical-subheading">End-to-End Mineral Asset Advancement Framework</h3>
+          <p class="technical-note">Market Entry, Mineral’s Pakistan</p>
+
+          <div class="grid grid-3 grid-gap-md">
+            <div class="card dark-theme" tabindex="0"><div class="card-icon" aria-hidden="true">1</div><h4>Geological Exploration &amp; Targeting</h4><p>Geological interpretation, remote sensing, GIS integration, field validation and mineral prospectivity assessment.</p></div>
+            <div class="card dark-theme" tabindex="0"><div class="card-icon" aria-hidden="true">2</div><h4>Geochemical &amp; Geophysical Surveys</h4><p>Survey design, sampling strategies, anomaly interpretation and integrated subsurface investigation.</p></div>
+            <div class="card dark-theme" tabindex="0"><div class="card-icon" aria-hidden="true">3</div><h4>Drilling &amp; Sampling Programme</h4><p>Drill programme design, field execution coordination, sampling protocols and geological data acquisition.</p></div>
+            <div class="card dark-theme" tabindex="0"><div class="card-icon" aria-hidden="true">4</div><h4>Technical Intelligence &amp; Modelling</h4><p>Integrated geological, geospatial and geophysical interpretation, 3D modelling and machine-learning-assisted prospectivity analysis where suitable.</p></div>
+            <div class="card dark-theme" tabindex="0"><div class="card-icon" aria-hidden="true">5</div><h4>Exploration Data Management &amp; QA/QC</h4><p>Data validation, quality assurance and quality control, digital field records, database integration and technical data integrity.</p></div>
+            <div class="card dark-theme" tabindex="0"><div class="card-icon" aria-hidden="true">6</div><h4>Environmental Baseline &amp; Field HSE</h4><p>Baseline environmental data collection, field safety procedures and health, safety and environmental monitoring.</p></div>
+            <div class="card dark-theme" tabindex="0"><div class="card-icon" aria-hidden="true">7</div><h4>Technical Integration &amp; Reporting</h4><p>Integrated technical interpretation, geological modelling, resource-estimation coordination where justified, and structured technical reporting.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== VALUE PROPOSITION ===== -->
+      <section id="value" class="section bg-gray-50" aria-labelledby="value-heading">
+        <div class="container">
+          <p class="eyebrow">Value Proposition</p>
+          <h2 id="value-heading">Orexity's Five-Layer Proposition</h2>
+          <p class="lead lead-spaced">
+            Better-prepared projects, clearer investment pathways, and more disciplined progression from exploration opportunity to commercial development.
+          </p>
+
+          <div class="grid grid-3 grid-gap-md">
+            <div class="card" tabindex="0"><div class="card-icon" aria-hidden="true">L1</div><h4>Information</h4><p>Convert fragmented project information into structured investment information.</p></div>
+            <div class="card" tabindex="0"><div class="card-icon" aria-hidden="true">L2</div><h4>Verification</h4><p>Separate verified facts from assumptions, claims and unresolved risks.</p></div>
+            <div class="card" tabindex="0"><div class="card-icon" aria-hidden="true">L3</div><h4>Coordination</h4><p>Coordinate the investor, technical advisers, legal advisers, project owners and relevant authorities.</p></div>
+            <div class="card" tabindex="0"><div class="card-icon" aria-hidden="true">L4</div><h4>Transaction</h4><p>Convert qualified opportunities into financeable structures.</p></div>
+            <div class="card" tabindex="0"><div class="card-icon" aria-hidden="true">L5</div><h4>Execution</h4><p>Support implementation after investment close through agreed commercial mandates.</p></div>
+          </div>
+
+          <div class="value-chain-box">
+            <span class="value-chain-label">Private-sector chain:</span>
+            <span class="value-chain-flow">Information → Verification → Qualification → Capital → Execution</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== PROJECTS PORTFOLIO ===== -->
+      <section id="projects" class="dark-project section" aria-labelledby="projects-heading">
+        <div class="container">
+          <div class="body" id="Projects">
+            <div class="wrap">
+              <p class="eyebrow">Projects Portfolio</p>
+              <h2 id="projects-heading">A Portfolio of Mineral Opportunities in Gilgit-Baltistan</h2>
+              <p class="lead lead-projects">
+                OREXITY's project portfolio focuses on mineral opportunities associated with Gilgit-Baltistan, Pakistan. Each opportunity is assessed on its own tenure position, available technical evidence, access and logistics, stakeholder context, work-program requirements and investment structure.
+              </p>
+              <p class="projects-note">
+                Project information is shared according to its availability, verification status and applicable confidentiality requirements. 
+              </p>
+
+              <section class="grid" aria-label="Mineral investment projects">
+                <article class="project-card" data-project="MARKHOR 1">
+                  <div class="card-head reveal">
+                    <div><div class="project-kicker">Project 01</div><h2>MARKHOR 1</h2></div>
+                    <span class="potential high">High</span>
+                  </div>
+                  <div class="data-grid">
+                    <div class="data-item reveal">
+                      <span class="label">Commodity</span>
+                      <div class="commodities">
+                        <span class="metal copper"><span class="metal-icon">Cu</span>Copper</span>
+                        <span class="metal gold"><span class="metal-icon">Au</span>Gold</span>
+                      </div>
+                    </div>
+                    <div class="data-item reveal">
+                      <span class="label">Project Phase</span>
+                      <div class="phase"><span class="phase-dot"></span><span class="value">Identify</span></div>
+                      <div class="phase-track" aria-label="Identify phase"><span class="active"></span><span></span><span></span></div>
+                    </div>
+                    <div class="data-item reveal">
+                      <span class="label">Next-Stage Funding</span>
+                      <div class="funding"><small>USD</small>10 Million</div>
+                    </div>
+                    <div class="data-item reveal">
+                      <span class="label">Equity Stake Offer</span>
+                      <div class="equity-line">
+                        <div class="equity-ring ring-45"><span>45%</span></div>
+                        <span class="equity-number">45%</span>
+                      </div>
+                    </div>
+                    <div class="data-item reveal">
+                      <span class="label">Legal Due Diligence</span>
+                      <span class="verified"><span class="check">✓</span>Verified</span>
+                    </div>
+                    <div class="data-item reveal">
+                      <span class="label">Opportunity Profile</span>
+                      <span class="value">Copper &amp; gold</span>
+                    </div>
+                  </div>
+                  <div class="card-footer reveal">
+                    <a class="project-cta" href="#" data-open-form="investor">
+                      Request Project Information
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                  </div>
+                </article>
+
+                <article class="project-card" data-project="MARKHOR 2">
+                  <div class="card-head reveal">
+                    <div><div class="project-kicker">Project 02</div><h2>MARKHOR 2</h2></div>
+                    <span class="potential very-high">Very High</span>
+                  </div>
+                  <div class="data-grid">
+                    <div class="data-item reveal">
+                      <span class="label">Commodity</span>
+                      <div class="commodities">
+                        <span class="metal gold"><span class="metal-icon">Au</span>Gold</span>
+                        <span class="metal copper"><span class="metal-icon">Cu</span>Copper</span>
+                      </div>
+                    </div>
+                    <div class="data-item reveal">
+                      <span class="label">Project Phase</span>
+                      <div class="phase"><span class="phase-dot"></span><span class="value">Validate</span></div>
+                      <div class="phase-track" aria-label="Validate phase"><span class="active"></span><span class="active"></span><span></span></div>
+                    </div>
+                    <div class="data-item reveal">
+                      <span class="label">Next-Stage Funding</span>
+                      <div class="funding"><small>USD</small>20 Million</div>
+                    </div>
+                    <div class="data-item reveal">
+                      <span class="label">Equity Stake Offer</span>
+                      <div class="equity-line">
+                        <div class="equity-ring ring-40"><span>40%</span></div>
+                        <span class="equity-number">40%</span>
+                      </div>
+                    </div>
+                    <div class="data-item reveal">
+                      <span class="label">Legal Due Diligence</span>
+                      <span class="verified"><span class="check">✓</span>Verified</span>
+                    </div>
+                    <div class="data-item reveal">
+                      <span class="label">Opportunity Profile</span>
+                      <span class="value">Gold &amp; copper</span>
+                    </div>
+                  </div>
+                  <div class="card-footer reveal">
+                    <a class="project-cta" href="#" data-open-form="investor">
+                      Request Project Information
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                  </div>
+                </article>
+
+                <article class="project-card" data-project="Ketu 1">
+                  <div class="card-head reveal">
+                    <div><div class="project-kicker">Project 03</div><h2>Ketu 1</h2></div>
+                    <span class="potential excellent">Excellent</span>
+                  </div>
+                  <div class="data-grid">
+                    <div class="data-item reveal">
+                      <span class="label">Commodity</span>
+                      <div class="commodities">
+                        <span class="metal gold"><span class="metal-icon">Au</span>Gold</span>
+                        <span class="metal pmg"><span class="metal-icon">PMG</span>PMG</span>
+                      </div>
+                    </div>
+                    <div class="data-item reveal">
+                      <span class="label">Project Phase</span>
+                      <div class="phase"><span class="phase-dot"></span><span class="value">Refine</span></div>
+                      <div class="phase-track" aria-label="Refine phase"><span class="active"></span><span class="active"></span><span class="active"></span></div>
+                    </div>
+                    <div class="data-item reveal">
+                      <span class="label">Next-Stage Funding</span>
+                      <div class="funding"><small>USD</small>30 Million</div>
+                    </div>
+                    <div class="data-item reveal">
+                      <span class="label">Equity Stake Offer</span>
+                      <div class="equity-line">
+                        <div class="equity-ring ring-40"><span>40%</span></div>
+                        <span class="equity-number">40%</span>
+                      </div>
+                    </div>
+                    <div class="data-item reveal">
+                      <span class="label">Legal Due Diligence</span>
+                      <span class="verified"><span class="check">✓</span>Verified</span>
+                    </div>
+                    <div class="data-item reveal">
+                      <span class="label">Opportunity Profile</span>
+                      <span class="value">Gold &amp; PMG</span>
+                    </div>
+                  </div>
+                  <div class="card-footer reveal">
+                    <a class="project-cta" href="#" data-open-form="investor">
+                      Request Project Information
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                  </div>
+                </article>
+
+                <article class="project-card" data-project="Rakaposhi 1">
+                  <div class="card-head reveal">
+                    <div><div class="project-kicker">Project 04</div><h2>Rakaposhi 1</h2></div>
+                    <span class="potential excellent">Excellent</span>
+                  </div>
+                  <div class="data-grid">
+                    <div class="data-item reveal">
+                      <span class="label">Commodity</span>
+                      <div class="commodities">
+                        <span class="metal copper"><span class="metal-icon">Cu</span>Copper</span>
+                        <span class="metal poly"><span class="metal-icon">PM</span>Poly Metal</span>
+                      </div>
+                    </div>
+                    <div class="data-item reveal">
+                      <span class="label">Project Phase</span>
+                      <div class="phase"><span class="phase-dot"></span><span class="value">Refine</span></div>
+                      <div class="phase-track" aria-label="Refine phase"><span class="active"></span><span class="active"></span><span class="active"></span></div>
+                    </div>
+                    <div class="data-item reveal">
+                      <span class="label">Next-Stage Funding</span>
+                      <div class="funding"><small>USD</small>50 Million</div>
+                    </div>
+                    <div class="data-item reveal">
+                      <span class="label">Equity Stake Offer</span>
+                      <div class="equity-line">
+                        <div class="equity-ring ring-40"><span>40%</span></div>
+                        <span class="equity-number">40%</span>
+                      </div>
+                    </div>
+                    <div class="data-item reveal">
+                      <span class="label">Legal Due Diligence</span>
+                      <span class="verified"><span class="check">✓</span>Verified</span>
+                    </div>
+                    <div class="data-item reveal">
+                      <span class="label">Opportunity Profile</span>
+                      <span class="value">Copper &amp; polymetallic</span>
+                    </div>
+                  </div>
+                  <div class="card-footer reveal">
+                    <a class="project-cta" href="#" data-open-form="investor">
+                      Request Project Information
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                  </div>
+                </article>
+              </section>
             </div>
-            <div class="step-card">
-              <div class="step-number" aria-hidden="true">2</div>
-              <p>Validate title, data quality, project history and key assumptions through appropriate specialists.</p>
+
+            <div class="projects-cta-block">
+              <h3>From Project Interest to Informed Engagement</h3>
+              <p>
+                Investors and strategic partners can begin with a confidential enquiry outlining their commodity focus, investment stage, technical requirements and preferred partnership model. OREXITY can then coordinate an initial review of the information available and identify an appropriate next step.
+              </p>
+              <a href="#" class="btn btn-primary" data-open-form="investor">Discuss an Investment Opportunity</a>
             </div>
-            <div class="step-card">
-              <div class="step-number" aria-hidden="true">3</div>
-              <p>Define the next work program, its budget, milestones and decision criteria.</p>
-            </div>
-            <div class="step-card">
-              <div class="step-number" aria-hidden="true">4</div>
-              <p>Structure investment terms and governance to match the evidence and risk profile.</p>
-            </div>
-            <div class="step-card">
-              <div class="step-number" aria-hidden="true">5</div>
-              <p>Advance only when the agreed technical, legal, commercial and stakeholder conditions are addressed.</p>
-            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== DISCLAIMER & CONTRACTUAL TERMS ===== -->
+      <section id="disclaimer" class="section bg-gray-50" aria-labelledby="disclaimer-heading">
+        <div class="container">
+          <p class="eyebrow">Legal</p>
+          <h2 id="disclaimer-heading">Orexity Disclaimer &amp; Contractual Terms</h2>
+          <div class="disclaimer-details">
+            <details>
+              <summary>1. Informational Purpose</summary>
+              <p>All information published on the OREXITY website, including descriptions of services, projects, investment opportunities, technical materials and business activities, is provided for general informational purposes only. Website content does not, by itself, constitute a binding offer, commitment, representation, warranty, investment recommendation or grant of any legal, commercial, financial, ownership or other rights.</p>
+            </details>
+            <details>
+              <summary>2. No Automatic Contractual Relationship</summary>
+              <p>Accessing or using this website, submitting an enquiry, or communicating with OREXITY does not, by itself, establish a client relationship, partnership, joint venture, agency, investment arrangement or other contractual relationship. Any such relationship is subject to the applicable terms and formalities agreed by the relevant parties.</p>
+            </details>
+            <details>
+              <summary>3. Separate Written Agreements</summary>
+              <p>The scope of services, deliverables, fees, payment terms, responsibilities, rights, obligations, confidentiality provisions, exclusions, limitations of liability and other applicable conditions shall be defined in the relevant written engagement letter, Non-Disclosure Agreement (NDA), Memorandum of Understanding (MOU), service agreement, investment agreement or other duly executed contractual instrument, as applicable.</p>
+            </details>
+            <details>
+              <summary>4. Precedence of Executed Agreements</summary>
+              <p>Where website content differs from the terms of a duly executed agreement, the applicable agreement shall govern the contractual relationship to the extent provided therein and permitted by applicable law. No website statement shall amend or replace an executed agreement unless the amendment is made in accordance with that agreement and applicable law.</p>
+            </details>
+            <details>
+              <summary>5. No Guarantee of Outcomes</summary>
+              <p>Information regarding projects, mineral potential, investment prospects or anticipated commercial outcomes is not a guarantee of mineral discovery, resource classification, regulatory approval, investment performance, financial returns or transaction completion. Independent verification and appropriate professional due diligence should be undertaken before any investment or commercial decision.</p>
+            </details>
+            <details>
+              <summary>6. Reservation of Rights</summary>
+              <p>OREXITY reserves its rights in relation to its website content, business information, materials and intellectual property, subject to applicable law and any express rights granted under a separate written agreement.</p>
+            </details>
+            <details>
+              <summary>7. Service Disclaimer</summary>
+              <p>Our services are provided on a defined commercial basis. OREXITY does not guarantee mineral discovery, resource classification, regulatory approvals, investment returns or transaction completion. All investment decisions remain the responsibility of the parties involved.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== CONTACT CTA ===== -->
+      <section id="contact" class="dark section" aria-labelledby="contact-heading">
+        <div class="container text-center">
+          <h2 id="contact-heading" class="contact-heading">Discuss an Investment Opportunity</h2>
+          <p class="lead lead-contact">
+            Begin with a confidential enquiry outlining your commodity focus, investment stage, technical requirements and preferred partnership model.
+          </p>
+          <a href="#" class="btn btn-primary btn-lg cta-highlight" data-open-form="contact">CONTACT OREXITY</a>
+        </div>
+      </section>
+
+      <!-- ===== FAQ ===== -->
+      <div id="faq">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Frequently asked questions</p>
+            <h2 class="faq-h2">What should investors know?</h2>
+          </div>
+          <div class="faq-list">
+            <details><summary>What does OREXITY do?</summary><p>OREXITY provides mineral investment advisory and project assessment support, including opportunity screening, due diligence coordination, investment structuring, financial and commercial analysis, investor readiness and engagement.</p></details>
+            <details><summary>What technical services are described?</summary><p>The source describes geological exploration and targeting, geochemical and geophysical surveys, drilling and sampling programme support, technical intelligence and modelling, exploration data management and QA/QC, environmental baseline and field HSE, and technical integration and reporting.</p></details>
+            <details><summary>Where is the projects portfolio focused?</summary><p>The source identifies mineral opportunities associated with Gilgit-Baltistan, Pakistan, and names Markhor 1, Markhor 2, Rakaposhi 1 and Ketu 1.</p></details>
+            <details><summary>Does OREXITY guarantee mineral discovery or investment returns?</summary><p>No. The source expressly states that OREXITY does not guarantee mineral discovery, resource classification, regulatory approvals, investment returns or transaction completion.</p></details>
+            <details><summary>When do service scope, deliverables and fees become binding?</summary><p>The source states that scope, deliverables, fees, payment terms, responsibilities, rights, obligations and other conditions are defined in the relevant written engagement or other duly executed contractual instrument, as applicable.</p></details>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- ===== TECHNICAL INTELLIGENCE ===== -->
-    <section id="technical" class="dark section" aria-labelledby="technical-heading">
-      <div class="container">
-        <p class="eyebrow">Technical Intelligence</p>
-        <h2 id="technical-heading">From Surface Signs to Strategic Stakes, Intelligence Before Extraction.</h2>
-        <p class="lead lead-spaced">
-          Built on Experience, Driven by Excellence. OREXITY is transforming geological data into investment-ready mineral opportunities through internationally aligned technical assessments, systematic targeting, resource evaluation and development planning, reducing due diligence costs and information asymmetry under VALMIN, JORC and NI 43-101 frameworks.
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+      <div class="container footer-row">
+        <div>
+          <a href="index.html" class="footer-brand" aria-label="OREXITY home">
+            <img src="images/logo.svg" alt="Orexity" class="logo">
+          </a>
+          <p class="small">
+            Mineral Investment &amp; Advisory · Pakistan
+          </p>
+        </div>
+        <div class="footer-links">
+          <a href="#advisory">Investment Advisory</a>
+          <a href="#technical">Technical Intelligence</a>
+          <a href="#projects">Projects</a>
+          <a href="#disclaimer">Disclaimer &amp; Terms</a>
+          <a href="#" data-open-form="contact">Contact</a>
+        </div>
+        <p class="small">Website content is informational and subject to the terms above and applicable written agreements.</p>
+      </div>
+    </footer>
+
+  </div>
+  <!-- ===== END OF #main-content ===== -->
+
+
+  <!-- ============================================================ -->
+  <!-- ===== INVESTOR CONNECT FORM SECTION (hidden by default) ===== -->
+  <!-- ============================================================ -->
+  <section id="investor-form-section" class="hidden" aria-label="Investor qualification form">
+
+    
+    <!-- Success message (hidden by default; shown after submission) -->
+    <div id="investorSuccessMessage" class="hidden" role="status" aria-live="polite"></div>
+    
+    <!-- ==================================================== -->
+    <!-- ============ INVESTOR CONNECT FORM START =========== -->
+    <!-- ==================================================== -->
+    <div class="form-wrapper">
+      <header class="header">
+        <div class="confidential">Confidential Investor Screening Document</div>
+        <img src="images/REXITYGrey.png" alt="OREXITY" class="brand-logo">
+        <h2>Mineral Investment &amp; Advisory Platform</h2>
+        <p class="header-tagline">MINERAL SECTOR MARKET ENTRY | INVESTOR QUALIFICATION FORM</p>
+      </header>
+
+      <form id="investorForm" class="form-body" method="post" action="#" enctype="multipart/form-data" novalidate>
+        <!-- Anti-bot honeypot -->
+        <div class="honeypot" aria-hidden="true">
+          <label for="investorWebsiteUrl">Website</label>
+          <input type="text" id="investorWebsiteUrl" name="website_url" tabindex="-1" autocomplete="off">
+        </div>
+
+        <!-- Section 1 -->
+        <section class="contact-section">
+          <h2 class="section-title">1. Corporate Identity &amp; Authority</h2>
+          <div class="form-grid">
+            <div class="input-group full-width">
+              <label for="companyLegalEntity">Company Legal Entity</label>
+              <input type="text" id="companyLegalEntity" name="companyLegalEntity" class="input-line" placeholder="(Company Name)" autocomplete="organization" required>
+            </div>
+            <div class="input-group">
+              <label for="representative">Authorized Representative / Designation</label>
+              <input type="text" id="representative" name="representative" class="input-line" required>
+            </div>
+            <div class="input-group">
+              <label for="contactNumber">Contact Number</label>
+              <input type="tel" id="contactNumber" name="contactNumber" class="input-line" autocomplete="tel" required>
+            </div>
+            <div class="input-group full-width">
+              <label for="ubo">Ultimate Beneficial Owner (UBO)</label>
+              <input type="text" id="ubo" name="ubo" class="input-line" required>
+            </div>
+            
+          </div>
+        </section>
+
+        <!-- Section 2 -->
+        <section class="contact-section">
+          <h2 class="section-title">2. Financial Capacity &amp; Funding</h2>
+          <div class="form-grid">
+            <div class="input-group full-width">
+              <label for="proposedInvestment">Proposed Investment</label>
+              <input type="text" id="proposedInvestment" name="proposedInvestment" placeholder="US$100Million(One Hundred Million US Dollars Only)." class="input-line" required>
+            </div>
+          </div>
+
+          <div class="options-block options-block--top">
+            <span class="options-label">Funding Source</span>
+            <div class="options-group">
+              <label class="checkbox-label"><input type="checkbox" name="fundingSource" value="Equity" ><span class="custom-box"></span><span>Equity</span></label>
+              <label class="checkbox-label"><input type="checkbox" name="fundingSource" value="Debt"><span class="custom-box"></span><span>Debt</span></label>
+              <label class="checkbox-label"><input type="checkbox" name="fundingSource" value="Private Equity"><span class="custom-box"></span><span>Private Equity</span></label>
+              <label class="checkbox-label"><input type="checkbox" name="fundingSource" value="Strategic Partner"><span class="custom-box"></span><span>Strategic Partner</span></label>
+              <label class="checkbox-label"><input type="checkbox" name="fundingSource" value="Other"><span class="custom-box"></span><span>Other</span></label>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 3 -->
+        <section class="contact-section">
+          <h2 class="section-title">3. Commodity Focus &amp; Investment Scope</h2>
+          <div class="options-block">
+            <span class="options-label">Commodity Focus</span>
+            <div class="options-group">
+              <label class="checkbox-label"><input type="checkbox" name="commodityFocus" value="Copper" ><span class="custom-box"></span><span>Copper</span></label>
+              <label class="checkbox-label"><input type="checkbox" name="commodityFocus" value="Gold"><span class="custom-box"></span><span>Gold</span></label>
+              <label class="checkbox-label"><input type="checkbox" name="commodityFocus" value="Lithium"><span class="custom-box"></span><span>Lithium</span></label>
+              <label class="checkbox-label"><input type="checkbox" name="commodityFocus" value="Critical Minerals"><span class="custom-box"></span><span>Critical Minerals</span></label>
+              <label class="checkbox-label"><input type="checkbox" name="commodityFocus" value="Any/All"><span class="custom-box"></span><span>Any/All</span></label>
+            </div>
+          </div>
+          <div class="options-block">
+            <span class="options-label">Role</span>
+            <div class="options-group">
+              <label class="checkbox-label"><input type="checkbox" name="role" value="Investor" ><span class="custom-box"></span><span>Investor</span></label>
+              <label class="checkbox-label"><input type="checkbox" name="role" value="Operator"><span class="custom-box"></span><span>Operator</span></label>
+              <label class="checkbox-label"><input type="checkbox" name="role" value="Technical Partner"><span class="custom-box"></span><span>Technical Partner</span></label>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 4 -->
+        <section class="contact-section">
+          <h2 class="section-title">4. Strategic Fit &amp; Market Entry</h2>
+          <div class="options-block">
+            <span class="options-label">Target Stage</span>
+            <div class="options-group">
+              <label class="checkbox-label"><input type="checkbox" name="targetStage" value="Pre-Exploration" ><span class="custom-box"></span><span>Pre-Exploration</span></label>
+              <label class="checkbox-label"><input type="checkbox" name="targetStage" value="Primary Exploration"><span class="custom-box"></span><span>Primary Exploration</span></label>
+              <label class="checkbox-label"><input type="checkbox" name="targetStage" value="Prospect Development"><span class="custom-box"></span><span>Prospect Development</span></label>
+              <label class="checkbox-label"><input type="checkbox" name="targetStage" value="Resource Delineation"><span class="custom-box"></span><span>Resource Delineation</span></label>
+            </div>
+          </div>
+
+          <div class="options-block">
+            <span class="options-label">Proposed Structure</span>
+            <div class="options-group">
+              <label class="checkbox-label"><input type="checkbox" name="proposedStructure" value="Joint Venture" ><span class="custom-box"></span><span>Joint Venture</span></label>
+              <label class="checkbox-label"><input type="checkbox" name="proposedStructure" value="Equity"><span class="custom-box"></span><span>Equity</span></label>
+              <label class="checkbox-label"><input type="checkbox" name="proposedStructure" value="Acquisition"><span class="custom-box"></span><span>Acquisition</span></label>
+              <label class="checkbox-label"><input type="checkbox" name="proposedStructure" value="Project Finance"><span class="custom-box"></span><span>Project Finance</span></label>
+              <label class="checkbox-label"><input type="checkbox" name="proposedStructure" value="Partnership"><span class="custom-box"></span><span>Partnership</span></label>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="input-group">
+              <label for="proposedOwnership">Proposed Ownership (%)</label>
+              <input type="text" id="proposedOwnership" name="proposedOwnership" class="input-line" required>
+            </div>
+            <div class="input-group">
+              <label for="investmentTimeline">Investment Timeline</label>
+              <input type="text" id="investmentTimeline" name="investmentTimeline" class="input-line" required>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 5 -->
+        <section class="contact-section">
+          <h2 class="section-title">5. Supporting Documents</h2>
+          <div class="options-group">
+            <label class="checkbox-label"><input type="checkbox" name="supportingDocuments" value="Investment Proposal"><span class="custom-box" ></span><span>Investment Proposal</span></label>
+          </div>
+
+          <div class="upload-container">
+            <span class="options-label">Upload Supporting Documents (Max 15MB per file)</span>
+            <div class="upload-box">
+              <input type="file" id="investorDocumentUpload" name="documentUpload" class="file-input" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" multiple required>
+              <label for="investorDocumentUpload" class="upload-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                Choose Files
+              </label>
+              <span class="file-name" id="investorFileNameDisplay">No files chosen</span>
+            </div>
+            <div class="upload-error" id="investorUploadError"></div>
+          </div>
+        </section>
+
+        <!-- Important Note -->
+        <p class="form-important-note">
+            <strong>Important:</strong> - All fields are mandatory and must be completed before submitting the form.
         </p>
 
-        <h3 class="technical-subheading">End-to-End Mineral Asset Advancement Framework</h3>
-        <p class="technical-note">Market Entry, Mineral’s Pakistan</p>
+        <!-- Declaration -->
+        <div class="declaration-block">
+          <h2 class="section-title section-title--plain">Investor Declaration</h2>
+          <p>I confirm that the information provided is accurate to the best of my knowledge and authorize reasonable verification, subject to applicable law and confidentiality arrangements.</p>
 
-        <div class="grid grid-3 grid-gap-md">
-          <div class="card dark-theme" tabindex="0">
-            <div class="card-icon" aria-hidden="true">1</div>
-            <h4>Geological Exploration &amp; Targeting</h4>
-            <p>Geological interpretation, remote sensing, GIS integration, field validation and mineral prospectivity assessment.</p>
-          </div>
-          <div class="card dark-theme" tabindex="0">
-            <div class="card-icon" aria-hidden="true">2</div>
-            <h4>Geochemical &amp; Geophysical Surveys</h4>
-            <p>Survey design, sampling strategies, anomaly interpretation and integrated subsurface investigation.</p>
-          </div>
-          <div class="card dark-theme" tabindex="0">
-            <div class="card-icon" aria-hidden="true">3</div>
-            <h4>Drilling &amp; Sampling Programme</h4>
-            <p>Drill programme design, field execution coordination, sampling protocols and geological data acquisition.</p>
-          </div>
-          <div class="card dark-theme" tabindex="0">
-            <div class="card-icon" aria-hidden="true">4</div>
-            <h4>Technical Intelligence &amp; Modelling</h4>
-            <p>Integrated geological, geospatial and geophysical interpretation, 3D modelling and machine-learning-assisted prospectivity analysis where suitable.</p>
-          </div>
-          <div class="card dark-theme" tabindex="0">
-            <div class="card-icon" aria-hidden="true">5</div>
-            <h4>Exploration Data Management &amp; QA/QC</h4>
-            <p>Data validation, quality assurance and quality control, digital field records, database integration and technical data integrity.</p>
-          </div>
-          <div class="card dark-theme" tabindex="0">
-            <div class="card-icon" aria-hidden="true">6</div>
-            <h4>Environmental Baseline &amp; Field HSE</h4>
-            <p>Baseline environmental data collection, field safety procedures and health, safety and environmental monitoring.</p>
-          </div>
-          <div class="card dark-theme" tabindex="0">
-            <div class="card-icon" aria-hidden="true">7</div>
-            <h4>Technical Integration &amp; Reporting</h4>
-            <p>Integrated technical interpretation, geological modelling, resource-estimation coordination where justified, and structured technical reporting.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+          <label class="checkbox-label declaration-confirm">
+            <input type="checkbox" id="declarationConfirm" name="declarationConfirm" value="Yes" required>
+            <span class="custom-box"></span>
+            <span class="confirm-text">Yes, I confirm</span>
+          </label>
 
-    <!-- ===== VALUE PROPOSITION ===== -->
-    <section id="value" class="section bg-gray-50" aria-labelledby="value-heading">
-      <div class="container">
-        <p class="eyebrow">Value Proposition</p>
-        <h2 id="value-heading">Orexity's Five-Layer Proposition</h2>
-        <p class="lead lead-spaced">
-          Better-prepared projects, clearer investment pathways, and more disciplined progression from exploration opportunity to commercial development.
-        </p>
-
-        <div class="grid grid-3 grid-gap-md">
-          <div class="card" tabindex="0">
-            <div class="card-icon" aria-hidden="true">L1</div>
-            <h4>Information</h4>
-            <p>Convert fragmented project information into structured investment information.</p>
-          </div>
-          <div class="card" tabindex="0">
-            <div class="card-icon" aria-hidden="true">L2</div>
-            <h4>Verification</h4>
-            <p>Separate verified facts from assumptions, claims and unresolved risks.</p>
-          </div>
-          <div class="card" tabindex="0">
-            <div class="card-icon" aria-hidden="true">L3</div>
-            <h4>Coordination</h4>
-            <p>Coordinate the investor, technical advisers, legal advisers, project owners and relevant authorities.</p>
-          </div>
-          <div class="card" tabindex="0">
-            <div class="card-icon" aria-hidden="true">L4</div>
-            <h4>Transaction</h4>
-            <p>Convert qualified opportunities into financeable structures.</p>
-          </div>
-          <div class="card" tabindex="0">
-            <div class="card-icon" aria-hidden="true">L5</div>
-            <h4>Execution</h4>
-            <p>Support implementation after investment close through agreed commercial mandates.</p>
+          <div class="signature-area">
+            <div class="input-group">
+              <label for="signatoryName">Name</label>
+              <input type="text" id="signatoryName" name="signatoryName" class="input-line" autocomplete="name" required>
+            </div>
+            <div class="input-group">
+              <label for="signatoryDesignation">Designation</label>
+              <input type="text" id="signatoryDesignation" name="signatoryDesignation" class="input-line" required>
+            </div>
+            <div class="input-group">
+              <label for="signatoryContact">Contact No.</label>
+              <input type="tel" id="signatoryContact" name="signatoryContact" class="input-line" autocomplete="tel" required>
+            </div>
+            <div class="input-group">
+              <label for="signatoryEmail">E-Mail</label>
+              <input type="email" id="signatoryEmail" name="signatoryEmail" class="input-line" autocomplete="email" required>
+            </div>
           </div>
         </div>
 
-        <div class="value-chain-box">
-          <span class="value-chain-label">Private-sector chain:</span>
-          <span class="value-chain-flow">Information → Verification → Qualification → Capital → Execution</span>
-        </div>
-      </div>
-    </section>
+        <button class="cta-cont" type="submit">Submit Investment Enquiry <span aria-hidden="true">↗</span></button>
+        <p class="form-message" id="investorFormMessage" role="status" aria-live="polite"></p>
+      </form>
 
-    <!-- ===== PROJECTS PORTFOLIO ===== -->
-    <section id="projects" class="dark-project section" aria-labelledby="projects-heading">
-      <div class="container">
-        <div class="body" id="Projects">
-          <div class="wrap">
-            <p class="eyebrow">Projects Portfolio</p>
-            <h2 id="projects-heading">A Portfolio of Mineral Opportunities in Gilgit-Baltistan</h2>
-            <p class="lead lead-projects">
-              OREXITY's project portfolio focuses on mineral opportunities associated with Gilgit-Baltistan, Pakistan. Each opportunity should be assessed on its own tenure position, available technical evidence, access and logistics, stakeholder context, work-program requirements and investment structure.
-            </p>
-            <p class="projects-note">
-              Project information is shared according to its availability, verification status and applicable confidentiality requirements. Technical claims, license details, resource figures, project stage and investment terms should be published only after the relevant information has been confirmed.
-            </p>
-
-            <section class="grid" aria-label="Mineral investment projects">
-              <article class="project-card" data-project="MARKHOR 1">
-                <div class="card-head reveal">
-                  <div><div class="project-kicker">Project 01</div><h2>MARKHOR 1</h2></div>
-                  <span class="potential high">High</span>
-                </div>
-                <div class="data-grid">
-                  <div class="data-item reveal">
-                    <span class="label">Commodity</span>
-                    <div class="commodities">
-                      <span class="metal copper"><span class="metal-icon">Cu</span>Copper</span>
-                      <span class="metal gold"><span class="metal-icon">Au</span>Gold</span>
-                    </div>
-                  </div>
-                  <div class="data-item reveal">
-                    <span class="label">Project Phase</span>
-                    <div class="phase"><span class="phase-dot"></span><span class="value">Identify</span></div>
-                    <div class="phase-track" aria-label="Identify phase"><span class="active"></span><span></span><span></span></div>
-                  </div>
-                  <div class="data-item reveal">
-                    <span class="label">Next-Stage Funding</span>
-                    <div class="funding"><small>USD</small>10 Million</div>
-                  </div>
-                  <div class="data-item reveal">
-                    <span class="label">Equity Stake Offer</span>
-                    <div class="equity-line">
-                      <div class="equity-ring ring-45"><span>45%</span></div>
-                      <span class="equity-number">45%</span>
-                    </div>
-                  </div>
-                  <div class="data-item reveal">
-                    <span class="label">Legal Due Diligence</span>
-                    <span class="verified"><span class="check">✓</span>Verified</span>
-                  </div>
-                  <div class="data-item reveal">
-                    <span class="label">Opportunity Profile</span>
-                    <span class="value">Copper &amp; gold</span>
-                  </div>
-                </div>
-                <div class="card-footer reveal">
-                  <a class="project-cta" href="html/investor-connect.html" target="_blank" rel="noopener">
-                    Request Project Information
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                      <path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-
-              <article class="project-card" data-project="MARKHOR 2">
-                <div class="card-head reveal">
-                  <div><div class="project-kicker">Project 02</div><h2>MARKHOR 2</h2></div>
-                  <span class="potential very-high">Very High</span>
-                </div>
-                <div class="data-grid">
-                  <div class="data-item reveal">
-                    <span class="label">Commodity</span>
-                    <div class="commodities">
-                      <span class="metal gold"><span class="metal-icon">Au</span>Gold</span>
-                      <span class="metal copper"><span class="metal-icon">Cu</span>Copper</span>
-                    </div>
-                  </div>
-                  <div class="data-item reveal">
-                    <span class="label">Project Phase</span>
-                    <div class="phase"><span class="phase-dot"></span><span class="value">Validate</span></div>
-                    <div class="phase-track" aria-label="Validate phase"><span class="active"></span><span class="active"></span><span></span></div>
-                  </div>
-                  <div class="data-item reveal">
-                    <span class="label">Next-Stage Funding</span>
-                    <div class="funding"><small>USD</small>20 Million</div>
-                  </div>
-                  <div class="data-item reveal">
-                    <span class="label">Equity Stake Offer</span>
-                    <div class="equity-line">
-                      <div class="equity-ring ring-40"><span>40%</span></div>
-                      <span class="equity-number">40%</span>
-                    </div>
-                  </div>
-                  <div class="data-item reveal">
-                    <span class="label">Legal Due Diligence</span>
-                    <span class="verified"><span class="check">✓</span>Verified</span>
-                  </div>
-                  <div class="data-item reveal">
-                    <span class="label">Opportunity Profile</span>
-                    <span class="value">Gold &amp; copper</span>
-                  </div>
-                </div>
-                <div class="card-footer reveal">
-                  <a class="project-cta" href="html/investor-connect.html" target="_blank" rel="noopener">
-                    Request Project Information
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                      <path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-
-              <article class="project-card" data-project="Ketu 1">
-                <div class="card-head reveal">
-                  <div><div class="project-kicker">Project 03</div><h2>Ketu 1</h2></div>
-                  <span class="potential excellent">Excellent</span>
-                </div>
-                <div class="data-grid">
-                  <div class="data-item reveal">
-                    <span class="label">Commodity</span>
-                    <div class="commodities">
-                      <span class="metal gold"><span class="metal-icon">Au</span>Gold</span>
-                      <span class="metal pmg"><span class="metal-icon">PMG</span>PMG</span>
-                    </div>
-                  </div>
-                  <div class="data-item reveal">
-                    <span class="label">Project Phase</span>
-                    <div class="phase"><span class="phase-dot"></span><span class="value">Refine</span></div>
-                    <div class="phase-track" aria-label="Refine phase"><span class="active"></span><span class="active"></span><span class="active"></span></div>
-                  </div>
-                  <div class="data-item reveal">
-                    <span class="label">Next-Stage Funding</span>
-                    <div class="funding"><small>USD</small>30 Million</div>
-                  </div>
-                  <div class="data-item reveal">
-                    <span class="label">Equity Stake Offer</span>
-                    <div class="equity-line">
-                      <div class="equity-ring ring-40"><span>40%</span></div>
-                      <span class="equity-number">40%</span>
-                    </div>
-                  </div>
-                  <div class="data-item reveal">
-                    <span class="label">Legal Due Diligence</span>
-                    <span class="verified"><span class="check">✓</span>Verified</span>
-                  </div>
-                  <div class="data-item reveal">
-                    <span class="label">Opportunity Profile</span>
-                    <span class="value">Gold &amp; PMG</span>
-                  </div>
-                </div>
-                <div class="card-footer reveal">
-                  <a class="project-cta" href="html/investor-connect.html" target="_blank" rel="noopener">
-                    Request Project Information
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                      <path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-
-              <article class="project-card" data-project="Rakaposhi 1">
-                <div class="card-head reveal">
-                  <div><div class="project-kicker">Project 04</div><h2>Rakaposhi 1</h2></div>
-                  <span class="potential excellent">Excellent</span>
-                </div>
-                <div class="data-grid">
-                  <div class="data-item reveal">
-                    <span class="label">Commodity</span>
-                    <div class="commodities">
-                      <span class="metal copper"><span class="metal-icon">Cu</span>Copper</span>
-                      <span class="metal poly"><span class="metal-icon">PM</span>Poly Metal</span>
-                    </div>
-                  </div>
-                  <div class="data-item reveal">
-                    <span class="label">Project Phase</span>
-                    <div class="phase"><span class="phase-dot"></span><span class="value">Refine</span></div>
-                    <div class="phase-track" aria-label="Refine phase"><span class="active"></span><span class="active"></span><span class="active"></span></div>
-                  </div>
-                  <div class="data-item reveal">
-                    <span class="label">Next-Stage Funding</span>
-                    <div class="funding"><small>USD</small>50 Million</div>
-                  </div>
-                  <div class="data-item reveal">
-                    <span class="label">Equity Stake Offer</span>
-                    <div class="equity-line">
-                      <div class="equity-ring ring-40"><span>40%</span></div>
-                      <span class="equity-number">40%</span>
-                    </div>
-                  </div>
-                  <div class="data-item reveal">
-                    <span class="label">Legal Due Diligence</span>
-                    <span class="verified"><span class="check">✓</span>Verified</span>
-                  </div>
-                  <div class="data-item reveal">
-                    <span class="label">Opportunity Profile</span>
-                    <span class="value">Copper &amp; polymetallic</span>
-                  </div>
-                </div>
-                <div class="card-footer reveal">
-                  <a class="project-cta" href="html/investor-connect.html" target="_blank" rel="noopener">
-                    Request Project Information
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                      <path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-            </section>
-          </div>
-
-          <div class="projects-cta-block">
-            <h3>From Project Interest to Informed Engagement</h3>
-            <p>
-              Investors and strategic partners can begin with a confidential enquiry outlining their commodity focus, investment stage, technical requirements and preferred partnership model. OREXITY can then coordinate an initial review of the information available and identify an appropriate next step.
-            </p>
-            <a href="html/investor-connect.html" class="btn btn-primary" target="_blank">Discuss an Investment Opportunity</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== DISCLAIMER & CONTRACTUAL TERMS ===== -->
-    <section id="disclaimer" class="section bg-gray-50" aria-labelledby="disclaimer-heading">
-      <div class="container">
-        <p class="eyebrow">Legal</p>
-        <h2 id="disclaimer-heading">Orexity Disclaimer &amp; Contractual Terms</h2>
-
-        <div class="disclaimer-details">
-          <details>
-            <summary>1. Informational Purpose</summary>
-            <p>All information published on the OREXITY website, including descriptions of services, projects, investment opportunities, technical materials and business activities, is provided for general informational purposes only. Website content does not, by itself, constitute a binding offer, commitment, representation, warranty, investment recommendation or grant of any legal, commercial, financial, ownership or other rights.</p>
-          </details>
-          <details>
-            <summary>2. No Automatic Contractual Relationship</summary>
-            <p>Accessing or using this website, submitting an enquiry, or communicating with OREXITY does not, by itself, establish a client relationship, partnership, joint venture, agency, investment arrangement or other contractual relationship. Any such relationship is subject to the applicable terms and formalities agreed by the relevant parties.</p>
-          </details>
-          <details>
-            <summary>3. Separate Written Agreements</summary>
-            <p>The scope of services, deliverables, fees, payment terms, responsibilities, rights, obligations, confidentiality provisions, exclusions, limitations of liability and other applicable conditions shall be defined in the relevant written engagement letter, Non-Disclosure Agreement (NDA), Memorandum of Understanding (MOU), service agreement, investment agreement or other duly executed contractual instrument, as applicable.</p>
-          </details>
-          <details>
-            <summary>4. Precedence of Executed Agreements</summary>
-            <p>Where website content differs from the terms of a duly executed agreement, the applicable agreement shall govern the contractual relationship to the extent provided therein and permitted by applicable law. No website statement shall amend or replace an executed agreement unless the amendment is made in accordance with that agreement and applicable law.</p>
-          </details>
-          <details>
-            <summary>5. No Guarantee of Outcomes</summary>
-            <p>Information regarding projects, mineral potential, investment prospects or anticipated commercial outcomes is not a guarantee of mineral discovery, resource classification, regulatory approval, investment performance, financial returns or transaction completion. Independent verification and appropriate professional due diligence should be undertaken before any investment or commercial decision.</p>
-          </details>
-          <details>
-            <summary>6. Reservation of Rights</summary>
-            <p>OREXITY reserves its rights in relation to its website content, business information, materials and intellectual property, subject to applicable law and any express rights granted under a separate written agreement.</p>
-          </details>
-          <details>
-            <summary>7. Service Disclaimer</summary>
-            <p>Our services are provided on a defined commercial basis. OREXITY does not guarantee mineral discovery, resource classification, regulatory approvals, investment returns or transaction completion. All investment decisions remain the responsibility of the parties involved.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== CONTACT CTA ===== -->
-    <section id="contact" class="dark section" aria-labelledby="contact-heading">
-      <div class="container text-center">
-        <h2 id="contact-heading" class="contact-heading">Discuss an Investment Opportunity</h2>
-        <p class="lead lead-contact">
-          Begin with a confidential enquiry outlining your commodity focus, investment stage, technical requirements and preferred partnership model.
-        </p>
-        <a href="html/contact-us.html" class="btn btn-primary btn-lg cta-highlight" target="_blank" rel="noopener">Contact OREXITY</a>
-      </div>
-    </section>
-    <div id="faq">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">Frequently asked questions</p>
-          <h2 class="faq-h2">What should investors know?</h2>
-        </div>
-        <div class="faq-list">
-          <details><summary>What does OREXITY do?</summary><p>OREXITY provides mineral investment advisory and project assessment support, including opportunity screening, due diligence coordination, investment structuring, financial and commercial analysis, investor readiness and engagement.</p></details>
-          <details><summary>What technical services are described?</summary><p>The source describes geological exploration and targeting, geochemical and geophysical surveys, drilling and sampling programme support, technical intelligence and modelling, exploration data management and QA/QC, environmental baseline and field HSE, and technical integration and reporting.</p></details>
-          <details><summary>Where is the projects portfolio focused?</summary><p>The source identifies mineral opportunities associated with Gilgit-Baltistan, Pakistan, and names Markhor 1, Markhor 2, Rakaposhi 1 and Ketu 1.</p></details>
-          <details><summary>Does OREXITY guarantee mineral discovery or investment returns?</summary><p>No. The source expressly states that OREXITY does not guarantee mineral discovery, resource classification, regulatory approvals, investment returns or transaction completion.</p></details>
-          <details><summary>When do service scope, deliverables and fees become binding?</summary><p>The source states that scope, deliverables, fees, payment terms, responsibilities, rights, obligations and other conditions are defined in the relevant written engagement or other duly executed contractual instrument, as applicable.</p></details>
-        </div>
-      </div>
-
-  </main>
-
-  <!-- ===== FOOTER ===== -->
-   <footer class="site-footer">
-    <div class="container footer-row">
-      <div>
-        <a href="index.html" class="footer-brand" aria-label="OREXITY home">
-        <img src="images/logo.svg" alt="Orexity" class="logo">
-        </a>
-        <p class="small">
-          Mineral Investment &amp; Advisory · Pakistan
-        </p>
-      </div>
-      <div class="footer-links">
-        <a href="#advisory">Investment Advisory</a>
-        <a href="#technical">Technical Intelligence</a>
-        <a href="#projects">Projects</a>
-        <a href="#disclaimer">Disclaimer &amp; Terms</a>
-        <a href="/html/contact-us.html">Contact</a>
-      </div>
-      <p class="small">Website content is informational and subject to the terms above and applicable written agreements.</p>
+      <footer class="cont-footer">
+        OREXITY | Confidential Investor Screening Document
+      </footer>
     </div>
-  </footer>
+    <!-- Less-info message box -->
+    <div class="less-info-box">
+      <p>If you are unable to complete the form at this time, you may submit a brief enquiry through COTNACT OREXITY for further assistance</p>
+      <button type="button" class="contact-us-btn" data-open-form="contact">CONTACT OREXITY</button>
+    </div>
+    <!-- ==================================================== -->
+    <!-- ============= INVESTOR CONNECT FORM END ============ -->
+    <!-- ==================================================== -->
+
+  </section>
+
+
+  <!-- ==================================================== -->
+  <!-- ===== CONTACT US MODAL (hidden by default) ========= -->
+  <!-- ==================================================== -->
+  <div id="contact-modal" class="hidden" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
+
+    <!-- ============================================== -->
+    <!-- ============ CONTACT US FORM START =========== -->
+    <!-- ============================================== -->
+    <div class="modal">
+      <button type="button" class="modal-close-x" data-close-modal aria-label="Close">&times;</button>
+
+      <div class="contact-header">
+        <div class="eyebrow">Share Your Inquiry with</div>
+        <img src="images/REXITYGrey.png" alt="OREXITY">
+      </div>
+
+      <h3 id="contactModalTitle">Request project information</h3>
+      <p>Share your details below and our investment team will contact you regarding the selected project.</p>
+
+      <form id="contactForm" novalidate>
+        <!-- Honeypot -->
+        <div class="honeypot" aria-hidden="true">
+          <label for="contactWebsiteUrl">Website</label>
+          <input type="text" id="contactWebsiteUrl" name="website_url" tabindex="-1" autocomplete="off">
+        </div>
+
+        <label class="form-field">Full name*
+          <input name="name" autocomplete="name" required placeholder="Your full name">
+        </label>
+
+        <label class="form-field">Business email*
+          <input name="email" type="email" autocomplete="email" required placeholder="you@company.com">
+        </label>
+
+        <label for="contactMessage" class="form-field">Enquiry details *
+          <textarea id="contactMessage" name="message" required placeholder="Briefly describe your investment interest."></textarea>
+        </label>
+
+        <button class="cta-invest" type="submit">Send Enquiry <span aria-hidden="true">↗</span></button>
+        <p class="form-note" id="contactFormMessage" aria-live="polite"></p>
+      </form>
+    </div>
+    <!-- Contact success message (hidden by default) -->
+    <div id="contactSuccessMessage" class="hidden" role="status" aria-live="polite"></div>
+    <!-- ============================================== -->
+    <!-- ============= CONTACT US FORM END ============ -->
+    <!-- ============================================== -->
+
+  </div>
 
 </body>
 </html>
