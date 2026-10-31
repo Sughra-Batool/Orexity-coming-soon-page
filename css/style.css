@@ -1340,7 +1340,11 @@ main > .hero { padding-block: 0; }
    Changed `.footer-links li a` → `.footer-links a` so the rule
    actually matches the HTML markup (div > a, no <li>).
    ────────────────────────────────────────────────────────────── */
-.site-footer { padding: 2.5rem 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
+.site-footer { 
+    padding: 2.5rem 0; 
+    border-top: 1px solid var(--line); 
+    color: var(--muted); 
+    font-size: .9rem; }
 .footer-row { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
 
 .footer-links {
@@ -1353,9 +1357,9 @@ main > .hero { padding-block: 0; }
 }
 
 .footer-links a {
-    color: var(--gray-200);
+    color: var(--muted);
     text-decoration: none;
-    font-size: 0.75rem;
+    font-size: 0.95rem;
     transition: color 0.2s ease;
 }
 
