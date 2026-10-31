@@ -711,7 +711,11 @@ details p {
     margin: 0;
 }
 
-main > .hero { padding-block: 0; }
+main > .hero { 
+    padding-block: 0;
+    position: relative;
+    margin-bottom: 0px;
+}
 
 .banner {
     display: grid;
@@ -720,7 +724,6 @@ main > .hero { padding-block: 0; }
     align-content: center;
     gap: 0.5rem;
     padding: 4rem 6rem 1.5rem 5.5rem;
-    margin-block-end: 4rem;
     background-color: var(--black);
     color: var(--white);
 }
@@ -2859,7 +2862,7 @@ body.contact-success-mode .site-header {
     margin: 0;
     font-family: var(--font-body);
     color: var(--ink);
-    background: var(--bg-light);           /* [A4] was var(--bg) */
+    background: var(--bg-light);           
     line-height: 1.65;
     font-size: clamp(16px, 1.05vw, 17px);
     padding: clamp(2rem, 5vw, 4rem) 0 clamp(2.5rem, 5vw, 4.5rem);
@@ -3137,13 +3140,14 @@ body.contact-success-mode .site-header {
 /* ---------- Contact Section ---------- */
 .contact-section1 {
     max-width: var(--maxw);
-    margin: clamp(3.5rem, 5vw, 4rem) clamp(6rem, 9vw, 7rem) 0;
-    padding: 0 1.5rem;
+    margin: clamp(3.5rem, 5vw, 4rem) auto 0;   /* center horizontally */
+    padding: 0 clamp(1.5rem, 5vw, 4rem);       /* responsive side inset */
 }
+
 .contact1-card {
     background: var(--white);
     border-radius: var(--radius);
-    padding: clamp(2rem, 4vw, 3rem);
+    padding: clamp(1.75rem, 4vw, 3rem);        /* was 2rem min → 1.75rem */
     text-align: center;
     box-shadow: var(--shadow);
     position: relative;
