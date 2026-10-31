@@ -215,7 +215,7 @@ h4 { font-size: 1rem; }
    Now consolidated into a single rule (no behaviour change, just clarity). */
 .section {
     padding-block: 3.5rem;
-    margin-bottom: 40px;
+    /*margin-bottom: 40px;*/
     position: relative;
 }
 
@@ -816,7 +816,7 @@ main > .hero {
    15. ADVISORY & TECHNICAL SECTION HELPERS
    ────────────────────────────────────────────────────────────── */
 #advisory {
-    margin-top: 4rem;
+    padding-top: 4rem;
 }
 .sequence-block {
     margin-top: 3rem;
