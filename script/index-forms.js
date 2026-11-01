@@ -161,8 +161,8 @@ document.addEventListener('DOMContentLoaded', function () {
   /* =========================================================
      4. INVESTOR FORM SUBMISSION LOGIC
      ========================================================= */
-  const investorForm      = document.getElementById('investorForm');
-  const investorStatus    = document.getElementById('investorFormMessage');
+  const investorForm      = document.getElementById('investor');
+  const investorStatus    = document.getElementById('investorMessage');
   const investorSubmitBtn = investorForm ? investorForm.querySelector('button[type="submit"]') : null;
   const INVESTOR_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxF3IFHz1nsKoNt8acFRJ6NNSpsFJbK-lzqktsjehT-d8pVm8Ys0D2MhzisPY6qUncs/exec';
 
@@ -365,30 +365,30 @@ document.addEventListener('DOMContentLoaded', function () {
   /* =========================================================
      5. CONTACT FORM SUBMISSION LOGIC
      ========================================================= */
-  const contactForm      = document.getElementById('contactForm');
-  const contactStatus    = document.getElementById('contactFormMessage');
-  const contactSubmitBtn = contactForm ? contactForm.querySelector('button[type="submit"]') : null;
+  const contact      = document.getElementById('contact');
+  const contactStatus    = document.getElementById('contactMessage');
+  const contactSubmitBtn = contact ? contact.querySelector('button[type="submit"]') : null;
   const CONTACT_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbyeySGqiWke-9CBeI9MitbWdpzRN4HlabjpAWS_zEw45uRiJATQ42qv0E8NHK4ttXk_/exec';
 
-  if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
+  if (contact) {
+    contact.addEventListener('submit', function (e) {
       e.preventDefault();
 
       // Honeypot
       const honeypot = document.getElementById('contactWebsiteUrl');
       if (honeypot && honeypot.value !== '') {
-        contactForm.reset();
+        contact.reset();
         showContactSuccess();
         return;
       }
 
       // Validity
-      if (!contactForm.checkValidity()) {
+      if (!contact.checkValidity()) {
         if (contactStatus) {
           contactStatus.textContent = 'Please fill out all required fields correctly.';
           contactStatus.style.color = 'red';
         }
-        contactForm.reportValidity();
+        contact.reportValidity();
         return;
       }
 
@@ -402,7 +402,7 @@ document.addEventListener('DOMContentLoaded', function () {
         contactSubmitBtn.textContent = 'Sending...';
       }
 
-      const formData = new FormData(contactForm);
+      const formData = new FormData(contact);
       formData.delete('website_url');
       const data = new URLSearchParams(formData);
 
@@ -414,7 +414,7 @@ document.addEventListener('DOMContentLoaded', function () {
       })
       .then(() => {
         setTimeout(() => {
-          contactForm.reset();
+          contact.reset();
           showContactSuccess(); // This triggers the header to pop up
         }, 1000);
       })
