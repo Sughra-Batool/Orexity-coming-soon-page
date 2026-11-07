@@ -55,8 +55,6 @@ document.addEventListener('DOMContentLoaded', function () {
   function closeInvestorForm() {
     if (investorSection) investorSection.classList.add('hidden');
     if (mainContent)     mainContent.classList.remove('hidden');
-    // Restore URL to home
-    window.history.pushState({ path: '/home' }, '', '/home');
   }
 
   function showInvestorSuccess() {
@@ -96,8 +94,6 @@ document.addEventListener('DOMContentLoaded', function () {
       contactModal.classList.add('hidden');
       document.body.style.overflow = '';
       document.body.classList.remove('contact-success-mode');
-      // Restore URL to home
-      window.history.pushState({ path: '/home' }, '', '/home');
     }
   }
 
