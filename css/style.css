@@ -1319,3 +1319,53 @@ body.contact-success-mode .site-header { z-index:3000 !important; }
 .new-btn:focus-visible, .btn:focus-visible {
   outline:3px solid var(--gold); outline-offset:2px;
 }
+
+/* ──────────────────────────────────────────────────────────────
+   27. PRIVACY PAGE  (scoped to .privacy-page — moved from inline)
+   ────────────────────────────────────────────────────────────── */
+.privacy-page .privacy-section {
+  min-height: 80vh;
+}
+
+.privacy-page .privacy-card {
+  max-width: 900px;
+  background: var(--white);
+  padding: 4rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+.privacy-page .privacy-card > h1 {
+  font-family: 'Bree Serif', sans-serif;
+  color: var(--primary-navy);
+  margin-bottom: 0.5rem;
+}
+
+.privacy-page .privacy-card > .privacy-updated {
+  color: var(--gray-500);
+  margin-bottom: 2rem;
+}
+
+.privacy-page .privacy-card > p {
+  margin-bottom: 1.5rem;
+  color: var(--text-main);
+}
+
+.privacy-page .privacy-card > h2 {
+  font-size: 1.25rem;
+  color: var(--primary-navy);
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.privacy-page .privacy-contact-link {
+  color: var(--gold-dark);
+  font-weight: 600;
+}
+
+/* small-screen readability (inline previously fixed 4rem padding) */
+@media (max-width: 768px) {
+  .privacy-page .privacy-card {
+    padding: 2rem 1.5rem;   /* 32px top/bottom, 24px left/right */
+  }
+}
