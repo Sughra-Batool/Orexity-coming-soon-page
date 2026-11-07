@@ -1,0 +1,14 @@
+# OREXITY — Pakistan Mineral Investment & Advisory
+
+> OREXITY is a private-sector platform connecting international investors with Pakistan's mineral opportunities — market entry, due diligence, investment structuring, and project development in Gilgit-Baltistan.
+
+## Core services
+- [Investment Advisory](https://www.orexity.com/#advisory): opportunity screening, due diligence, structuring
+- [Technical Intelligence](https://www.orexity.com/#technical): geological exploration, modelling, QA/QC
+- [Projects Portfolio](https://www.orexity.com/#projects): Markhor 1, Markhor 2, Ketu 1, Rakaposhi 1
+- [FAQ](https://www.orexity.com/#faq): common investor questions
+
+## Key facts
+- Focus: Gilgit-Baltistan, Pakistan
+- Commodities: Copper, Gold, PMG, Polymetallic, Lithium, Critical Minerals
+- Frameworks referenced: JORC, NI 43-101, VALMIN
