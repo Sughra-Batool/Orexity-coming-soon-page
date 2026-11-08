@@ -279,7 +279,7 @@ details p { margin-top:.75rem; color:var(--gray-500); font-size:.9rem; }
 /* ──────────────────────────────────────────────────────────────
    11. FAQ & KEY TAKEAWAYS
    ────────────────────────────────────────────────────────────── */
-#faq { margin-top:4rem; }
+#faq { margin-block:4rem 2rem; }
 .faq-list { border-top:1px solid var(--line); }
 #faq .eyebrow { color:var(--muted); font-size:1.05rem; }
 #faq .eyebrow::before { content:""; width:23px; height:3px; background:var(--gold); }
