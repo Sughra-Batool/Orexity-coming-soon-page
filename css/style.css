@@ -1325,6 +1325,7 @@ body.contact-success-mode .site-header { z-index:3000 !important; }
    ────────────────────────────────────────────────────────────── */
 .privacy-page .privacy-section {
   min-height: 80vh;
+  background-color: var(--bg-light);
 }
 
 .privacy-page .privacy-card {
@@ -1333,34 +1334,61 @@ body.contact-success-mode .site-header { z-index:3000 !important; }
   padding: 4rem;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
+  line-height: 2rem;
 }
 
 .privacy-page .privacy-card > h1 {
   font-family: 'Bree Serif', sans-serif;
+  font-weight: 400;
+  text-align: center;
   color: var(--primary-navy);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.15rem;
+}
+
+.privacy-page .privacy-card > h2 {
+  font-family: 'Bree Serif', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--primary-navy);
+  margin-block: 0.75rem 0.5rem;
+}
+
+.privacy-page .privacy-card > .privacy-tagline {
+  font-family: 'Bree Serif', sans-serif;
+  font-weight: 400;
+  text-align: center;
+  color: var(--primary-navy);
+  margin-top: 0.5rem;
 }
 
 .privacy-page .privacy-card > .privacy-updated {
   color: var(--gray-500);
   margin-bottom: 2rem;
+  margin-block-start: 0.75rem;
+  font-size: 0.9rem;
+  text-align: end;
 }
 
 .privacy-page .privacy-card > p {
-  margin-bottom: 1.5rem;
   color: var(--text-main);
+  text-align: justify;
+  font-family: var(--font-body);
 }
 
-.privacy-page .privacy-card > h2 {
-  font-size: 1.25rem;
-  color: var(--primary-navy);
-  margin-top: 2rem;
-  margin-bottom: 0.5rem;
+.privacy-page .privacy-card li {
+  color: var(--text-main);
+  text-align: justify;
+  font-family: var(--font-body);
+  margin-inline-start: 2.5rem;
 }
 
 .privacy-page .privacy-contact-link {
-  color: var(--gold-dark);
   font-weight: 600;
+}
+
+.privacy-page .privacy-contact-link:hover {
+  color: var(--accent-gold);
+  background-color: var(--bg-light);
 }
 
 /* small-screen readability (inline previously fixed 4rem padding) */
@@ -1368,4 +1396,27 @@ body.contact-success-mode .site-header { z-index:3000 !important; }
   .privacy-page .privacy-card {
     padding: 2rem 1.5rem;   /* 32px top/bottom, 24px left/right */
   }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   TURNSTILE FIXES
+   ────────────────────────────────────────────────────────────── */
+.cf-turnstile {
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Ensure the contact modal fits perfectly without cutting off the button */
+#contact-modal .modal {
+    max-height: 90vh;
+    overflow-y: auto; /* Only scrolls if the screen is extremely tiny */
+    padding-bottom: 15px;
+}
+
+/* Keep the submit buttons visible */
+#contact-form button[type="submit"],
+#investor button[type="submit"] {
+    margin-top: 10px;
 }

@@ -101,7 +101,9 @@
 
 <link rel="stylesheet" href="css/style.css">
 <script src="script/script.js" defer></script>
-<script src="script/index-forms.js" defer></script>
+<script src="script/index-forms.js?v=2" defer></script>
+<!-- Email Validation Dependencies -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
 </head>
 <body class="orexity-container">
@@ -613,7 +615,7 @@
         <h2 class="section-title">5. Supporting Documents</h2>
         <div class="options-group"><label class="checkbox-label"><input type="checkbox" name="supportingDocuments" value="Investment Proposal"><span class="custom-box"></span><span>Investment Proposal</span></label></div>
         <div class="upload-container">
-          <span class="options-label">Upload Supporting Documents (Max 5MB per file)</span>
+          <span class="options-label">Upload Supporting Documents (Max 15MB per file)</span>
           <div class="upload-box">
             <input type="file" id="investorDocumentUpload" name="documentUpload" class="file-input" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" multiple required>
             <label for="investorDocumentUpload" class="upload-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>Choose Files</label>
@@ -637,6 +639,17 @@
       <p style="font-size: 0.8rem; text-align: center; margin-bottom: 15px; color: var(--primary-navy);">
         By submitting this enquiry, you acknowledge our <a href="privacy.html" data-path="/privacy" target="_blank" style="color: var(--gold-dark); text-decoration: underline; font-weight: bold;">Privacy Policy</a>.
       </p>
+      <!-- ADD THIS -->
+      <div class="cf-turnstile"
+           data-sitekey="0x4AAAAAAF45Or2yKFalp4qT"
+           data-action="investor_form"
+           data-callback="onInvestorTurnstileSuccess"
+           data-error-callback="onInvestorTurnstileError"
+           data-expired-callback="onInvestorTurnstileExpired"
+           data-refresh-expired="auto"
+           data-retry="auto"
+           data-size="flexible"></div>
+      
       <button class="cta-cont" type="submit">Submit Investment Enquiry <span aria-hidden="true">↗</span></button>
       <p class="form-message" id="investorMessage" role="status" aria-live="polite"></p>
     </form>
@@ -663,6 +676,18 @@
       <label class="form-field">Business email*<input name="email" type="email" autocomplete="email" required placeholder="you@company.com"></label>
       <label for="contactMessageBody" class="form-field">Enquiry details *<textarea id="contactMessageBody" name="message" required placeholder="Briefly describe your investment interest."></textarea></label>
       <p style="font-size: 0.7rem; color: #9da6a8; margin-bottom: 10px;">By submitting this form, you agree to our <a href="privacy.html" target="_blank" style="color: var(--gold); text-decoration: underline;">Privacy Policy</a>.</p>
+      
+      <!-- ADD THIS -->
+      <div class="cf-turnstile"
+           data-sitekey="0x4AAAAAAF45Or2yKFalp4qT"
+           data-action="contact_form"
+           data-callback="onContactTurnstileSuccess"
+           data-error-callback="onContactTurnstileError"
+           data-expired-callback="onContactTurnstileExpired"
+           data-refresh-expired="auto"
+           data-retry="auto"
+           data-size="flexible"></div>
+
       <button class="cta-invest" type="submit">Send Enquiry <span aria-hidden="true">↗</span></button>
       <p class="form-note" id="contactMessage" aria-live="polite"></p>
     </form>
