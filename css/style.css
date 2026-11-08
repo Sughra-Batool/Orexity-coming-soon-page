@@ -1420,3 +1420,65 @@ body.contact-success-mode .site-header { z-index:3000 !important; }
 #investor button[type="submit"] {
     margin-top: 10px;
 }
+
+
+/* Desktop/default */
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.back-home {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding: 0.5rem 0.75rem;
+  margin-left: auto;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .site-header .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .site-header .brand {
+    flex: 0 1 auto;
+    min-width: 0;
+  }
+
+  .site-header .logo {
+    width: auto;
+    max-width: 150px;   /* prevents the logo from pushing the link off-screen */
+    height: auto;
+  }
+
+  .site-header .back-home {
+    display: inline-flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    flex: 0 0 auto;
+    font-size: 0.85rem;
+    padding: 0.45rem 0.6rem;
+    margin-left: auto;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+  .site-header .logo {
+    max-width: 120px;
+  }
+
+  .site-header .back-home {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.5rem;
+  }
+}
