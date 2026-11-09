@@ -7,6 +7,12 @@
    1. FONT FACES
    ────────────────────────────────────────────────────────────── */
 @font-face {
+  font-family: 'BoomBox';
+  src: url('../fonts/BoomBox.woff2') format('woff2'),
+       url('../fonts/BoomBox.woff') format('woff');
+  font-weight: normal; font-style: normal; font-display: swap;
+}
+@font-face {
   font-family: 'Bree Serif';
   src: url('../fonts/BreeSerif-Regular.woff2') format('woff2'),
        url('../fonts/BreeSerif-Regular.woff') format('woff');
@@ -1480,5 +1486,34 @@ body.contact-success-mode .site-header { z-index:3000 !important; }
   .site-header .back-home {
     font-size: 0.8rem;
     padding: 0.4rem 0.5rem;
+  }
+}
+
+.footer-last-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+}
+
+.tech-by-aavan {
+  margin-block-start: 0.8rem;
+  margin-inline-start: auto;
+}
+
+.font-boombox {
+  font-family: 'BoomBox';
+}
+
+/* Change to column on smaller screens */
+@media (max-width: 768px) {
+  .footer-last-row {
+    flex-direction: column;
+    align-items: flex-start; /* or center, if you prefer */
+  }
+
+  .tech-by-aavan {
+    margin-inline-start: 0; /* Remove the auto-push */
   }
 }

@@ -43,6 +43,14 @@ window.addEventListener('load', function () {
     anchor.addEventListener('click', function (e) {
       var targetId = this.getAttribute('href');
       var cleanPath = this.getAttribute('data-path');
+
+      var investorSection = document.getElementById('investor-form-section');
+      var mainContent = document.getElementById('main-content');
+      if (investorSection && !investorSection.classList.contains('hidden')) {
+        investorSection.classList.add('hidden');
+        if (mainContent) mainContent.classList.remove('hidden');
+        document.body.style.overflow = '';
+      }
       
       // 1. Handle the Logo click (Go to top)
       if (cleanPath === '/home' || targetId === '#') {
