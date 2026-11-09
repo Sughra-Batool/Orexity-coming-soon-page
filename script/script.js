@@ -52,6 +52,15 @@ window.addEventListener('load', function () {
         document.body.style.overflow = '';
       }
       
+      /* ── NEW: dismiss contact modal so success state clears
+           and the page becomes scrollable again ── */
+      var contactModal = document.getElementById('contact-modal');
+      if (contactModal && !contactModal.classList.contains('hidden')) {
+        contactModal.classList.add('hidden');
+      }
+      document.body.classList.remove('contact-success-mode');
+      document.body.style.overflow = '';
+
       // 1. Handle the Logo click (Go to top)
       if (cleanPath === '/home' || targetId === '#') {
         e.preventDefault();
