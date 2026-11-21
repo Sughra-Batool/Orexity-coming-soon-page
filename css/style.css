@@ -2012,7 +2012,7 @@ body.contact-success-mode .site-header { z-index:3000 !important; }
     /* --- Two parallel columns (first six boxes, unchanged) --- */
     .tech-parallel-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 1.4rem;
       align-items: start;
       width: 100%;
@@ -2020,10 +2020,12 @@ body.contact-success-mode .site-header { z-index:3000 !important; }
 
     /* Each column is a flex stack of horizontal strips */
     .tech-column {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
       gap: 1.2rem;
       width: 100%;
+      max-width: fit-content;
     }
 
     /* Base horizontal strip card */
