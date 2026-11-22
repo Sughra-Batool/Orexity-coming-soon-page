@@ -372,11 +372,15 @@ main > .hero { padding-block:0; position:relative; margin-bottom:0; }
   padding:4rem 6rem 1.5rem 5.5rem;
   background-color:var(--black); color:var(--white);
 }
-.banner > .eyebrow { grid-column:1 / -1; margin-top:.5rem; color:var(--gray-200); }
-.eyebrow > .first-eyebrow { border-right:1px solid var(--gray-200); }
+.banner > .eyebrow { 
+  grid-column:1 / -1; 
+  margin-top:.5rem; 
+  color:var(--gray-200); 
+  font-family: var(--font-subheading);
+font-size: 0.75rem;}
 .banner > #hero-heading {
   padding-right:.5rem; border-right:2px solid var(--gray-200);
-  font-family:'Bree Serif'; font-size:3rem; font-weight:normal; align-content:center;
+  font-family:'Bree Serif'; font-size:4rem; font-weight:normal; align-content:center;
 }
 .banner > .banner-text {
   display:flex; flex-direction:column; justify-content:flex-end;
@@ -385,15 +389,16 @@ main > .hero { padding-block:0; position:relative; margin-bottom:0; }
 .banner-text>.hero-tagline {
   display:flex;
   text-align: center;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
-  padding-block-end: 0.15rem;
+  padding-block: 0.25rem 0.5rem;
+  font-family: var(--font-subheading);
 }
 .banner h2, .banner h3 {
   font-weight:normal; font-size:clamp(1.5rem,2vw,1.15rem);
 }
 .banner > .hero-subheading {
-  font-family:'Roboto',sans-serif; font-weight:500; line-height:1.35;
+  font-family:var(--font-head); font-weight:500; line-height:1.35;
   margin:0 0 .35rem;
 }
 .banner p { text-align:justify; font-size:.85rem; }
@@ -1674,7 +1679,6 @@ body.contact-success-mode .site-header { z-index:3000 !important; }
       position: relative;
       overflow: hidden;
       padding-inline:clamp(1.5rem,4vw,4rem);
-      max-width: var(--max-width);
     }
 
     .advisory-section::before {
