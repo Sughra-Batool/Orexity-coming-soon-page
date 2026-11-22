@@ -1229,10 +1229,13 @@ body.contact-success-mode .site-header { z-index:3000 !important; }
    25. RESPONSIVE
    ────────────────────────────────────────────────────────────── */
 @media (max-width:1100px) {
-  .banner { grid-template-columns:1fr; padding:2rem; }
+  .banner { display: flex; flex-direction: column; padding:2rem; }
   .banner > #hero-heading {
     border-right:none; border-bottom:2px solid var(--gray-200);
     padding-bottom:1.5rem;
+  }
+  .banner > #hero-heading>.eyebrow {
+    margin-block: 0.5rem auto;
   }
   .banner > .banner-text { padding-left:0; }
   .grid-3 { grid-template-columns:repeat(2,1fr); }
@@ -1279,17 +1282,17 @@ body.contact-success-mode .site-header { z-index:3000 !important; }
     display:block; position:fixed; inset:0;
     background-color:rgba(0,0,0,.4); z-index:1040;
   }
-  .banner { grid-template-columns:1fr; grid-template-rows:auto; padding:2rem; }
+  .banner { display: flex; flex-direction: column; padding:2rem 1.15rem; }
   .grid-2 { grid-template-columns:1fr; }
   .grid-3 { grid-template-columns:1fr; }
   .grid-4 { grid-template-columns:1fr; }
   .banner > #hero-heading {
     border-right:none; border-bottom:2px solid var(--gray-200);
-    padding-bottom:1rem; font-size:2.5rem;
+    padding-bottom:1rem; font-size:1.75rem; margin-block: 0.5rem auto;
   }
-  .banner > .eyebrow {
-    flex-direction:column; align-items:flex-start;
-    justify-content:flex-start; text-underline-offset:.5rem;
+  .banner > #hero-heading>.eyebrow {
+    flex-direction:row; align-items:flex-start;
+    justify-content:flex-start; text-underline-offset:.5rem; font-size: 0.5rem;
   }
   .eyebrow > .first-eyebrow {
     border-right:none; text-decoration:underline; text-underline-offset:.5rem;
