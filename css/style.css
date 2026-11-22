@@ -1303,14 +1303,14 @@ body.contact-success-mode .site-header { z-index:3000 !important; }
   }
   .banner > #hero-heading>.eyebrow {
     flex-direction:row; align-items:flex-start;
-    justify-content:flex-start; text-underline-offset:.5rem; font-size: 0.5rem;
+    justify-content:flex-start; text-underline-offset:.5rem; font-size: 0.4rem;
   }
-  .eyebrow>.first-eyebrow{padding-right: 0.4rem;}
+  .eyebrow>.first-eyebrow{padding-right: 0.35rem;}
   
   .hero p { text-align:left; }
-  .hero-tagline {font-size: 0.65rem;}
-  .hero-flex1 {padding-inline-end: 0.4rem;}
-  .hero-flex {padding-inline-start: 0.4rem;}
+  .hero-tagline {font-size: 0.55rem;}
+  .hero-flex1 {padding-inline-end: 0.35rem;}
+  .hero-flex {padding-inline-start: 0.35rem;}
   .banner-text > .lead { text-align:justify; }
   .key-takeaways {
     margin:2rem 0; width:100%; max-width:100%; min-width:0;
