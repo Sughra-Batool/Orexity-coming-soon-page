@@ -1294,6 +1294,9 @@ body.contact-success-mode .site-header { z-index:3000 !important; }
   .grid-2 { grid-template-columns:1fr; }
   .grid-3 { grid-template-columns:1fr; }
   .grid-4 { grid-template-columns:1fr; }
+  .span-col {
+    grid-template-columns: 1fr;
+  }
   .banner > #hero-heading {
     border-right:none; border-bottom:2px solid var(--gray-200);
     padding-bottom:1rem; font-size:1.75rem; margin-block: 0.5rem auto;
@@ -1302,9 +1305,12 @@ body.contact-success-mode .site-header { z-index:3000 !important; }
     flex-direction:row; align-items:flex-start;
     justify-content:flex-start; text-underline-offset:.5rem; font-size: 0.5rem;
   }
+  .eyebrow>.first-eyebrow{padding-right: 0.4rem;}
   
   .hero p { text-align:left; }
   .hero-tagline {font-size: 0.65rem;}
+  .hero-flex1 {padding-inline-end: 0.4rem;}
+  .hero-flex {padding-inline-start: 0.4rem;}
   .banner-text > .lead { text-align:justify; }
   .key-takeaways {
     margin:2rem 0; width:100%; max-width:100%; min-width:0;
